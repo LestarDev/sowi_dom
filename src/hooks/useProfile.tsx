@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { setNameOfApp } from "../shared/config/currentSlice"
+import { CurrentState, setCialo, setIdUzytkownika, setIntuicja, setLvl, setNick, setNiezlomnosc, setUmysl, setUrok, setZrecznosc } from "../shared/config/currentSlice";
 
 const useProfile = () => {
 
@@ -7,12 +7,20 @@ const useProfile = () => {
 
     const {nameOfApp} = (useSelector((state) => state) as any).currency;
 
-    const setNewAppName = (name: string) => {
-        dispatch(setNameOfApp(name))
+    const setNewProfile = (data: CurrentState) => {
+        dispatch(setNick(data.nick));
+        dispatch(setLvl(data.lvl));
+        dispatch(setUmysl(data.Umysl));
+        dispatch(setCialo(data.Cialo));
+        dispatch(setZrecznosc(data.Zrecznosc));
+        dispatch(setNiezlomnosc(data.Niezlomnosc));
+        dispatch(setIntuicja(data.Intuicja));
+        dispatch(setUrok(data.Urok))
+        dispatch(setIdUzytkownika(data.idUzytkownika))
     }
 
     return ({
-        setNewAppName,
+        setNewProfile,
         nameOfApp
     })
 
