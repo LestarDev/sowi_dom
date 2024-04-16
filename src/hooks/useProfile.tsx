@@ -5,7 +5,7 @@ const useProfile = () => {
 
     const dispatch = useDispatch();
 
-    const {nameOfApp} = (useSelector((state) => state) as any).currency;
+    const {nick, lvl, Umysl, Cialo, Zrecznosc} = (useSelector((state) => state) as any).currency;
 
     const setNewProfile = (data: CurrentState) => {
         dispatch(setNick(data.nick));
@@ -21,7 +21,7 @@ const useProfile = () => {
 
     return ({
         setNewProfile,
-        nameOfApp
+        nick, lvl, Umysl, Cialo, Zrecznosc
     })
 
 }
