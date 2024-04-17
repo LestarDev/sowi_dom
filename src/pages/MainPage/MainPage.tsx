@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import useProfile from "../../hooks/useProfile"
 
 const MainPage = () => {
@@ -19,6 +20,23 @@ const MainPage = () => {
         Urok: 0,
         Zrecznosc: 0,
     })
+
+    const changeColor = () => {
+        
+    }
+
+    useEffect(()=>{
+        let timer1 = setTimeout(() => changeColor(), 2 * 1000);
+      return () => {
+        clearTimeout(timer1);
+      };
+    },[])
+
+    useEffect(()=>{
+        fetch("https://mlp-rpg.zsti.me/phpData/getUzytkownik.php?nick="+profile.nick).then((response)=>response.text()).then((data)=>{
+            console.log(data);
+        })
+    },[])
 
     return (<div>
         {profile.nick}
