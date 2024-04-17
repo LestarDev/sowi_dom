@@ -1,9 +1,16 @@
 import { useEffect } from "react";
 import useProfile from "../../hooks/useProfile"
+import Box from "../../components/Box";
 
 const MainPage = () => {
 
     const profile = useProfile();
+
+    const changeColor = () => {
+      profile.updateCialo(1);
+  }
+  
+  
 
     // profile.setNewAppName("Testq1");
 
@@ -21,25 +28,21 @@ const MainPage = () => {
         Zrecznosc: 0,
     })
 
-    const changeColor = () => {
-        
-    }
+   
 
     useEffect(()=>{
+        // fetch("https://mlp-rpg.zsti.me/phpData/getUzytkownik.php?nick="+profile.nick).then((response)=>response.text()).then((data)=>{
+        //     console.log(data);
+        // })
+
         let timer1 = setTimeout(() => changeColor(), 2 * 1000);
-      return () => {
-        clearTimeout(timer1);
-      };
-    },[])
-
-    useEffect(()=>{
-        fetch("https://mlp-rpg.zsti.me/phpData/getUzytkownik.php?nick="+profile.nick).then((response)=>response.text()).then((data)=>{
-            console.log(data);
-        })
+    return () => {
+      clearTimeout(timer1);
+    };
     },[])
 
     return (<div>
-        {profile.nick}
+        <Box />
     </div>)
 }
 

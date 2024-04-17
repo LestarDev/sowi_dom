@@ -19,8 +19,12 @@ const useProfile = () => {
         dispatch(setIdUzytkownika(data.idUzytkownika))
     }
 
+    const updateCialo = (data: number) => {
+        dispatch(setCialo(data));
+    }
+
     return ({
-        setNewProfile,
+        setNewProfile, updateCialo,
         nick, lvl, Umysl, Cialo, Zrecznosc
     })
 
