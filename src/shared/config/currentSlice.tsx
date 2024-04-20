@@ -14,8 +14,6 @@ export interface CurrentState {
     Urok: number,
     Szczescie: number,
     idUzytkownika: number,
-    login: string,
-    password: string,
 }
 
 
@@ -31,8 +29,6 @@ const initialState: CurrentState = {
     Umysl: 0,
     Urok: 0,
     Zrecznosc: 0,
-    login: "",
-    password: ""
 }
 
 export const thisSlice = createSlice({
@@ -74,16 +70,10 @@ export const thisSlice = createSlice({
         setZrecznosc: (state,action: PayloadAction<number>) => {
             state.Zrecznosc=action.payload;
         },
-        setLogin: (state, action: PayloadAction<string>) => {
-            state.login=action.payload;
-        },
-        setPassword: (state, action: PayloadAction<string>) => {
-            state.password=action.payload
-        }
         
     }
 })
 
-export const {setNick, setCialo, setUmysl, setZrecznosc, setHP, setSzczescie, setIntuicja, setIdUzytkownika, setNiezlomnosc, setLvl, setUrok, setLogin, setPassword} = thisSlice.actions
+export const {setNick, setCialo, setUmysl, setZrecznosc, setHP, setSzczescie, setIntuicja, setIdUzytkownika, setNiezlomnosc, setLvl, setUrok, } = thisSlice.actions
 
 export default thisSlice.reducer

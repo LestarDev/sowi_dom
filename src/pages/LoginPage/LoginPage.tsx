@@ -15,21 +15,23 @@ const LoginPage = () => {
     
 
     const moveToMainPage = () => {
+        
         const loginValue = loginRef.current?.value
         const passwordValue = passwordRef.current?.value
 
-        profile.setLogowanie(loginValue as string, passwordValue as string);
+        // profile.setLogowanie(loginValue as string, passwordValue as string);
         
-        const link = mainLink+getProfileScript+"login="+profile.login+"&password="+profile.password;
+        const link = mainLink+getProfileScript+"login="+loginValue+"&password="+passwordValue;
         console.log(link)
         fetch(link).then((response)=>response.text()).then((data: unknown)=>{
             console.log(data);
             if(data!="Error login"){
                 profile.setNewIdUzytkownika(data as number);
+                setIsMainToReturn(true);
             }
             // setUUID(data as number);
-            console.log("Profile id: "+profile.idUzytkownika)
-            setIsMainToReturn(true);
+            // console.log("Profile id: "+profile.idUzytkownika)
+            
         })
 
         
@@ -39,7 +41,7 @@ const LoginPage = () => {
     
 
     return <div>
-        {isMainToReturn ? <MainPage /> : <form>
+        {isMainToReturn ? <MainPage /> : <form onSubmit={e => e.preventDefault()}>
             <label htmlFor="loginID"><input type="text" id="loginID" ref={loginRef} /></label>
             <label htmlFor="passwordID"><input type="text" id="passwordID" ref={passwordRef} /></label>
             <button onClick={moveToMainPage}></button>
