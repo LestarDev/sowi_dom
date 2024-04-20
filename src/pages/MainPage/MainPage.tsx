@@ -16,21 +16,11 @@ const MainPage = () => {
 
     useEffect(()=>{
         
-        const link = mainLink+getProfileScript+"login="+profile.login+"&password="+profile.password;
-        console.log(link)
-        fetch(link).then((response)=>response.text()).then((data: unknown)=>{
-            console.log(data);
-            if(data!="Error login"){
-                profile.setNewIdUzytkownika(data as number);
-            }
-            // setUUID(data as number);
-            console.log("Profile id: "+profile.idUzytkownika)
-        }).then(()=>{
+        
             if(profile.idUzytkownika==0) {setUUID(!uuid); return;};
             fetch(mainLink+getNickScript+"id="+profile.idUzytkownika).then((response)=>response.text()).then((data: unknown)=>{
                 profile.setNewNick(data as string);
             })
-        })
     },[uuid])
 
     return (<div>
