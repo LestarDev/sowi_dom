@@ -1,5 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import useProfile from "../../hooks/useProfile"
+import mainLink, { getNickScript, getProfileScript } from "../../private/apiData";
 
 const MainPage = () => {
 
@@ -7,25 +8,28 @@ const MainPage = () => {
 
     // profile.setNewAppName("Testq1");
 
-    profile.setNewProfile({
-        nick: "testq2",
-        Cialo: 0,
-        HP: 0,
-        idUzytkownika: 0,
-        Intuicja: 0,
-        lvl: 0,
-        Niezlomnosc: 0,
-        Szczescie: 0,
-        Umysl: 0,
-        Urok: 0,
-        Zrecznosc: 0,
-    })
+    const [uuid, setUUID] = useState(false);
+
+    
+
+    // profile.setNewIdUzytkownika(uuid);
 
     useEffect(()=>{
-        fetch("https://mlp-rpg.zsti.me/phpData/getUzytkownik.php?nick="+profile.nick).then((response)=>response.text()).then((data)=>{
+        
+        const link = mainLink+getProfileScript+"login="+profile.login+"&password="+profile.password;
+        console.log(link)
+        fetch(link).then((response)=>response.text()).then((data: unknown)=>{
             console.log(data);
+            profile.setNewIdUzytkownika(data as number);
+            // setUUID(data as number);
+            console.log("Profile id: "+profile.idUzytkownika)
+        }).then(()=>{
+            if(profile.idUzytkownika==0) {setUUID(!uuid); return;};
+            fetch(mainLink+getNickScript+"id="+profile.idUzytkownika).then((response)=>response.text()).then((data: unknown)=>{
+                profile.setNewNick(data as string);
+            })
         })
-    },[])
+    },[uuid])
 
     return (<div>
         {profile.nick}
