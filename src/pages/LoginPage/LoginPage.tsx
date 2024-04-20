@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import useProfile from "../../hooks/useProfile"
 import MainPage from "../MainPage/MainPage";
 
@@ -8,15 +8,26 @@ const LoginPage = () => {
 
     const profile=useProfile();
 
+    const loginRef = useRef<HTMLInputElement>(null);
+    const passwordRef = useRef<HTMLInputElement>(null);
+
     
 
     const moveToMainPage = () => {
-        profile.setLogowanie("Demonic", "Demonic742");
+        const loginValue = loginRef.current?.value
+        const passwordValue = passwordRef.current?.value
+        profile.setLogowanie(loginValue as string, passwordValue as string);
         setIsMainToReturn(true);
     }
 
-    return <div style={{width: 100, height:100, background: "red"}} onClick={moveToMainPage}>
-        {isMainToReturn ? <MainPage /> : <div />}
+    
+
+    return <div>
+        {isMainToReturn ? <MainPage /> : <form>
+            <label htmlFor="loginID"><input type="text" id="loginID" ref={loginRef} /></label>
+            <label htmlFor="passwordID"><input type="text" id="passwordID" ref={passwordRef} /></label>
+            <button onClick={moveToMainPage}></button>
+        </form>}
     </div>
 }
 
