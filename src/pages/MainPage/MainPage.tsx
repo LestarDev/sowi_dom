@@ -20,7 +20,9 @@ const MainPage = () => {
         console.log(link)
         fetch(link).then((response)=>response.text()).then((data: unknown)=>{
             console.log(data);
-            profile.setNewIdUzytkownika(data as number);
+            if(data!="Error login"){
+                profile.setNewIdUzytkownika(data as number);
+            }
             // setUUID(data as number);
             console.log("Profile id: "+profile.idUzytkownika)
         }).then(()=>{
