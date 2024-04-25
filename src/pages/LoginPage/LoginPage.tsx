@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import useProfile from "../../hooks/useProfile"
 import MainPage from "../MainPage/MainPage";
 import mainLink, { getProfileScript } from "../../private/apiData";
+import getMainLink from "../../private/apiData";
 
 const LoginPage = () => {
 
@@ -21,7 +22,7 @@ const LoginPage = () => {
 
         // profile.setLogowanie(loginValue as string, passwordValue as string);
         
-        const link = mainLink+getProfileScript+"login="+loginValue+"&password="+passwordValue;
+        const link = getMainLink(true)+getProfileScript+"login="+loginValue+"&password="+passwordValue;
         console.log(link)
         fetch(link).then((response)=>response.text()).then((data: unknown)=>{
             console.log(data);

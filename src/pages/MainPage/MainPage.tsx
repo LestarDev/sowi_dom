@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import useProfile from "../../hooks/useProfile"
 import mainLink, { getNickScript, getProfileScript } from "../../private/apiData";
+import getMainLink from "../../private/apiData";
 
 const MainPage = () => {
 
@@ -15,12 +16,12 @@ const MainPage = () => {
     // profile.setNewIdUzytkownika(uuid);
 
     useEffect(()=>{
-            fetch(mainLink+getNickScript+"id="+profile.idUzytkownika).then((response)=>response.text()).then((data: unknown)=>{
+            fetch(getMainLink(true)+getNickScript+"id="+profile.idUzytkownika).then((response)=>response.text()).then((data: unknown)=>{
                 profile.setNewNick(data as string);
             })
     },[])
 
-    return (<div>
+    return (<div aria-label="Main Page">
         {profile.nick}
     </div>)
 }
