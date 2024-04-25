@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import useProfile from "../../hooks/useProfile"
 import mainLink, { getNickScript, getProfileScript } from "../../private/apiData";
 import getMainLink from "../../private/apiData";
+import NavBar from "../../components/NavBar/NavBar";
 
 const MainPage = () => {
 
@@ -32,10 +33,7 @@ const MainPage = () => {
     },[])
 
     return (<div aria-label="Main Page">
-        {profile.nick}
-        <p>Lvl: {profile.lvl}</p>
-        <p>Cialo: {profile.Cialo}</p>
-        <p>{profile.przelicznik(10)}</p>
+        <NavBar></NavBar>
     </div>)
 }
 
