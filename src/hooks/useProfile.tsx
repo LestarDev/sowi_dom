@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { CurrentState, setCialo, setIdUzytkownika, setIntuicja, setLvl, setNick, setNiezlomnosc, setUmysl, setUrok, setZrecznosc } from "../shared/config/currentSlice";
+import { CurrentState, setCialo, setIdUzytkownika, setIntuicja, setLvl, setNick, setNiezlomnosc, setSzczescie, setUmysl, setUrok, setZrecznosc } from "../shared/config/currentSlice";
 
 const useProfile = () => {
 
@@ -27,8 +27,49 @@ const useProfile = () => {
         dispatch(setNick(newNick));
     }
 
+    const setNewLvl = (newLvl: number) => {
+        dispatch(setLvl(newLvl))
+    }
+
+    const setNewUmysl = (newUmysl: number) => {
+        dispatch(setUmysl(newUmysl));
+    }
+
+    const setNewCialo = (newCialo: number) => {
+        dispatch(setCialo(newCialo));
+    }
+
+    const setNewUrok = (newUrok: number) => {
+        dispatch(setUrok(newUrok))
+    }
+
+    const setNewNiezlomnosc = (newNiezlomnosc: number) => {
+        dispatch(setNiezlomnosc(newNiezlomnosc))
+    }
+
+    const setNewSzczescie = (newSzczescie: number) => {
+        dispatch(setSzczescie(newSzczescie))
+    }
+
+    const setNewIntuicja = (newIntuicja: number) => {
+        dispatch(setIntuicja(newIntuicja))
+    }
+
+    const setNewZrecznosc = (newZrecznosc: number) => {
+        dispatch(setZrecznosc(newZrecznosc))
+    }
+
+    const przelicznik = (toPrzelicz: number) => {
+        const pierwszaCyfra = Math.ceil(toPrzelicz/4);
+        const drugaCyfraPrzygotowanie = toPrzelicz%4;
+        const drugaCyfra = drugaCyfraPrzygotowanie==0 ? 4 : drugaCyfraPrzygotowanie;
+        return pierwszaCyfra+'.'+drugaCyfra;
+    }
+
     return ({
+        przelicznik,
         setNewProfile, setNewIdUzytkownika, setNewNick,
+        setNewCialo, setNewIntuicja, setNewSzczescie, setNewNiezlomnosc, setNewUrok, setNewUmysl, setNewLvl,setNewZrecznosc,
         nick, lvl, Umysl, Cialo, Zrecznosc, idUzytkownika
     })
 
