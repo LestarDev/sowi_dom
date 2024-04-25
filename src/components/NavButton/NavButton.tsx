@@ -1,4 +1,5 @@
 import { useState } from "react"
+import './NavButton.css'
 
 const NavButton = () => {
 
@@ -15,16 +16,16 @@ const NavButton = () => {
     }
 
     return <div>
-        <div>
+        <div className="NavButtonButtonsConteiner">
             <button onClick={previousButton}>{'<'}</button>
-            <button>
+            <button className="NavButtonConteiner">
                 <span className="NavButton span-1"></span>
                 <span className="NavButton span-2"></span>
                 <span className="NavButton span-3"></span>
             </button>
             <button onClick={nextButton}>{'>'}</button>
         </div>
-        <button>{tabNamesOfButton[whichButton]}</button>
+        <button className="NavButtonToShow">{tabNamesOfButton[whichButton]}</button>
     </div>
 }
 

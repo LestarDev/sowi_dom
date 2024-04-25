@@ -1,0 +1,21 @@
+.NavButtonButtonsConteiner{
+    display: flex;
+}
+
+
+.NavButtonConteiner{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.NavButton{
+    width: 20px;
+    height: 1px;
+    display: block;
+    background: white;
+}
+
+.NavButtonToShow{
+    width: 100%;
+}
