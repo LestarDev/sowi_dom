@@ -1,6 +1,8 @@
 import useProfile from "../../hooks/useProfile"
+import whichOneType from "../../shared/config/statsType";
+import './StatBox.css'
 
-type whichOneType = 'Cialo' | 'Umysl' | 'Urok' | 'Niezlomnosc' | 'Zrecznosc';
+
 
 const StatBox = (whichOne: whichOneType) => {
 
@@ -19,3 +21,5 @@ const StatBox = (whichOne: whichOneType) => {
         </div>
     </div>
 }
+
+export default StatBox

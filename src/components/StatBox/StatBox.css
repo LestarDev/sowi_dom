@@ -1,0 +1,18 @@
+.StatBox{
+    display: flex;
+    flex-direction: column;
+}
+
+.StatBox div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.StatBox div:first-child{
+    height: 33%;
+}
+
+.StatBox div:last-child{
+    height: fit-content;
+}
