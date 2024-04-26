@@ -3,6 +3,7 @@ import useProfile from "../../hooks/useProfile"
 import MainPage from "../MainPage/MainPage";
 import mainLink, { getProfileScript } from "../../private/apiData";
 import getMainLink from "../../private/apiData";
+import './LoginPage.css'
 
 const LoginPage = () => {
 
@@ -39,14 +40,29 @@ const LoginPage = () => {
         
     }
 
-    
+    const logOut = () => {
+        profile.setNewProfile({
+            idUzytkownika: 0,
+            Cialo: 0,
+            Zrecznosc: 0,
+            Intuicja: 0,
+            Umysl: 0,
+            Urok: 0,
+            Szczescie: 0,
+            Niezlomnosc: 0,
+            HP: 0,
+            lvl: 0,
+            nick: ''
+        })
+    }
 
-    return <div>
-        {isMainToReturn ? <MainPage /> : <form onSubmit={e => e.preventDefault()}>
+    return <div className={isMainToReturn ? '' : 'FormConteiner'}>
+        {isMainToReturn ? <><MainPage /><button onClick={logOut}>Logout</button></> : <form onSubmit={e => e.preventDefault()}>
             <label htmlFor="loginID"><input type="text" id="loginID" ref={loginRef} /></label>
             <label htmlFor="passwordID"><input type="text" id="passwordID" ref={passwordRef} /></label>
             <button onClick={moveToMainPage}></button>
         </form>}
+        
     </div>
 }
 

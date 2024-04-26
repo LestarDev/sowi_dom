@@ -18,6 +18,7 @@ const StatBox = ({props}) => {
             {props.whichOne=='Urok' ? profile.przelicznik(profile.Urok):''}
             {props.whichOne=='Niezlomnosc' ? profile.przelicznik(profile.Niezlomnosc):''}
             {props.whichOne=='Zrecznosc' ? profile.przelicznik(profile.Zrecznosc):''}
+            {props.whichOne=='Intuicja' ? profile.przelicznik(profile.Intuicja):''}
         </div>
     </div>
 }
