@@ -4,6 +4,7 @@ import mainLink, { getNickScript, getProfileScript } from "../../private/apiData
 import getMainLink from "../../private/apiData";
 import NavBar from "../../components/NavBar/NavBar";
 import StatsSection from "../../components/Stack/StatsSection/StatsSection";
+import SectionFromBar from "../../components/SectionFromBar/SectionFromBar";
 
 const MainPage = () => {
 
@@ -36,6 +37,7 @@ const MainPage = () => {
     return (<div aria-label="Main Page">
         <NavBar></NavBar>
         <StatsSection></StatsSection>
+        <SectionFromBar></SectionFromBar>
     </div>)
 }
 

@@ -5,7 +5,9 @@ const useProfile = () => {
 
     const dispatch = useDispatch();
 
-    const {nick, lvl, Umysl, Cialo, Zrecznosc, idUzytkownika, Szczescie, Urok, Niezlomnosc, Intuicja} = (useSelector((state) => state) as any).currency;
+    const {nick, lvl, Umysl, Cialo, Zrecznosc, idUzytkownika, Szczescie, Urok, Niezlomnosc, Intuicja, wybranyTyp} = (useSelector((state) => state) as any).currency;
+
+    wybranyTyp as choosenType;
 
     const setNewProfile = (data: CurrentState) => {
         dispatch(setNick(data.nick));
@@ -76,7 +78,7 @@ const useProfile = () => {
         przelicznik, setNewWybrany,
         setNewProfile, setNewIdUzytkownika, setNewNick,
         setNewCialo, setNewIntuicja, setNewSzczescie, setNewNiezlomnosc, setNewUrok, setNewUmysl, setNewLvl,setNewZrecznosc,
-        nick, lvl, Umysl, Cialo, Zrecznosc, idUzytkownika, Szczescie, Urok, Niezlomnosc, Intuicja
+        nick, lvl, Umysl, Cialo, Zrecznosc, idUzytkownika, Szczescie, Urok, Niezlomnosc, Intuicja, wybranyTyp,
     })
 
 }
