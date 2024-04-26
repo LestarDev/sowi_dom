@@ -53,7 +53,8 @@ const LoginPage = () => {
             HP: 0,
             lvl: 0,
             nick: ''
-        })
+        });
+        setIsMainToReturn(false);
     }
 
     return <div className={isMainToReturn ? '' : 'FormConteiner'}>
