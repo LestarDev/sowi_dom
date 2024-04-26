@@ -1,6 +1,10 @@
 .StatBox{
     display: flex;
     flex-direction: column;
+    height: 8rem;
+    width: 7rem;
+    border-radius: 5px;
+    border: 1px solid var(--bg-jasny)
 }
 
 .StatBox div{
@@ -11,8 +15,10 @@
 
 .StatBox div:first-child{
     height: 33%;
+    border-bottom: 3px solid var(--bg-jasny);
 }
 
 .StatBox div:last-child{
     height: fit-content;
+    margin: auto;
 }

@@ -4,20 +4,20 @@ import './StatBox.css'
 
 
 
-const StatBox = (whichOne: whichOneType) => {
+const StatBox = ({props}) => {
 
     const profile = useProfile();
 
-    
+    props.wichOne as whichOneType;
 
     return <div className="StatBox">
-        <div>{whichOne}</div>
+        <div>{props.whichOne}</div>
         <div>
-            {whichOne=='Cialo' ? profile.Cialo:''}
-            {whichOne=='Umysl' ? profile.Umysl:''}
-            {whichOne=='Urok' ? profile.Urok:''}
-            {whichOne=='Niezlomnosc' ? profile.Niezlomnosc:''}
-            {whichOne=='Zrecznosc' ? profile.Zrecznosc:''}
+            {props.whichOne=='Cialo' ? profile.przelicznik(profile.Cialo):''}
+            {props.whichOne=='Umysl' ? profile.przelicznik(profile.Umysl):''}
+            {props.whichOne=='Urok' ? profile.przelicznik(profile.Urok):''}
+            {props.whichOne=='Niezlomnosc' ? profile.przelicznik(profile.Niezlomnosc):''}
+            {props.whichOne=='Zrecznosc' ? profile.przelicznik(profile.Zrecznosc):''}
         </div>
     </div>
 }
