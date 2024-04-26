@@ -23,7 +23,9 @@ const NavButton = () => {
         profile.setNewWybrany(tabNamesOfButton[whichButton==0 ? 3 : whichButton-1]);
     }
 
-
+    const setCurrentShowing = () => {
+        profile.setNewWybrany(tabNamesOfButton[whichButton]);
+    }
 
     return <div>
         <div className="NavButtonButtonsConteiner">
@@ -35,7 +37,7 @@ const NavButton = () => {
             </button>
             <button onClick={nextButton}>{'>'}</button>
         </div>
-        <button className="NavButtonToShow">{tabNamesOfButton[whichButton]}</button>
+        <button onClick={setCurrentShowing} className="NavButtonToShow">{tabNamesOfButton[whichButton]}</button>
     </div>
 }
 
