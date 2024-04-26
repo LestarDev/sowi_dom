@@ -59,9 +59,9 @@ const LoginPage = () => {
 
     return <div className={isMainToReturn ? '' : 'FormConteiner'}>
         {isMainToReturn ? <><MainPage /><button onClick={logOut}>Logout</button></> : <form onSubmit={e => e.preventDefault()}>
-            <label htmlFor="loginID"><input type="text" id="loginID" ref={loginRef} /></label>
-            <label htmlFor="passwordID"><input type="text" id="passwordID" ref={passwordRef} /></label>
-            <button onClick={moveToMainPage}></button>
+            <label htmlFor="loginID">Login: <input type="text" id="loginID" ref={loginRef} /></label>
+            <label htmlFor="passwordID">Password: <input type="text" id="passwordID" ref={passwordRef} /></label>
+            <button onClick={moveToMainPage}>Login</button>
         </form>}
         
     </div>
