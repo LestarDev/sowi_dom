@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { CurrentState, setCialo, setIdUzytkownika, setIntuicja, setLvl, setNick, setNiezlomnosc, setSzczescie, setUmysl, setUrok, setZrecznosc } from "../shared/config/currentSlice";
+import { CurrentState, choosenType, setCialo, setIdUzytkownika, setIntuicja, setLvl, setNick, setNiezlomnosc, setSzczescie, setUmysl, setUrok, setWybrany, setZrecznosc } from "../shared/config/currentSlice";
 
 const useProfile = () => {
 
@@ -17,6 +17,7 @@ const useProfile = () => {
         dispatch(setIntuicja(data.Intuicja));
         dispatch(setUrok(data.Urok))
         dispatch(setIdUzytkownika(data.idUzytkownika));
+        dispatch(setWybrany('Ekwipunek'));
     }
 
     const setNewIdUzytkownika = (newId: number) => {
@@ -66,8 +67,13 @@ const useProfile = () => {
         return pierwszaCyfra+'.'+drugaCyfra;
     }
 
+    const setNewWybrany = (newWybrany: choosenType) => {
+        dispatch(setWybrany(newWybrany));
+        console.log(newWybrany);
+    }
+
     return ({
-        przelicznik,
+        przelicznik, setNewWybrany,
         setNewProfile, setNewIdUzytkownika, setNewNick,
         setNewCialo, setNewIntuicja, setNewSzczescie, setNewNiezlomnosc, setNewUrok, setNewUmysl, setNewLvl,setNewZrecznosc,
         nick, lvl, Umysl, Cialo, Zrecznosc, idUzytkownika, Szczescie, Urok, Niezlomnosc, Intuicja
