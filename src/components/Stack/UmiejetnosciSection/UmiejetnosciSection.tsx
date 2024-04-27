@@ -21,9 +21,9 @@ const UmiejetnosciSection = () => {
         fetch(getMainLink(true)+getUmiejetnosci+'id='+profile.idUzytkownika).then(response=>response.json()).then((data: any)=>{
             
             for(let i=1; i<(data[0]+3); i+=2){
-                const preperTab = [...tabUmiejki,{name: data[i],value:data[i+1]}];
+                const preperTab: umiejetnoscType[] = [...tabUmiejki,{name: data[i],value:data[i+1]}];
                 console.log('Preper Tab: ',preperTab);
-                setTabUmiejki(preperTab as any);
+                setTabUmiejki(oldArray=>[...oldArray,{name: data[i], value: data[i+1]}]);
                 console.log(i,data[i],data[i+1]);
                 
             }
