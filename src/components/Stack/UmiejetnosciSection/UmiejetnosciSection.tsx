@@ -1,4 +1,4 @@
-import { createElement, useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import getMainLink, { getUmiejetnosciScript } from "../../../private/apiData"
 import useProfile from "../../../hooks/useProfile"
 import "./UmiejetnosciSection.css"

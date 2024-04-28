@@ -5,6 +5,8 @@ const getMainLink = (isStackBlitz?: boolean) => {
     return mainLink
 }
 
+// php => catch(Zly link) => pobierz link ktory chce sie wbic, odswierz z headerem tego linku
+
 export const getProfileScript = "getUzytkownik.php?";
 export const getNickScript="getNick.php?";
 export const getUmiejetnosciScript="getUmiejetnosci.php?";
