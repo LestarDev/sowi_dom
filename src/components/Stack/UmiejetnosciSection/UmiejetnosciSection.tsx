@@ -13,7 +13,7 @@ const UmiejetnosciSection = () => {
         type: number
     }
 
-    const [windowUmiejkaData, setWindowUmiejkaData] = useState({value: 0, cecha: 0});
+    const [windowUmiejkaData, setWindowUmiejkaData] = useState({value: 0, cecha: 0,nazwa:''});
 
     const refDiv = useRef<HTMLDivElement>(null);
     const refDivOpenWindow = useRef<HTMLDivElement>(null);
@@ -39,11 +39,11 @@ const UmiejetnosciSection = () => {
     }
 
     const openWindow = (danaUmiejka: umiejetnoscType) => {
-        setWindowUmiejkaData({value: danaUmiejka.value, cecha: danaUmiejka.type});
+        setWindowUmiejkaData({value: danaUmiejka.value, cecha: danaUmiejka.type, nazwa: danaUmiejka.name});
     }
 
     const closeWindow = () => {
-        setWindowUmiejkaData({value:0, cecha: 0});
+        setWindowUmiejkaData({value:0, cecha: 0, nazwa:''});
     }
 
     useEffect(()=>{
@@ -91,6 +91,7 @@ const UmiejetnosciSection = () => {
         <div ref={refDiv}></div>
         <div ref={refDivOpenWindow} className={windowUmiejkaData.cecha==0 ? "window" : "windowShowed"}>
             <div>
+                <h2>{windowUmiejkaData.nazwa}</h2>
                 <span>Umiejetnosc: {profile.przelicznik(windowUmiejkaData.value)}</span>
                 <span>Cecha: {profile.przelicznik(getCeche(windowUmiejkaData.cecha))}</span>
                 <span>{profile.zlaczoneKostki((windowUmiejkaData.value as unknown) as string, getCeche(windowUmiejkaData.cecha))}</span>

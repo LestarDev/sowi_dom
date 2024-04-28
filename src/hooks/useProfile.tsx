@@ -277,6 +277,180 @@ const useProfile = () => {
             }
         }
 
+        if(toPrzelicz_1=='7'){
+            switch(toPrzelicz_2){
+                case '1':
+                    return 'k8+k6+k3';
+                case '2':
+                    return 'k8+k6+k4';
+                case '3':
+                    return 'k8+2k6';
+                case '4':
+                    return '2k8+k6';
+                case '5':
+                    return '2k8+k6+k3';
+                case '6':
+                    return '2k8+k6+k4';
+                case '7':
+                    return '2k8+2k6';
+                case '8':
+                    return '3k8+k6';
+                case '9':
+                    return '3k8+k6+k4';
+                case '10':
+                    return '3k8+2k6';
+                case '11':
+                    return '4k8+k6';
+                case '12':
+                    return 'k10+3k8+k6';
+            }
+        }
+
+        if(toPrzelicz_1=='8'){
+            switch(toPrzelicz_2){
+                case '1':
+                    return '2k8+k3';
+                case '2':
+                    return '2k8+k4';
+                case '3':
+                    return '2k8+k6';
+                case '4':
+                    return '3k8';
+                case '5':
+                    return '3k8+k3';
+                case '6':
+                    return '3k8+k4';
+                case '7':
+                    return '3k8+k6';
+                case '8':
+                    return '4k8';
+                case '9':
+                    return '4k8+k4';
+                case '10':
+                    return '4k8+k6';
+                case '11':
+                    return '5k8';
+                case '12':
+                    return 'k10+4k8';
+            }
+        }
+
+        if(toPrzelicz_1=='9'){
+            switch(toPrzelicz_2){
+                case '1':
+                    return '2k8+k4+k3';
+                case '2':
+                    return '2k8+2k4';
+                case '3':
+                    return '2k8+k6+k4';
+                case '4':
+                    return '3k8+k4';
+                case '5':
+                    return '3k8+k4+k3';
+                case '6':
+                    return '3k8+2k4';
+                case '7':
+                    return '3k8+k6+k4';
+                case '8':
+                    return '4k8+k4';
+                case '9':
+                    return '4k8+2k4';
+                case '10':
+                    return '4k8+k6+k4';
+                case '11':
+                    return '5k8+k4';
+                case '12':
+                    return 'k10+4k8+k4';
+            }
+        }
+
+        if(toPrzelicz_1=='10'){
+            switch(toPrzelicz_2){
+                case '1':
+                    return '2k8+k6+k3';
+                case '2':
+                    return '2k8+k6+k4';
+                case '3':
+                    return '2k8+2k6';
+                case '4':
+                    return '3k8+k6';
+                case '5':
+                    return '3k8+k6+k3';
+                case '6':
+                    return '3k8+k6+k4';
+                case '7':
+                    return '3k8+2k6';
+                case '8':
+                    return '4k8+k6';
+                case '9':
+                    return '4k8+k6+k4';
+                case '10':
+                    return '4k8+2k6';
+                case '11':
+                    return '5k8+k6';
+                case '12':
+                    return 'k10+4k8+k6';
+            }
+        }
+
+        if(toPrzelicz_1=='11'){
+            switch(toPrzelicz_2){
+                case '1':
+                    return '3k8+k3';
+                case '2':
+                    return '3k8+k4';
+                case '3':
+                    return '3k8+k6';
+                case '4':
+                    return '4k8';
+                case '5':
+                    return '4k8+k3';
+                case '6':
+                    return '4k8+k4';
+                case '7':
+                    return '4k8+k6';
+                case '8':
+                    return '5k8';
+                case '9':
+                    return '5k8+k4';
+                case '10':
+                    return '5k8+k6';
+                case '11':
+                    return '6k8';
+                case '12':
+                    return 'k10+5k8';
+            }
+        }
+
+        if(toPrzelicz_1=='11'){
+            switch(toPrzelicz_2){
+                case '1':
+                    return 'k10+2k8+k3';
+                case '2':
+                    return 'k10+2k8+k4';
+                case '3':
+                    return 'k10+2k8+k6';
+                case '4':
+                    return 'k10+3k8';
+                case '5':
+                    return 'k10+3k8+k3';
+                case '6':
+                    return 'k10+3k8+k4';
+                case '7':
+                    return 'k10+3k8+k6';
+                case '8':
+                    return 'k10+4k8';
+                case '9':
+                    return 'k10+4k8+k4';
+                case '10':
+                    return 'k10+4k8+k6';
+                case '11':
+                    return 'k10+4k8';
+                case '12':
+                    return '2k10+4k8';
+            }
+        }
+
         return 'Error => useProfile => zlaczoneKostki('+toPrzelicz_1+', '+toPrzelicz_2+')!';
     }
 
