@@ -102,13 +102,104 @@ const useProfile = () => {
         }
     }
 
+    const zlaczoneKostki = (toPrzelicz_1: string, toPrzelicz_2: string) => {
+        if(toPrzelicz_1=='1'){
+            switch(toPrzelicz_2){
+                case '1':
+                    return '2k3';
+                case '2':
+                    return 'k4+k3';
+                case '3':
+                    return 'k6+k3';
+                case '4':
+                    return 'k8+k3';
+                case '5':
+                    return 'k8+2k3';
+                case '6':
+                    return 'k8+k4+k3';
+                case '7':
+                    return 'k8+k6+k3';
+                case '8':
+                    return '2k8+k3';
+                case '9':
+                    return '2k8+k4+k3';
+                case '10':
+                    return '2k8+k6+k3';
+                case '11':
+                    return '3k8+k3';
+                case '12':
+                    return 'k10+2k8+k3';
+            }
+        }
+
+        if(toPrzelicz_1=='2'){
+            switch(toPrzelicz_2){
+                case '1':
+                    return 'k4+k3';
+                case '2':
+                    return '2k4';
+                case '3':
+                    return 'k6+k4';
+                case '4':
+                    return 'k8+k4';
+                case '5':
+                    return 'k8+k4+k3';
+                case '6':
+                    return 'k8+2k4';
+                case '7':
+                    return 'k8+k6+k4';
+                case '8':
+                    return '2k8+k4';
+                case '9':
+                    return '2k8+2k4';
+                case '10':
+                    return '2k8+k6+k4';
+                case '11':
+                    return '3k8+k4';
+                case '12':
+                    return 'k10+2k8+k4';
+            }
+        }
+
+        if(toPrzelicz_1=='3'){
+            switch(toPrzelicz_2){
+                case '1':
+                    return 'k6+k3';
+                case '2':
+                    return 'k6+k4';
+                case '3':
+                    return '2k6';
+                case '4':
+                    return 'k8+k6';
+                case '5':
+                    return 'k8+k6+k3';
+                case '6':
+                    return 'k8+k6+k4';
+                case '7':
+                    return 'k8+2k6';
+                case '8':
+                    return '2k8+k6';
+                case '9':
+                    return '2k8+k6+k4';
+                case '10':
+                    return '2k8+2k6';
+                case '11':
+                    return '3k8+k6';
+                case '12':
+                    return 'k10+2k8+k6';
+            }
+        }
+
+        return 'Error => useProfile => zlaczoneKostki('+toPrzelicz_1+', '+toPrzelicz_2+')!';
+    }
+
     const setNewWybrany = (newWybrany: choosenType) => {
         dispatch(setWybrany(newWybrany));
         console.log(newWybrany);
     }
 
     return ({
-        przelicznik, setNewWybrany, pokazKostki,
+        przelicznik, setNewWybrany, pokazKostki, zlaczoneKostki,
         setNewProfile, setNewIdUzytkownika, setNewNick,
         setNewCialo, setNewIntuicja, setNewSzczescie, setNewNiezlomnosc, setNewUrok, setNewUmysl, setNewLvl,setNewZrecznosc,
         nick, lvl, Umysl, Cialo, Zrecznosc, idUzytkownika, Szczescie, Urok, Niezlomnosc, Intuicja, wybranyTyp,

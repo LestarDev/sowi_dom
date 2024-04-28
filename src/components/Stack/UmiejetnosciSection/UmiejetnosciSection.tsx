@@ -93,6 +93,7 @@ const UmiejetnosciSection = () => {
             <div>
                 <span>Umiejetnosc: {profile.przelicznik(windowUmiejkaData.value)}</span>
                 <span>Cecha: {profile.przelicznik(getCeche(windowUmiejkaData.cecha))}</span>
+                <span>{profile.zlaczoneKostki((windowUmiejkaData.value as unknown) as string, getCeche(windowUmiejkaData.cecha))}</span>
                 <button onClick={closeWindow}>x</button>
             </div>
             
