@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { createElement, useEffect, useRef, useState } from "react"
 import getMainLink, { getUmiejetnosci } from "../../../private/apiData"
 import useProfile from "../../../hooks/useProfile"
 
@@ -32,7 +32,9 @@ const UmiejetnosciSection = () => {
 
                 console.log(i,data[i],data[i+1]);
                 if(refDiv.current){
-                    refDiv.current.innerHTML+=preUmiejka.name+' : '+preUmiejka.value+'<br> ';
+                    const divEl = createElement("div",{className: "singleUmiejka"},createElement("span",preUmiejka.name));
+                    refDiv.current.appendChild(divEl);
+                    //refDiv.current.innerHTML+=preUmiejka.name+' : '+preUmiejka.value+'<br> ';
                 }
             }
 
@@ -46,6 +48,9 @@ const UmiejetnosciSection = () => {
     },[])
 
     return <div ref={refDiv}>
+        {
+            // nazwa + wartosc + infoButton
+        }
     </div>
 }
 
