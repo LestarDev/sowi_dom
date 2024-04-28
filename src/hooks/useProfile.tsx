@@ -190,6 +190,93 @@ const useProfile = () => {
             }
         }
 
+        if(toPrzelicz_1=='4'){
+            switch(toPrzelicz_2){
+                case '1':
+                    return 'k8+k3';
+                case '2':
+                    return 'k8+k4';
+                case '3':
+                    return 'k8+k6';
+                case '4':
+                    return '2k8';
+                case '5':
+                    return '2k8+k3';
+                case '6':
+                    return '2k8+k4';
+                case '7':
+                    return '2k8+k6';
+                case '8':
+                    return '3k8';
+                case '9':
+                    return '3k8+k4';
+                case '10':
+                    return '3k8+k6';
+                case '11':
+                    return '4k8';
+                case '12':
+                    return 'k10+3k8';
+            }
+        }
+
+        if(toPrzelicz_1=='5'){
+            switch(toPrzelicz_2){
+                case '1':
+                    return 'k8+2k3';
+                case '2':
+                    return 'k8+k4+k3';
+                case '3':
+                    return 'k8+k6+k3';
+                case '4':
+                    return '2k8+k3';
+                case '5':
+                    return '2k8+2k3';
+                case '6':
+                    return '2k8+k4+k3';
+                case '7':
+                    return '2k8+k6+k3';
+                case '8':
+                    return '3k8+k3';
+                case '9':
+                    return '3k8+k4+k3';
+                case '10':
+                    return '3k8+k6+k3';
+                case '11':
+                    return '4k8+k3';
+                case '12':
+                    return 'k10+3k8+k3';
+            }
+        }
+
+        if(toPrzelicz_1=='6'){
+            switch(toPrzelicz_2){
+                case '1':
+                    return 'k8+k4+k3';
+                case '2':
+                    return 'k8+2k4';
+                case '3':
+                    return 'k8+k6+k4';
+                case '4':
+                    return '2k8+k4';
+                case '5':
+                    return '2k8+k4+k3';
+                case '6':
+                    return '2k8+2k4';
+                case '7':
+                    return '2k8+k6+k4';
+                case '8':
+                    return '3k8+k4';
+                case '9':
+                    return '3k8+2k4';
+                case '10':
+                    return '3k8+k6+k4';
+                case '11':
+                    return '4k8+k4';
+                case '12':
+                    return 'k10+3k8+k4';
+            }
+        }
+
         return 'Error => useProfile => zlaczoneKostki('+toPrzelicz_1+', '+toPrzelicz_2+')!';
     }
 
