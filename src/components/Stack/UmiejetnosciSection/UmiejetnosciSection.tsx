@@ -32,7 +32,15 @@ const UmiejetnosciSection = () => {
 
                 console.log(i,data[i],data[i+1]);
                 if(refDiv.current){
-                    const divEl = createElement("div",{className: "singleUmiejka"},createElement("span",preUmiejka.name));
+                    //const divEl = createElement("div",{className: "singleUmiejka"},createElement("span",preUmiejka.name));
+                    const divEl = document.createElement("div");
+                    const firstSpan = document.createElement("span");
+                    const secondSpan = document.createElement("span");
+                    divEl.className="singleUmiejka";
+                    firstSpan.innerHTML=preUmiejka.name;
+                    secondSpan.innerHTML=profile.przelicznik(preUmiejka.value);
+                    divEl.appendChild(firstSpan);
+                    divEl.appendChild(secondSpan);
                     refDiv.current.appendChild(divEl);
                     //refDiv.current.innerHTML+=preUmiejka.name+' : '+preUmiejka.value+'<br> ';
                 }
