@@ -69,13 +69,46 @@ const useProfile = () => {
         return pierwszaCyfra+'.'+drugaCyfra;
     }
 
+    const pokazKostki = (toPrzelicz: string) => {
+        console.log(typeof toPrzelicz)
+        switch(toPrzelicz){
+            case '1':
+                return "k3";
+            case '2':
+                return "k4";
+            case '3':
+                return "k6";
+            case '4':
+                return "k8";
+            case '5':
+                return "k8+k3";
+            case '6':
+                return "k8+k4";
+            case '7':
+                return "k8+k6";
+            case '8':
+                return "2k8";
+            case '9':
+                return "2k8+k4";
+            case '10':
+                return "2k8+k6";
+            case '11':
+                return "3k8";
+            case '12':
+                return "k10+2k8";
+            default:
+                return "Error => useProfile => pokazKostki"
+
+        }
+    }
+
     const setNewWybrany = (newWybrany: choosenType) => {
         dispatch(setWybrany(newWybrany));
         console.log(newWybrany);
     }
 
     return ({
-        przelicznik, setNewWybrany,
+        przelicznik, setNewWybrany, pokazKostki,
         setNewProfile, setNewIdUzytkownika, setNewNick,
         setNewCialo, setNewIntuicja, setNewSzczescie, setNewNiezlomnosc, setNewUrok, setNewUmysl, setNewLvl,setNewZrecznosc,
         nick, lvl, Umysl, Cialo, Zrecznosc, idUzytkownika, Szczescie, Urok, Niezlomnosc, Intuicja, wybranyTyp,

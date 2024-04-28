@@ -19,6 +19,15 @@ const StatBox = ({props}) => {
             {props.whichOne=='Niezlomnosc' ? profile.przelicznik(profile.Niezlomnosc):''}
             {props.whichOne=='Zrecznosc' ? profile.przelicznik(profile.Zrecznosc):''}
             {props.whichOne=='Intuicja' ? profile.przelicznik(profile.Intuicja):''}
+            <br></br>
+            {'['}
+            {props.whichOne=='Cialo' ? profile.pokazKostki(profile.Cialo):''}
+            {props.whichOne=='Umysl' ? profile.pokazKostki(profile.Umysl):''}
+            {props.whichOne=='Urok' ? profile.pokazKostki(profile.Urok):''}
+            {props.whichOne=='Niezlomnosc' ? profile.pokazKostki(profile.Niezlomnosc):''}
+            {props.whichOne=='Zrecznosc' ? profile.pokazKostki(profile.Zrecznosc):''}
+            {props.whichOne=='Intuicja' ? profile.pokazKostki(profile.Intuicja):''}
+            {']'}
         </div>
     </div>
 }
