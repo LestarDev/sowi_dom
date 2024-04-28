@@ -8,7 +8,8 @@ const UmiejetnosciSection = () => {
 
     type umiejetnoscType = {
         name: string,
-        value: number
+        value: number,
+        type: number
     }
 
     const [windowUmiejkaData, setWindowUmiejkaData] = useState({value: 0, cecha: 0});
@@ -17,7 +18,7 @@ const UmiejetnosciSection = () => {
     const refDivOpenWindow = useRef<HTMLDivElement>(null);
 
     const openWindow = (danaUmiejka: umiejetnoscType) => {
-        setWindowUmiejkaData({value: danaUmiejka.value, cecha: 0});
+        setWindowUmiejkaData({value: danaUmiejka.value, cecha: danaUmiejka.type});
     }
 
     useEffect(()=>{
@@ -28,11 +29,11 @@ const UmiejetnosciSection = () => {
                 refDiv.current.innerHTML="";
             }
 
-            for(let i=1; i<(data[0]+3); i+=2){
+            for(let i=1; i<(data[0]+4); i+=3){
 
-                const preUmiejka: umiejetnoscType = {name: data[i], value: data[i+1]};
+                const preUmiejka: umiejetnoscType = {name: data[i], value: data[i+1],type: data[i+2]};
 
-                console.log(i,data[i],data[i+1]);
+                console.log(i,data[i],data[i+1],data[i+2]);
                 if(refDiv.current){
                     //const divEl = createElement("div",{className: "singleUmiejka"},createElement("span",preUmiejka.name));
                     const divEl = document.createElement("div");
@@ -65,6 +66,8 @@ const UmiejetnosciSection = () => {
         <div ref={refDiv}></div>
         <div ref={refDivOpenWindow} className="window">
             {windowUmiejkaData.value}
+            {" "}
+            {windowUmiejkaData.cecha}
         </div>
     </div>
 }
