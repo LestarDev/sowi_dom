@@ -1,6 +1,7 @@
 import { createElement, useEffect, useRef, useState } from "react"
 import getMainLink, { getUmiejetnosci } from "../../../private/apiData"
 import useProfile from "../../../hooks/useProfile"
+import "./UmiejetnosciSection.css"
 
 const UmiejetnosciSection = () => {
 
@@ -18,8 +19,8 @@ const UmiejetnosciSection = () => {
     const refDivOpenWindow = useRef<HTMLDivElement>(null);
 
     const getCeche = (typeCecha: number) => {
-        console.log(typeof typeCecha);
-        switch(typeCecha as string){
+        //console.log(typeof typeCecha);
+        switch((typeCecha as unknown) as string){
             case '1':
                 return profile.Umysl;
             case '2':
@@ -39,6 +40,10 @@ const UmiejetnosciSection = () => {
 
     const openWindow = (danaUmiejka: umiejetnoscType) => {
         setWindowUmiejkaData({value: danaUmiejka.value, cecha: danaUmiejka.type});
+    }
+
+    const closeWindow = () => {
+        setWindowUmiejkaData({value:0, cecha: 0});
     }
 
     useEffect(()=>{
@@ -84,10 +89,13 @@ const UmiejetnosciSection = () => {
 
     return <div >
         <div ref={refDiv}></div>
-        <div ref={refDivOpenWindow} className="window">
-            {windowUmiejkaData.value}
-            {" "}
-            {profile.przelicznik(getCeche(windowUmiejkaData.cecha))}
+        <div ref={refDivOpenWindow} className={windowUmiejkaData.cecha==0 ? "window" : "windowShowed"}>
+            <div>
+                <span>Umiejetnosc: {profile.przelicznik(windowUmiejkaData.value)}</span>
+                <span>Cecha: {profile.przelicznik(getCeche(windowUmiejkaData.cecha))}</span>
+                <button onClick={closeWindow}>x</button>
+            </div>
+            
         </div>
     </div>
 }
