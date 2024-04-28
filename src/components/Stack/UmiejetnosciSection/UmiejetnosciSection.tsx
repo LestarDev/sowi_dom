@@ -88,13 +88,14 @@ const UmiejetnosciSection = () => {
             
             //const thisManyUmiejetnosci = 
         })
-    },[])
+    },[showSearch])
 
     const changeShow = () => {
         if(refInputSearch.current?.value!=""){
             setShowSearch(true);
         }else{
             setShowSearch(false);
+            console.log('x')
         }
     }
 
