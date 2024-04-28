@@ -7,6 +7,7 @@ const getMainLink = (isStackBlitz?: boolean) => {
 
 export const getProfileScript = "getUzytkownik.php?";
 export const getNickScript="getNick.php?";
-export const getUmiejetnosci="getUmiejetnosci.php?";
+export const getUmiejetnosciScript="getUmiejetnosci.php?";
+export const getZdolnosciScript = "getZdolnosci.php?";
 
 export default getMainLink

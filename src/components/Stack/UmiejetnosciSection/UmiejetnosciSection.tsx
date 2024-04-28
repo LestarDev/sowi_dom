@@ -1,5 +1,5 @@
 import { createElement, useEffect, useRef, useState } from "react"
-import getMainLink, { getUmiejetnosci } from "../../../private/apiData"
+import getMainLink, { getUmiejetnosciScript } from "../../../private/apiData"
 import useProfile from "../../../hooks/useProfile"
 import "./UmiejetnosciSection.css"
 
@@ -47,7 +47,7 @@ const UmiejetnosciSection = () => {
     }
 
     useEffect(()=>{
-        fetch(getMainLink(true)+getUmiejetnosci+'id='+profile.idUzytkownika).then(response=>response.json()).then((data: any)=>{
+        fetch(getMainLink(true)+getUmiejetnosciScript+'id='+profile.idUzytkownika).then(response=>response.json()).then((data: any)=>{
             
 
             if(refDiv.current){
