@@ -88,6 +88,9 @@ const UmiejetnosciSection = () => {
     },[])
 
     return <div >
+        {
+            //toDO: Zrobic wyszukiwarke z szukaniem po nazwie [Jesli cos w polu tekstowym render inny element z fetchem na like]
+        }
         <div ref={refDiv}></div>
         <div ref={refDivOpenWindow} className={windowUmiejkaData.cecha==0 ? "window" : "windowShowed"}>
             <div>
