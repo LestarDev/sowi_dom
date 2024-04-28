@@ -1,0 +1,11 @@
+.imgChain{
+    width: 1rem;
+    filter: grayscale(100%);
+    filter: invert(1);
+}
+
+.ZdolnosciSection div{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}

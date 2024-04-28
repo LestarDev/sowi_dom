@@ -1,7 +1,8 @@
 import { useEffect, useRef } from "react"
 import getMainLink, { getZdolnosciScript } from "../../../private/apiData"
 import useProfile from "../../../hooks/useProfile";
-import { IoIosLink } from "react-icons/io";
+import ChainLinkIcon from "../../../assets/chain_link_icon.png";
+import "./ZdolnosciSection.css"
 
 const ZdolnosciSection = () => {
 
@@ -26,15 +27,19 @@ const ZdolnosciSection = () => {
                 const preperZdolnosc: zdolnoscType = {nazwa: data[i], czyPolaczone: (data[i+1]==1)}
                 const divToPush = document.createElement("div");
                 const spanToPush = document.createElement("span");
+                const imgToPush = document.createElement("img");
                 spanToPush.innerHTML=preperZdolnosc.nazwa+"<IoIosLink />";
+                imgToPush.src=ChainLinkIcon;
+                imgToPush.className="imgChain";
                 divToPush.appendChild(spanToPush);
+                if(preperZdolnosc.czyPolaczone) divToPush.appendChild(imgToPush);
                 refDiv.current?.appendChild(divToPush);
             }
 
         })
     },[])
 
-    return <div>
+    return <div className="ZdolnosciSection">
         <div ref={refDiv}></div>
     </div>
 }
