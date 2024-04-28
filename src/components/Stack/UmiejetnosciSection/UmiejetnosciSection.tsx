@@ -17,6 +17,26 @@ const UmiejetnosciSection = () => {
     const refDiv = useRef<HTMLDivElement>(null);
     const refDivOpenWindow = useRef<HTMLDivElement>(null);
 
+    const getCeche = (typeCecha: number) => {
+        console.log(typeof typeCecha);
+        switch(typeCecha as string){
+            case '1':
+                return profile.Umysl;
+            case '2':
+                return profile.Cialo;
+            case '3':
+                return profile.Zrecznosc;
+            case '4':
+                return profile.Niezlomnosc;
+            case '5':
+                return profile.Intuicja;
+            case '6':
+                return profile.Urok;
+            default:
+                return 0
+        }
+    }
+
     const openWindow = (danaUmiejka: umiejetnoscType) => {
         setWindowUmiejkaData({value: danaUmiejka.value, cecha: danaUmiejka.type});
     }
@@ -33,7 +53,7 @@ const UmiejetnosciSection = () => {
 
                 const preUmiejka: umiejetnoscType = {name: data[i], value: data[i+1],type: data[i+2]};
 
-                console.log(i,data[i],data[i+1],data[i+2]);
+                //console.log(i,data[i],data[i+1],data[i+2]);
                 if(refDiv.current){
                     //const divEl = createElement("div",{className: "singleUmiejka"},createElement("span",preUmiejka.name));
                     const divEl = document.createElement("div");
@@ -67,7 +87,7 @@ const UmiejetnosciSection = () => {
         <div ref={refDivOpenWindow} className="window">
             {windowUmiejkaData.value}
             {" "}
-            {windowUmiejkaData.cecha}
+            {profile.przelicznik(getCeche(windowUmiejkaData.cecha))}
         </div>
     </div>
 }
