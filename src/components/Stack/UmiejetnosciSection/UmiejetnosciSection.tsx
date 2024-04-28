@@ -15,8 +15,11 @@ const UmiejetnosciSection = () => {
 
     const [windowUmiejkaData, setWindowUmiejkaData] = useState({value: 0, cecha: 0,nazwa:''});
 
+    const [showSearch, setShowSearch] = useState(false);
+
     const refDiv = useRef<HTMLDivElement>(null);
     const refDivOpenWindow = useRef<HTMLDivElement>(null);
+    const refInputSearch = useRef<HTMLInputElement>(null);
 
     const getCeche = (typeCecha: number) => {
         //console.log(typeof typeCecha);
@@ -87,21 +90,38 @@ const UmiejetnosciSection = () => {
         })
     },[])
 
+    const changeShow = () => {
+        if(refInputSearch.current?.value!=""){
+            setShowSearch(true);
+        }else{
+            setShowSearch(false);
+        }
+    }
+
     return <div >
         {
             //toDO: Zrobic wyszukiwarke z szukaniem po nazwie [Jesli cos w polu tekstowym render inny element z fetchem na like]
         }
-        <div ref={refDiv}></div>
-        <div ref={refDivOpenWindow} className={windowUmiejkaData.cecha==0 ? "window" : "windowShowed"}>
-            <div>
-                <h2>{windowUmiejkaData.nazwa}</h2>
-                <span>Umiejetnosc: {profile.przelicznik(windowUmiejkaData.value)}</span>
-                <span>Cecha: {profile.przelicznik(getCeche(windowUmiejkaData.cecha))}</span>
-                <span>{profile.zlaczoneKostki((windowUmiejkaData.value as unknown) as string, getCeche(windowUmiejkaData.cecha))}</span>
-                <button onClick={closeWindow}>x</button>
-            </div>
-            
-        </div>
+        <input type="text" onChange={changeShow} ref={refInputSearch} />
+        {
+            !showSearch ? <>
+            <div ref={refDiv}></div>
+            <div ref={refDivOpenWindow} className={windowUmiejkaData.cecha==0 ? "window" : "windowShowed"}>
+                <div>
+                    <h2>{windowUmiejkaData.nazwa}</h2>
+                    <span>Umiejetnosc: {profile.przelicznik(windowUmiejkaData.value)}</span>
+                    <span>Cecha: {profile.przelicznik(getCeche(windowUmiejkaData.cecha))}</span>
+                    <span>{profile.zlaczoneKostki((windowUmiejkaData.value as unknown) as string, getCeche(windowUmiejkaData.cecha))}</span>
+                    <button onClick={closeWindow}>x</button>
+                </div>
+                
+            </div></>
+
+            : 
+
+            'search'
+        }
+        
     </div>
 }
 
