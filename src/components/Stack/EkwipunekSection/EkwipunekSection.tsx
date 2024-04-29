@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import useProfile from "../../../hooks/useProfile"
 import getMainLink, { getEkwipunek } from "../../../private/apiData";
 import { isStackBlitz } from "../../../shared/config/isStackBlitz";
+import './Ekwipunek.css'
 
 const EkwipunekSection = () => {
 

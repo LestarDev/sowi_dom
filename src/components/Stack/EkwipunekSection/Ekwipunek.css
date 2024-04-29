@@ -1,3 +1,7 @@
-.dataEQ{
-    display: flex;
+.windowShowed div.eqBox h2{
+    margin: 0.5rem 0;
+}
+
+.windowShowed div.dataEQ{
+    flex-direction: row;
 }

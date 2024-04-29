@@ -13,7 +13,7 @@
     left:0;
 }
 
-.windowShowed div{
+.windowShowed > div{
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
