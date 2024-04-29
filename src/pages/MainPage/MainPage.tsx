@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import useProfile from "../../hooks/useProfile"
-import mainLink, { getNickScript, getProfileScript } from "../../private/apiData";
+import { getNickScript } from "../../private/apiData";
 import getMainLink from "../../private/apiData";
 import NavBar from "../../components/NavBar/NavBar";
 import StatsSection from "../../components/Stack/StatsSection/StatsSection";
@@ -12,7 +12,6 @@ const MainPage = () => {
 
     // profile.setNewAppName("Testq1");
 
-    const [uuid, setUUID] = useState(false);
 
     
 
