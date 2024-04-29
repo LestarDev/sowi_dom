@@ -13,6 +13,7 @@ nav{
     margin: 0;
     justify-content: space-between;
     padding: 0 20px 0 20px;
+    gap: 0.5rem;
 }
 
 .nav-el{
@@ -29,9 +30,21 @@ nav{
 }
 
 
-@media only screen and (max-width: 720px){
-    .navClick.b-4{
+@media only screen and (max-width: 745px){
+    .nav-el:last-child{
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    .nav-el:last-child div{
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .nav-el:last-child div:last-child{
         display: none;
+        width: unset;
     }
 }
 
@@ -49,7 +62,15 @@ nav{
     .navClick{
         display: none;
     }
-    .NavButton-div{
+    .nav-ul .nav-el div.NavButton-div{
+        display: flex;
+        width: 100%;
+    }
+
+    .nav-ul .nav-el div.NavButton-div div{
+        display: flex;
+    }
+    .nav-ul .nav-el div.NavButton-div > div{
         display: block;
     }
 }

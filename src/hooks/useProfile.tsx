@@ -5,7 +5,7 @@ const useProfile = () => {
 
     const dispatch = useDispatch();
 
-    const {nick, lvl, Umysl, Cialo, Zrecznosc, idUzytkownika, Szczescie, Urok, Niezlomnosc, Intuicja, wybranyTyp} = (useSelector((state) => state) as any).currency;
+    const {nick, lvl, Umysl, Cialo, Zrecznosc, idUzytkownika, Szczescie, Urok, Niezlomnosc, Intuicja, wybranyTyp} = (useSelector((state: any) => state) as any).currency;
 
     wybranyTyp as choosenType;
 
