@@ -35,7 +35,7 @@ const ZdolnosciSection = () => {
             }
 
             for(let i=1; i<(data[0]+2); i+=3){
-                console.log('Zdolnosc: ',data[i],data[i+1], data[i+2]);
+                //console.log('Zdolnosc: ',data[i],data[i+1], data[i+2]);
                 const preperZdolnosc: zdolnoscType = {nazwa: data[i+1], czyPolaczone: (data[i+2]==1)}
                 const divToPush = document.createElement("div");
                 const spanToPush = document.createElement("span");

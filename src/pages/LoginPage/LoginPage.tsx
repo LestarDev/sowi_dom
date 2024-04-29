@@ -25,7 +25,7 @@ const LoginPage = () => {
         // profile.setLogowanie(loginValue as string, passwordValue as string);
         
         const link = getMainLink(isStackBlitz)+getProfileScript+"login="+loginValue+"&password="+passwordValue;
-        console.log(link)
+        //console.log(link)
         fetch(link).then((response)=>response.text()).then((data: unknown)=>{
             console.log(data);
             if(data!="Error login"){

@@ -70,7 +70,7 @@ const useProfile = () => {
     }
 
     const pokazKostki = (toPrzelicz: string) => {
-        console.log(typeof toPrzelicz)
+        //console.log(typeof toPrzelicz)
         switch(toPrzelicz){
             case '1':
                 return "k3";
@@ -456,7 +456,7 @@ const useProfile = () => {
 
     const setNewWybrany = (newWybrany: choosenType) => {
         dispatch(setWybrany(newWybrany));
-        console.log(newWybrany);
+        //console.log(newWybrany);
     }
 
     return ({

@@ -30,7 +30,7 @@ const MainPage = () => {
                 profile.setNewIntuicja(data[8] as number);
                 profile.setNewSzczescie(data[9] as number);
                 //profile.setNewNick('test1');
-                console.log(data)
+                //console.log(data)
             })
     },[])
 
