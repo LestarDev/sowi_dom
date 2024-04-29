@@ -5,7 +5,6 @@ import { ImCoinDollar } from "react-icons/im";
 import { LuMoonStar } from "react-icons/lu";
 import './NavBar.css'
 import NavButton from "../NavButton/NavButton";
-import { choosenType } from "../../shared/config/currentSlice";
 
 const NavBar = () => {
 
