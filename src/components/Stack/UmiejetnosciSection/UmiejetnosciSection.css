@@ -27,4 +27,13 @@
 
 .UmiejetnosciSection{
     margin: 1rem 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.singleUmiejka{
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
 }
