@@ -15,12 +15,19 @@ const SearchUmiejetnosci = ({props}) => {
     const [windowUmiejkaData, setWindowUmiejkaData] = useState({value: 0, cecha: 0,nazwa:''});
 
     useEffect(()=>{
-        fetch(getMainLink(isStackBlitz)+getUmiejkiLike+"id="+profile.idUzytkownika+"&like="+wyszukaj).then(response=>response.json).then((data: any)=>{
+        fetch(getMainLink(isStackBlitz)+getUmiejkiLike+"id="+profile.idUzytkownika+"&like="+wyszukaj).then(response=>response.json()).then((data: any)=>{
+            console.log(getMainLink(isStackBlitz)+getUmiejkiLike+"id="+profile.idUzytkownika+"&like="+wyszukaj,data);
             if(refDiv.current){
                 refDiv.current.innerHTML="";
+                if(data[0]==0){
+                    refDiv.current.innerHTML="Brak takiej umiejetnosci";
+                    return;
+                }
             }
+            
+            console.log("SearchUmiejetnosci => Debug => useEffect",wyszukaj)
 
-            for(let i=1; i<(data[0]+4); i+=3){
+            for(let i=1; i<(data[0]+3); i+=3){
 
                 const preUmiejka: umiejetnoscType = {name: data[i], value: data[i+1],type: data[i+2]};
 
@@ -47,7 +54,7 @@ const SearchUmiejetnosci = ({props}) => {
                 }
             }
         })
-    },[])
+    },[props])
 
     const openWindow = (danaUmiejka: umiejetnoscType) => {
         setWindowUmiejkaData({value: danaUmiejka.value, cecha: danaUmiejka.type, nazwa: danaUmiejka.name});

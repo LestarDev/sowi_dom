@@ -14,6 +14,8 @@ const UmiejetnosciSection = () => {
 
     const [windowUmiejkaData, setWindowUmiejkaData] = useState({value: 0, cecha: 0,nazwa:''});
 
+    const [rnText, setRnText] = useState('');
+
     const [showSearch, setShowSearch] = useState(false);
 
     const refDiv = useRef<HTMLDivElement>(null);
@@ -94,7 +96,9 @@ const UmiejetnosciSection = () => {
             setShowSearch(true);
         }else{
             setShowSearch(false);
-            console.log('x')
+        }
+        if(refInputSearch.current){
+            setRnText(refInputSearch.current.value);
         }
     }
 
@@ -119,7 +123,7 @@ const UmiejetnosciSection = () => {
 
             : 
 
-            <SearchUmiejetnosci props={{wyszukaj: refInputSearch.current?.value}} />
+            <SearchUmiejetnosci props={{wyszukaj: rnText}} />
         }
         
     </div>
