@@ -12,5 +12,6 @@ export const getNickScript="getNick.php?";
 export const getUmiejetnosciScript="getUmiejetnosci.php?";
 export const getZdolnosciScript = "getZdolnosci.php?";
 export const getUmiejkiLike = "getUmiejetnosciLike.php?";
+export const getReceptaZdolki = "getRecepturaZdolnosci.php?";
 
 export default getMainLink
