@@ -1,0 +1,1 @@
+export const isStackBlitz: boolean = false;

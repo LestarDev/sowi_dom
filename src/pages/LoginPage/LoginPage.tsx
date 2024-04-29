@@ -1,9 +1,10 @@
 import { useRef, useState } from "react";
 import useProfile from "../../hooks/useProfile"
 import MainPage from "../MainPage/MainPage";
-import mainLink, { getProfileScript } from "../../private/apiData";
+import { getProfileScript } from "../../private/apiData";
 import getMainLink from "../../private/apiData";
 import './LoginPage.css'
+import { isStackBlitz } from "../../shared/config/isStackBlitz";
 
 const LoginPage = () => {
 
@@ -23,7 +24,7 @@ const LoginPage = () => {
 
         // profile.setLogowanie(loginValue as string, passwordValue as string);
         
-        const link = getMainLink(true)+getProfileScript+"login="+loginValue+"&password="+passwordValue;
+        const link = getMainLink(isStackBlitz)+getProfileScript+"login="+loginValue+"&password="+passwordValue;
         console.log(link)
         fetch(link).then((response)=>response.text()).then((data: unknown)=>{
             console.log(data);
@@ -52,7 +53,8 @@ const LoginPage = () => {
             Niezlomnosc: 0,
             HP: 0,
             lvl: 0,
-            nick: ''
+            nick: '',
+            wybranyTyp: 'Ekwipunek'
         });
         setIsMainToReturn(false);
     }

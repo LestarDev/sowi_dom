@@ -3,6 +3,7 @@ import getMainLink, { getZdolnosciScript } from "../../../private/apiData"
 import useProfile from "../../../hooks/useProfile";
 import ChainLinkIcon from "../../../assets/chain_link_icon.png";
 import "./ZdolnosciSection.css"
+import { isStackBlitz } from "../../../shared/config/isStackBlitz";
 
 const ZdolnosciSection = () => {
 
@@ -16,7 +17,7 @@ const ZdolnosciSection = () => {
     }
 
     useEffect(()=>{
-        fetch(getMainLink(true)+getZdolnosciScript+"id="+profile.idUzytkownika).then(response=>response.json()).then((data: any)=>{
+        fetch(getMainLink(isStackBlitz)+getZdolnosciScript+"id="+profile.idUzytkownika).then(response=>response.json()).then((data: any)=>{
 
             if(refDiv.current){
                 refDiv.current.innerHTML="";

@@ -5,6 +5,7 @@ import getMainLink from "../../private/apiData";
 import NavBar from "../../components/NavBar/NavBar";
 import StatsSection from "../../components/Stack/StatsSection/StatsSection";
 import SectionFromBar from "../../components/SectionFromBar/SectionFromBar";
+import { isStackBlitz } from "../../shared/config/isStackBlitz";
 
 const MainPage = () => {
 
@@ -18,7 +19,7 @@ const MainPage = () => {
     // profile.setNewIdUzytkownika(uuid);
 
     useEffect(()=>{
-            fetch(getMainLink(true)+getNickScript+"id="+profile.idUzytkownika).then((response)=>response.json()).then((data: any)=>{
+            fetch(getMainLink(isStackBlitz)+getNickScript+"id="+profile.idUzytkownika).then((response)=>response.json()).then((data: any)=>{
                 profile.setNewNick(data[0] as string);
                 profile.setNewLvl(data[1] as number);
                 profile.setNewCialo(data[3] as number);

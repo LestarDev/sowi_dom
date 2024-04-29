@@ -2,16 +2,15 @@ import { useEffect, useRef, useState } from "react"
 import getMainLink, { getUmiejetnosciScript } from "../../../private/apiData"
 import useProfile from "../../../hooks/useProfile"
 import "./UmiejetnosciSection.css"
+import { isStackBlitz } from "../../../shared/config/isStackBlitz"
+import SearchUmiejetnosci from "../../SearchUmiejetnosci/SearchUmiejetnosci"
+import umiejetnoscType from "../../../shared/config/umiejetnosciType"
 
 const UmiejetnosciSection = () => {
 
     const profile = useProfile();
 
-    type umiejetnoscType = {
-        name: string,
-        value: number,
-        type: number
-    }
+    
 
     const [windowUmiejkaData, setWindowUmiejkaData] = useState({value: 0, cecha: 0,nazwa:''});
 
@@ -50,7 +49,7 @@ const UmiejetnosciSection = () => {
     }
 
     useEffect(()=>{
-        fetch(getMainLink(true)+getUmiejetnosciScript+'id='+profile.idUzytkownika).then(response=>response.json()).then((data: any)=>{
+        fetch(getMainLink(isStackBlitz)+getUmiejetnosciScript+'id='+profile.idUzytkownika).then(response=>response.json()).then((data: any)=>{
             
 
             if(refDiv.current){
@@ -120,7 +119,7 @@ const UmiejetnosciSection = () => {
 
             : 
 
-            'search'
+            <SearchUmiejetnosci props={{wyszukaj: refInputSearch.current?.value}} />
         }
         
     </div>
