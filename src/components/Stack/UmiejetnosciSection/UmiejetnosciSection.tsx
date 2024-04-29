@@ -5,6 +5,7 @@ import "./UmiejetnosciSection.css"
 import { isStackBlitz } from "../../../shared/config/isStackBlitz"
 import SearchUmiejetnosci from "../../SearchUmiejetnosci/SearchUmiejetnosci"
 import umiejetnoscType from "../../../shared/config/umiejetnosciType"
+import { FaSearch } from "react-icons/fa";
 
 const UmiejetnosciSection = () => {
 
@@ -102,11 +103,14 @@ const UmiejetnosciSection = () => {
         }
     }
 
-    return <div >
+    return <div className="UmiejetnosciSection">
         {
             //toDO: Zrobic wyszukiwarke z szukaniem po nazwie [Jesli cos w polu tekstowym render inny element z fetchem na like]
         }
-        <input type="text" onChange={changeShow} ref={refInputSearch} />
+        <div className="searchBar">
+            <input type="text" placeholder="Szukaj..." onChange={changeShow} ref={refInputSearch} />
+            <FaSearch />
+        </div>
         {
             !showSearch ? <>
             <div ref={refDiv}></div>
