@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import getMainLink, { getReceptaZdolki } from "../../private/apiData";
 import { isStackBlitz } from "../../shared/config/isStackBlitz";
+import './ReceptaZdolnosci.css'
 
 const RecepturaZdolnosci = ({props}) => {
 
