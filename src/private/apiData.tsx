@@ -15,5 +15,6 @@ export const getUmiejkiLike = "getUmiejetnosciLike.php?";
 export const getReceptaZdolki = "getRecepturaZdolnosci.php?";
 export const getEkwipunek = "getEkwipunek.php?";
 export const getBron = "getBronData.php?";
+export const getKsiazka = "getHandouty.php?";
 
 export default getMainLink
