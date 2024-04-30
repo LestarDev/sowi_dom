@@ -3,6 +3,9 @@ import useProfile from "../../../hooks/useProfile"
 import getMainLink, { getEkwipunek } from "../../../private/apiData";
 import { isStackBlitz } from "../../../shared/config/isStackBlitz";
 import './Ekwipunek.css'
+import { GiKatana } from "react-icons/gi";
+import { CiBag1 } from "react-icons/ci";
+import BronModule from "../../BronModule/BronModule";
 
 const EkwipunekSection = () => {
 
@@ -12,12 +15,13 @@ const EkwipunekSection = () => {
     const refDivOpenWindow = useRef<HTMLDivElement>(null);
 
     type ekwipunekType = {
+        id: number,
         nazwa: string,
         ilosc: string,
         czyBron: boolean
     }
 
-    const emptyItem: ekwipunekType = {nazwa:'', ilosc:'', czyBron: false}
+    const emptyItem: ekwipunekType = {id: -1,nazwa:'', ilosc:'', czyBron: false}
 
     const [obecnyEkwipunek, setObecnyEkwipunek] = useState(emptyItem);
 
@@ -29,8 +33,8 @@ const EkwipunekSection = () => {
                 refDiv.current.innerHTML="";
             }
 
-            for(let i=1; i<(data[0]+2); i+=3){
-                const preItem: ekwipunekType = {nazwa: data[i], ilosc: data[i+1],czyBron: (data[i+2]==1)};
+            for(let i=1; i<(data[0]+4); i+=4){
+                const preItem: ekwipunekType = {id: data[i], nazwa: data[i+1], ilosc: data[i+2],czyBron: (data[i+3]==1)};
 
                 //console.log(i,data[i],data[i+1],data[i+2]);
                 if(refDiv.current){
@@ -67,10 +71,18 @@ const EkwipunekSection = () => {
         <div ref={refDiv}></div>
         <div ref={refDivOpenWindow} className={obecnyEkwipunek.nazwa=='' ? 'window' : 'windowShowed'}>
             <div className="eqBox">
+                <div className="colorEq">
+                    <div className="iconEq">
+                        <div>
+
+                            {obecnyEkwipunek.czyBron ? <GiKatana /> : <CiBag1 />}
+                        </div>
+                    </div>
+                </div>
                 <h2>{obecnyEkwipunek.nazwa}</h2>
                 <div className="dataEQ">
-                    <span>{obecnyEkwipunek.ilosc}</span>
-                    <span>{obecnyEkwipunek.czyBron ? 'Bron' : ''}</span>
+                    <span>Ilosc: {obecnyEkwipunek.ilosc}</span>
+                    <span>{obecnyEkwipunek.czyBron ? <BronModule props={{id: obecnyEkwipunek.id}} /> : ''}</span>
                 </div>
                 <button onClick={closeWindow}>x</button>
             </div>

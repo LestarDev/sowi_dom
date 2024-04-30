@@ -12,12 +12,12 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --text: #332E3C;
+  --text: #F5F5DC;
   --braz-jasny: #A29587;
-  --braz-ciemny: #80461B;
+  --braz-ciemny: #CD7F32;
   --bg-jasny: #80461B;
   --bg-ciemny: none;
-
+  --main-color: #242424;
 }
 
 a {

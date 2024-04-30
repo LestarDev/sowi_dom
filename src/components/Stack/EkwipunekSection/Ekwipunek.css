@@ -4,4 +4,59 @@
 
 .windowShowed div.dataEQ{
     flex-direction: row;
+    
+}
+
+.eqBox{
+    padding: 3rem 1rem 1rem 1rem;
+    background: var(--text);
+    border-radius: 5px;
+    color: var(--main-color);
+}
+
+.eqBox button{
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    margin: 0.5rem auto 0 auto;
+}
+
+.colorEq{
+    background: var(--bg-jasny);
+    padding: 0 0 1rem 0;
+    width: 100%;
+    position: absolute;
+    transform: translateY(calc(-100% + -0.5rem)) translateX(-1rem);
+    border-radius: 5px 5px 0 0;
+    display: flex;
+    justify-content: center;
+}
+
+.iconEq{
+    transform: translateY(calc(100% - 0.5rem));
+    background: var(--main-color);
+    width: 3rem;
+    height: 3rem;
+    /* border-radius: 90px; */
+    clip-path: circle(50% at 50% 50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconEq div{
+    background: var(--text);
+    width: 2.5rem;
+    height: 2.5rem;
+    clip-path: circle(50% at 50% 50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconEq div svg{
+    width: 90%;
+    height: 90%;
 }
