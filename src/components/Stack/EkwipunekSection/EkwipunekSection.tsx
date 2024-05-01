@@ -32,9 +32,9 @@ const EkwipunekSection = () => {
             if(refDiv.current){
                 refDiv.current.innerHTML="";
             }
-
             for(let i=1; i<(data[0]+4); i+=4){
-                const preItem: ekwipunekType = {id: data[i], nazwa: data[i+1], ilosc: data[i+2],czyBron: (data[i+3]==1)};
+                console.log(data[i+3], typeof data[i+3]);
+                const preItem: ekwipunekType = {id: data[i], nazwa: data[i+1], ilosc: data[i+2],czyBron: (data[i+3]=='1')};
 
                 //console.log(i,data[i],data[i+1],data[i+2]);
                 if(refDiv.current){
