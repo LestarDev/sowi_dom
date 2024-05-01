@@ -440,7 +440,7 @@ const useProfile = () => {
             }
         }
 
-        if(toPrzelicz_1=='11'){
+        if(toPrzelicz_1=='12'){
             switch(toPrzelicz_2){
                 case '1':
                     return 'k10+2k8+k3';
