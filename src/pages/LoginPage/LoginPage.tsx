@@ -59,8 +59,17 @@ const LoginPage = () => {
         setIsMainToReturn(false);
     }
 
+    const refreshMainPage = () => {
+        
+    }
+
     return <div className={isMainToReturn ? 'mainPage' : 'FormConteiner'}>
-        {isMainToReturn ? <><MainPage /><button onClick={logOut}>Logout</button></> : <form onSubmit={e => e.preventDefault()}>
+        {isMainToReturn ? <><MainPage />
+        <div className="mainButtons">
+        <button onClick={logOut}>Logout</button>
+        <button onClick={refreshMainPage}>Odswierz</button>
+        </div>
+        </> : <form onSubmit={e => e.preventDefault()}>
             <label htmlFor="loginID">Login: <input type="text" id="loginID" ref={loginRef} /></label>
             <label htmlFor="passwordID">Password: <input type="text" id="passwordID" ref={passwordRef} /></label>
             <button onClick={moveToMainPage}>Login</button>

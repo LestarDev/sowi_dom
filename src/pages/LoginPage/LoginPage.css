@@ -28,3 +28,8 @@
 .mainPage > button{
     width: fit-content;
 }
+
+.mainButtons{
+    display: flex;
+    justify-content: space-between;
+}
