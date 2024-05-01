@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import useProfile from "../../../hooks/useProfile"
 import getMainLink, { getKsiazka } from "../../../private/apiData";
 import { isStackBlitz } from "../../../shared/config/isStackBlitz";
+import './HandoutySection.css'
 
 const HandoutySection = () => {
 
@@ -61,9 +62,12 @@ const HandoutySection = () => {
 
     return <div>
         <div ref={refDiv}></div>
-        {currentHandout.isPrzeczytana!=null ? <><div>
-            <textarea cols={40} rows={20} defaultValue={currentHandout.tres} readOnly />
-            <button onClick={closeWindow}>x</button>
+        {currentHandout.isPrzeczytana!=null ? <><div className="windowShowed">
+            <div className="handout">
+                <textarea cols={40} rows={20} defaultValue={currentHandout.tres} readOnly />
+                <button onClick={closeWindow}>x</button>
+            </div>
+            
             </div></> : ''}
     </div>
 }
