@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from "react-redux"
-import { CurrentState, choosenType, setCialo, setIdUzytkownika, setIntuicja, setLvl, setNick, setNiezlomnosc, setSzczescie, setUmysl, setUrok, setWybrany, setZrecznosc } from "../shared/config/currentSlice";
+import { CurrentState, choosenType, setCialo, setHP, setIdUzytkownika, setIntuicja, setLvl, setNick, setNiezlomnosc, setSzczescie, setUmysl, setUrok, setWybrany, setZrecznosc } from "../shared/config/currentSlice";
 
 const useProfile = () => {
 
     const dispatch = useDispatch();
 
-    const {nick, lvl, Umysl, Cialo, Zrecznosc, idUzytkownika, Szczescie, Urok, Niezlomnosc, Intuicja, wybranyTyp} = (useSelector((state: any) => state) as any).currency;
+    const {nick,HP, lvl, Umysl, Cialo, Zrecznosc, idUzytkownika, Szczescie, Urok, Niezlomnosc, Intuicja, wybranyTyp} = (useSelector((state: any) => state) as any).currency;
 
     wybranyTyp as choosenType;
 
@@ -477,10 +477,24 @@ const useProfile = () => {
         //console.log(newWybrany);
     }
 
+    const getHP = () => {
+        const prepHPzCiala: number = (10+Cialo*1)*2;
+        const prepLvl = (lvl*1)%5-1;
+        const prepHPzLvla: number = (prepLvl-1)*3;
+
+        console.log(prepHPzCiala);
+
+        return (HP*1+prepHPzCiala+prepHPzLvla)
+    }
+
+    const setNewAddHP = (newHP: number) => {
+        dispatch(setHP(newHP));
+    }
+
     return ({
-        przelicznik, setNewWybrany, pokazKostki, zlaczoneKostki, przeliczLvl, getFirstCyfra,
+        przelicznik, setNewWybrany, pokazKostki, zlaczoneKostki, przeliczLvl, getFirstCyfra, getHP,
         setNewProfile, setNewIdUzytkownika, setNewNick,
-        setNewCialo, setNewIntuicja, setNewSzczescie, setNewNiezlomnosc, setNewUrok, setNewUmysl, setNewLvl,setNewZrecznosc,
+        setNewCialo, setNewIntuicja, setNewSzczescie, setNewNiezlomnosc, setNewUrok, setNewUmysl, setNewLvl,setNewZrecznosc, setNewAddHP,
         nick, lvl, Umysl, Cialo, Zrecznosc, idUzytkownika, Szczescie, Urok, Niezlomnosc, Intuicja, wybranyTyp,
     })
 

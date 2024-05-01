@@ -45,6 +45,9 @@ const NavBar = () => {
 
                 </div>
         </li>
+        <li>
+            HP: {profile.getHP()}
+        </li>
         <li className="nav-el">
             <div>
                 <button onClick={setHereSectionE} className="navClick b-1">Ekwipunek</button>

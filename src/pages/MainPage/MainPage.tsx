@@ -23,6 +23,7 @@ const MainPage = () => {
             fetch(getMainLink(isStackBlitz)+getNickScript+"id="+profile.idUzytkownika).then((response)=>response.json()).then((data: any)=>{
                 profile.setNewNick(data[0] as string);
                 profile.setNewLvl(data[1] as number);
+                profile.setNewAddHP(data[2] as number);
                 profile.setNewCialo(data[3] as number);
                 profile.setNewUmysl(data[4] as number);
                 profile.setNewUrok(data[5] as number);
