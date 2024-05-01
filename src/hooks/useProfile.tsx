@@ -121,6 +121,9 @@ const useProfile = () => {
     }
 
     const zlaczoneKostki = (toPrzelicz_1: string, toPrzelicz_2: string) => {
+
+        if(toPrzelicz_1=='0' || toPrzelicz_2=='0') return 'PECH';
+
         if(toPrzelicz_1=='1'){
             switch(toPrzelicz_2){
                 case '1':
