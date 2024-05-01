@@ -34,6 +34,8 @@ const HandoutySection = () => {
             for(let i=1; i<(data[0]+3); i+=3){
                 const preItem: handoutTyep = {tytul: data[i],isPrzeczytana: (data[i+1]==1),tres: data[i+2]}
                 console.log(preItem);
+                
+                if(data[0]==0) return;
 
                 const prepDiv = document.createElement('div');
                 const spanTresc = document.createElement('span');
