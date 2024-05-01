@@ -1,4 +1,6 @@
 .refreshConteiner{
     display: flex;
     justify-content: end;
+    width: min-content;
+    margin: 0 0 0 auto;
 }
