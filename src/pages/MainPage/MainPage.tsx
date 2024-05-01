@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import useProfile from "../../hooks/useProfile"
 import { getNickScript } from "../../private/apiData";
 import getMainLink from "../../private/apiData";
@@ -15,7 +15,7 @@ const MainPage = () => {
     // profile.setNewAppName("Testq1");
 
     const [toRefresh, setToRefresh] = useState(false);
-    
+    const errorRef = useRef<HTMLDivElement>(null);
 
     // profile.setNewIdUzytkownika(uuid);
 
@@ -33,6 +33,10 @@ const MainPage = () => {
                 profile.setNewSzczescie(data[9] as number);
                 //profile.setNewNick('test1');
                 // console.log(data)
+            }).catch((error)=>{
+                if(errorRef.current){
+                    errorRef.current.innerHTML=error;
+                }
             })
     },[toRefresh])
 
@@ -46,7 +50,7 @@ const MainPage = () => {
         <StatsSection></StatsSection>
         <SectionFromBar></SectionFromBar>
         <div className="refreshConteiner">
-            <div></div>
+            <div ref={errorRef}></div>
             <button onClick={refreshMainPage}>Odswiez</button>
         </div>
     </div>)
