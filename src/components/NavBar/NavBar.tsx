@@ -35,7 +35,7 @@ const NavBar = () => {
         <li className="nav-el"><CgProfile className="profileIcon" />{profile.nick}</li>
         <li className="nav-el">
                 <div>
-                    <GiLevelFourAdvanced />{profile.przelicznik(profile.lvl)}
+                    <GiLevelFourAdvanced />{profile.przeliczLvl(profile.lvl)}
                 </div>
                 <div>
                     <ImCoinDollar />0  
