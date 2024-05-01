@@ -4,7 +4,7 @@ import { isStackBlitz } from "../../shared/config/isStackBlitz";
 import useProfile from "../../hooks/useProfile";
 import umiejetnoscType from "../../shared/config/umiejetnosciType";
 
-const SearchUmiejetnosci = ({props}) => {
+const SearchUmiejetnosci = ({props}: any) => {
     const wyszukaj: string = props.wyszukaj;
 
     const profile = useProfile();

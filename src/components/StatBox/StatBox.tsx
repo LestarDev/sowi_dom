@@ -4,7 +4,7 @@ import './StatBox.css'
 
 
 
-const StatBox = ({props}) => {
+const StatBox = ({props}: any) => {
 
     const profile = useProfile();
 

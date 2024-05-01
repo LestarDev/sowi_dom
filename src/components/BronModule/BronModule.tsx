@@ -4,7 +4,7 @@ import { isStackBlitz } from "../../shared/config/isStackBlitz";
 import './BronModule.css'
 import useProfile from "../../hooks/useProfile";
 
-const BronModule = ({props}) => {
+const BronModule = ({props}: any) => {
 
     const idBroni = props.id;
 
