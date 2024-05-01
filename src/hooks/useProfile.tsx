@@ -63,7 +63,6 @@ const useProfile = () => {
     }
 
     const przelicznik = (toPrzelicz: number) => {
-        if(toPrzelicz==0) return "PECH";
         const pierwszaCyfra = Math.ceil(toPrzelicz/4);
         const drugaCyfraPrzygotowanie = toPrzelicz%4;
         const drugaCyfra = drugaCyfraPrzygotowanie==0 ? 4 : drugaCyfraPrzygotowanie;
@@ -91,6 +90,8 @@ const useProfile = () => {
     const pokazKostki = (toPrzelicz: string) => {
         //console.log(typeof toPrzelicz)
         switch(toPrzelicz){
+            case '0':
+                return "PECH";
             case '1':
                 return "k3";
             case '2':
