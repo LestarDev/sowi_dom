@@ -66,7 +66,7 @@ const HandoutySection = () => {
             
             <div className="windowShowed">
                 <div className="handout">
-                    <span>Nie przeczytales jeszcze</span>
+                    <span className="unreaded">Nie przeczytales jeszcze</span>
                     <button onClick={closeWindow}>x</button>
                 </div>
             </div>

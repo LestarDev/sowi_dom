@@ -14,3 +14,7 @@
 .handout button{
     width: min-content;
 }
+
+.unreaded{
+    color: var(--main-color);
+}
