@@ -62,13 +62,7 @@ const HandoutySection = () => {
 
     return <div>
         <div ref={refDiv}></div>
-        {currentHandout.isPrzeczytana!=null ? <><div className="windowShowed">
-            <div className="handout">
-                <textarea cols={40} rows={20} defaultValue={currentHandout.tres} readOnly />
-                <button onClick={closeWindow}>x</button>
-            </div>
-            
-            </div></> : (currentHandout.isPrzeczytana==false ? <>
+        {currentHandout.isPrzeczytana!=null ? (currentHandout.isPrzeczytana==false ? <>
             
             <div className="windowShowed">
                 <div className="handout">
@@ -77,7 +71,13 @@ const HandoutySection = () => {
                 </div>
             </div>
             
-            </> : '')}
+            </> : <><div className="windowShowed">
+            <div className="handout">
+                <textarea cols={40} rows={20} defaultValue={currentHandout.tres} readOnly />
+                <button onClick={closeWindow}>x</button>
+            </div>
+            
+            </div></>):''}
     </div>
 }
 
