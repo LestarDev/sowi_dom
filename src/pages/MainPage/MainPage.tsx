@@ -36,6 +36,7 @@ const MainPage = () => {
             }).catch((error)=>{
                 if(errorRef.current){
                     errorRef.current.innerHTML=error;
+                    console.log(error);
                 }
             })
     },[toRefresh])
