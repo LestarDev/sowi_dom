@@ -45,7 +45,7 @@ const HandoutySection = () => {
                 buttonTresc.innerHTML="Czytaj";
                 buttonTresc.className = preItem.isPrzeczytana ? "publiczny" : "doPrzeczytania";
                 buttonTresc.onclick=function(){
-                    if(!preItem.isPrzeczytana) return;
+                    // if(!preItem.isPrzeczytana) return;
                     setCurrentHandout(preItem);
                 }
                 prepDiv.appendChild(spanTresc);
