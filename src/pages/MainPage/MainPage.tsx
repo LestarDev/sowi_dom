@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import useProfile from "../../hooks/useProfile"
 import { getNickScript } from "../../private/apiData";
 import getMainLink from "../../private/apiData";
@@ -6,6 +6,7 @@ import NavBar from "../../components/NavBar/NavBar";
 import StatsSection from "../../components/Stack/StatsSection/StatsSection";
 import SectionFromBar from "../../components/SectionFromBar/SectionFromBar";
 import { isStackBlitz } from "../../shared/config/isStackBlitz";
+import './MainPage.css'
 
 const MainPage = () => {
 
@@ -13,7 +14,7 @@ const MainPage = () => {
 
     // profile.setNewAppName("Testq1");
 
-
+    const [toRefresh, setToRefresh] = useState(false);
     
 
     // profile.setNewIdUzytkownika(uuid);
@@ -30,14 +31,23 @@ const MainPage = () => {
                 profile.setNewIntuicja(data[8] as number);
                 profile.setNewSzczescie(data[9] as number);
                 //profile.setNewNick('test1');
-                //console.log(data)
+                // console.log(data)
             })
-    },[])
+    },[toRefresh])
+
+    const refreshMainPage = () => {
+        console.log('Odswierzanie...')
+        setToRefresh(!toRefresh);
+    }
 
     return (<div aria-label="Main Page">
         <NavBar></NavBar>
         <StatsSection></StatsSection>
         <SectionFromBar></SectionFromBar>
+        <div className="refreshConteiner">
+            <div></div>
+            <button onClick={refreshMainPage}>Odsiwerz</button>
+        </div>
     </div>)
 }
 
