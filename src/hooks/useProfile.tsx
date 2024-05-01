@@ -83,6 +83,10 @@ const useProfile = () => {
         return pierwszaCyfra+'.'+drugaCyfra;
     }
 
+    const getFirstCyfra = (toPrzelicz: number) => {
+        return Math.ceil(toPrzelicz/4);
+    }
+
     const pokazKostki = (toPrzelicz: string) => {
         //console.log(typeof toPrzelicz)
         switch(toPrzelicz){
@@ -474,7 +478,7 @@ const useProfile = () => {
     }
 
     return ({
-        przelicznik, setNewWybrany, pokazKostki, zlaczoneKostki, przeliczLvl,
+        przelicznik, setNewWybrany, pokazKostki, zlaczoneKostki, przeliczLvl, getFirstCyfra,
         setNewProfile, setNewIdUzytkownika, setNewNick,
         setNewCialo, setNewIntuicja, setNewSzczescie, setNewNiezlomnosc, setNewUrok, setNewUmysl, setNewLvl,setNewZrecznosc,
         nick, lvl, Umysl, Cialo, Zrecznosc, idUzytkownika, Szczescie, Urok, Niezlomnosc, Intuicja, wybranyTyp,
