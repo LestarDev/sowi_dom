@@ -479,10 +479,12 @@ const useProfile = () => {
 
     const getHP = () => {
         const prepHPzCiala: number = (10+Cialo*1)*2;
-        const prepLvl = (lvl*1)%5-1;
+        const prepLvl = Math.ceil((lvl*1)/5);   
+
         const prepHPzLvla: number = (prepLvl-1)*3;
 
-        console.log(prepHPzCiala);
+
+
 
         return (HP*1+prepHPzCiala+prepHPzLvla)
     }

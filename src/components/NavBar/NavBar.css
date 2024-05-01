@@ -75,3 +75,8 @@ nav{
     }
 }
 
+.hp-el{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

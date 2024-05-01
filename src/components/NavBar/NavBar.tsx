@@ -45,7 +45,7 @@ const NavBar = () => {
 
                 </div>
         </li>
-        <li>
+        <li className="nav-el hp-el">
             HP: {profile.getHP()}
         </li>
         <li className="nav-el">
