@@ -47,7 +47,7 @@ const MainPage = () => {
         <SectionFromBar></SectionFromBar>
         <div className="refreshConteiner">
             <div></div>
-            <button onClick={refreshMainPage}>Odsiwerz</button>
+            <button onClick={refreshMainPage}>Odswierz</button>
         </div>
     </div>)
 }
