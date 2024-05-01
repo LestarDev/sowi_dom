@@ -60,7 +60,7 @@ const HandoutySection = () => {
     return <div>
         <div ref={refDiv}></div>
         {currentHandout.isPrzeczytana!=null ? <><div>
-            <textarea cols={40} rows={20}>{currentHandout.tres}</textarea>
+            <textarea cols={40} rows={20} defaultValue={currentHandout.tres} readOnly />
             <button onClick={closeWindow}>x</button>
             </div></> : ''}
     </div>
