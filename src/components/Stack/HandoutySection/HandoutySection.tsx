@@ -68,7 +68,16 @@ const HandoutySection = () => {
                 <button onClick={closeWindow}>x</button>
             </div>
             
-            </div></> : ''}
+            </div></> : (currentHandout.isPrzeczytana==false ? <>
+            
+            <div className="windowShowed">
+                <div className="handout">
+                    <span>Nie przeczytales jeszcze</span>
+                    <button onClick={closeWindow}>x</button>
+                </div>
+            </div>
+            
+            </> : '')}
     </div>
 }
 
