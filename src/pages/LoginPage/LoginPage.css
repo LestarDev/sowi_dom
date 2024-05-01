@@ -36,5 +36,4 @@
 
 .logoutButton{
     transform: translateY(calc(-150% + 3px));
-    z-index: -1;
 }
