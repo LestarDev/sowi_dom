@@ -115,7 +115,7 @@ const UmiejetnosciSection = () => {
             !showSearch ? <>
             <div ref={refDiv}></div>
             <div ref={refDivOpenWindow} className={windowUmiejkaData.cecha==0 ? "window" : "windowShowed"}>
-                <div>
+                <div className="umiejkaBox">
                     <h2>{windowUmiejkaData.nazwa}</h2>
                     <span>Umiejetnosc: {profile.przelicznik(windowUmiejkaData.value)}</span>
                     <span>Cecha: {profile.przelicznik(getCeche(windowUmiejkaData.cecha))}</span>

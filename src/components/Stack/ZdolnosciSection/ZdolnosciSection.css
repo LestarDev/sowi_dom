@@ -23,3 +23,11 @@
     flex-direction: column;
     justify-content: center;
 }
+
+.zdolnosciBox{
+    flex-direction: column;
+    background: var(--text);
+    color: var(--main-color);
+    padding: 1rem;
+    border-radius: 5px;
+}

@@ -56,7 +56,12 @@ const ZdolnosciSection = () => {
 
     return <div className="ZdolnosciSection">
         <div ref={refDiv}></div>
-        { receptaToShow!=0 ? <div className="ReceptaZdolnosci"><RecepturaZdolnosci props={{id: receptaToShow}} /><button onClick={zamknijRecepture}>x</button></div> : ''}
+        { receptaToShow!=0 ? <div className="ReceptaZdolnosci">
+            <div className="zdolnosciBox">
+            <RecepturaZdolnosci props={{id: receptaToShow}} />
+            <button onClick={zamknijRecepture}>x</button>
+            </div>
+            </div> : ''}
     </div>
 }
 
