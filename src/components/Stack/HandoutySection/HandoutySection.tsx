@@ -32,7 +32,7 @@ const HandoutySection = () => {
                 refDiv.current.innerHTML="";
             }
 
-            for(let i=1; i<(data[0]+3); i+=3){
+            for(let i=1; i<(data[0]*3); i+=3){
                 const preItem: handoutTyep = {tytul: data[i],isPrzeczytana: (data[i+1]==1),tres: data[i+2]}
                 console.log(preItem);
                 
