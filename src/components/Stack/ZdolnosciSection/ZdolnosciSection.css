@@ -31,3 +31,10 @@
     padding: 1rem;
     border-radius: 5px;
 }
+
+.windowShowed .zdolnoscInfoBox{
+    transform: translateY(0);
+    padding: 1rem;
+    background: var(--text);
+    border-radius: 5px;
+}
