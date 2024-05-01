@@ -63,6 +63,7 @@ const useProfile = () => {
     }
 
     const przelicznik = (toPrzelicz: number) => {
+        if(toPrzelicz==0) return "PECH";
         const pierwszaCyfra = Math.ceil(toPrzelicz/4);
         const drugaCyfraPrzygotowanie = toPrzelicz%4;
         const drugaCyfra = drugaCyfraPrzygotowanie==0 ? 4 : drugaCyfraPrzygotowanie;
