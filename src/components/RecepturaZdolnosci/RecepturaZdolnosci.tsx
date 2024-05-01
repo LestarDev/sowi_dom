@@ -3,7 +3,7 @@ import getMainLink, { getReceptaZdolki } from "../../private/apiData";
 import { isStackBlitz } from "../../shared/config/isStackBlitz";
 import './ReceptaZdolnosci.css'
 
-const RecepturaZdolnosci = ({props}) => {
+const RecepturaZdolnosci = ({props}: any) => {
 
     const idZdolnosci: string = props.id;
 
