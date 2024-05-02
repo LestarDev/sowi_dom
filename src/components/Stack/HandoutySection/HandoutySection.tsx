@@ -26,7 +26,7 @@ const HandoutySection = () => {
 
     useEffect(()=>{
         fetch(getMainLink(isStackBlitz)+getKsiazka+"id="+profile.idUzytkownika).then(response=>response.json()).then((data: any)=>{
-            console.log(data);
+            // console.log(data);
 
             if(refDiv.current){
                 refDiv.current.innerHTML="";
@@ -34,7 +34,7 @@ const HandoutySection = () => {
 
             for(let i=1; i<(data[0]*3); i+=3){
                 const preItem: handoutTyep = {tytul: data[i],isPrzeczytana: (data[i+1]==1),tres: data[i+2]}
-                console.log(preItem);
+                // console.log(preItem);
                 
                 if(data[0]==0) return;
 
