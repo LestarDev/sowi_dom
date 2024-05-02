@@ -7,6 +7,8 @@ import ZdolnosciSection from "../Stack/ZdolnosciSection/ZdolnosciSection";
 const SectionFromBar = () => {
     const profile = useProfile();
 
+    document.title = "Sowi Dom ["+profile.nick+"]";
+
     return <div>
         {profile.wybranyTyp=='Umiejetnosci'? <UmiejetnosciSection /> : ''}
         {profile.wybranyTyp=='Zdolnosci' ? <ZdolnosciSection /> : ''}
