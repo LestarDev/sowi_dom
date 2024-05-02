@@ -44,7 +44,7 @@ const ZdolnosciSection = () => {
             if(refDiv.current){
                 refDiv.current.innerHTML="";
             }
-            console.log(data);
+            // console.log(data);
             for(let i=1; i<(data[0]*4); i+=4){
                 //console.log('Zdolnosc: ',data[i],data[i+1], data[i+2]);
                 const preperZdolnosc: zdolnoscType = {nazwa: data[i+1], czyPolaczone: (data[i+2]==1), tresc: data[i+3]}
