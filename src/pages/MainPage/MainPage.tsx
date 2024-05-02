@@ -42,7 +42,7 @@ const MainPage = () => {
     },[toRefresh])
 
     const refreshMainPage = () => {
-        console.log('Odswierzanie...')
+        //console.log('Odswierzanie...')
         setToRefresh(!toRefresh);
     }
 
