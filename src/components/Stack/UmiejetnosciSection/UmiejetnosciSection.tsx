@@ -61,6 +61,8 @@ const UmiejetnosciSection = () => {
                 refDiv.current.innerHTML="";
             }
 
+            console.log("Umiejetnosci:",data);
+
             if(data[0]=0) return;
 
             for(let i=1; i<(data[0]*3); i+=3){

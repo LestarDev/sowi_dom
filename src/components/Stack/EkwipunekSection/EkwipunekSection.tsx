@@ -27,13 +27,13 @@ const EkwipunekSection = () => {
 
     useEffect(()=>{
         fetch(getMainLink(isStackBlitz)+getEkwipunek+"id="+profile.idUzytkownika).then(response=>response.json()).then((data: any)=>{
-            console.log(data);
+            // console.log(data);
 
             if(refDiv.current){
                 refDiv.current.innerHTML="";
             }
             for(let i=1; i<(data[0]*4); i+=4){
-                console.log(data[i+3], typeof data[i+3]);
+                // console.log(data[i+3], typeof data[i+3]);
                 const preItem: ekwipunekType = {id: data[i], nazwa: data[i+1], ilosc: data[i+2],czyBron: (data[i+3]=='1')};
 
                 //console.log(i,data[i],data[i+1],data[i+2]);
