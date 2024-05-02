@@ -63,7 +63,7 @@ const UmiejetnosciSection = () => {
 
             if(data[0]=0) return;
 
-            for(let i=1; i<(data[0]+4); i+=3){
+            for(let i=1; i<(data[0]*3); i+=3){
 
                 const preUmiejka: umiejetnoscType = {name: data[i], value: data[i+1],type: data[i+2]};
 
