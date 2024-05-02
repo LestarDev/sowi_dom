@@ -49,7 +49,7 @@ const MainPage = () => {
     return (<div aria-label="Main Page">
         <NavBar></NavBar>
         <StatsSection></StatsSection>
-        <SectionFromBar></SectionFromBar>
+        <SectionFromBar props={{refresh: refreshMainPage}}></SectionFromBar>
         <div className="refreshConteiner">
             <div ref={errorRef}></div>
             <button onClick={refreshMainPage}>Odswiez</button>
