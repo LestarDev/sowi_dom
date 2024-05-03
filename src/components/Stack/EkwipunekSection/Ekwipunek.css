@@ -3,6 +3,7 @@
 }
 
 .windowShowed div.dataEQ{
+    display: flex;
     flex-direction: column;
     
 }
