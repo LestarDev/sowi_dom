@@ -63,7 +63,7 @@ nav{
 }
 
 @media only screen and (max-width: 520px) {
-    .nav-choose-section{
+    .nav-el:last-child div.nav-choose-section{
         position: absolute;
         top: 0;
         left: 0;
@@ -78,6 +78,7 @@ nav{
         padding: 1rem;
         height: min-content;
         z-index: 2;
+        gap: 0.5rem;
     }
 
     
