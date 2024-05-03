@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import useProfile from "../../hooks/useProfile"
 import { getNickScript } from "../../private/apiData";
 import getMainLink from "../../private/apiData";
@@ -14,7 +14,6 @@ const MainPage = () => {
 
     // profile.setNewAppName("Testq1");
 
-    const [toRefresh, setToRefresh] = useState(false);
     const errorRef = useRef<HTMLDivElement>(null);
 
     // profile.setNewIdUzytkownika(uuid);
@@ -39,7 +38,7 @@ const MainPage = () => {
                     console.log(error);
                 }
             })
-    },[toRefresh])
+    },[])
 
     const refreshMainPage = () => {
         //console.log('Odswierzanie...')
