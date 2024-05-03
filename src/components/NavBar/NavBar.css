@@ -76,6 +76,8 @@ nav{
         flex-direction: column;
         background: var(--text);
         padding: 1rem;
+        height: min-content;
+        z-index: 2;
     }
 
     
