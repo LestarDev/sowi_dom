@@ -65,7 +65,7 @@ const NavButton = () => {
         </div>
         <button onClick={setCurrentShowing} className="NavButtonToShow">{tabNamesOfButton[whichButton]}</button>
 
-        <div className="nav-choose-section" style={{display: (isChooseWhichSection ? 'block' : 'none')}}>
+        <div className="nav-choose-section" style={{display: (isChooseWhichSection ? 'flex' : 'none')}}>
                 <div>
                     <button onClick={setHereSectionE} className="b-1">Ekwipunek</button>
                     <button onClick={setHereSectionU} className="b-2">Umiejetnosci</button>
