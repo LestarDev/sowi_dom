@@ -18,10 +18,11 @@ const EkwipunekSection = () => {
         id: number,
         nazwa: string,
         ilosc: string,
-        czyBron: boolean
+        czyBron: boolean,
+        opis: string,
     }
 
-    const emptyItem: ekwipunekType = {id: -1,nazwa:'', ilosc:'', czyBron: false}
+    const emptyItem: ekwipunekType = {id: -1,nazwa:'', ilosc:'', czyBron: false, opis: ''}
 
     const [obecnyEkwipunek, setObecnyEkwipunek] = useState(emptyItem);
 
@@ -32,9 +33,9 @@ const EkwipunekSection = () => {
             if(refDiv.current){
                 refDiv.current.innerHTML="";
             }
-            for(let i=1; i<(data[0]*4); i+=4){
+            for(let i=1; i<(data[0]*5); i+=5){
                 // console.log(data[i+3], typeof data[i+3]);
-                const preItem: ekwipunekType = {id: data[i], nazwa: data[i+1], ilosc: data[i+2],czyBron: (data[i+3]=='1')};
+                const preItem: ekwipunekType = {id: data[i], nazwa: data[i+1], ilosc: data[i+2],czyBron: (data[i+3]=='1'), opis: data[i+4]};
 
                 //console.log(i,data[i],data[i+1],data[i+2]);
                 if(refDiv.current){
@@ -82,6 +83,7 @@ const EkwipunekSection = () => {
                 <h2>{obecnyEkwipunek.nazwa}</h2>
                 <div className="dataEQ">
                     <span>Ilosc: {obecnyEkwipunek.ilosc}</span>
+                    <span>Opis: {obecnyEkwipunek.opis}</span>
                     <span>{obecnyEkwipunek.czyBron ? <BronModule props={{id: obecnyEkwipunek.id}} /> : ''}</span>
                 </div>
                 <button onClick={closeWindow}>x</button>
