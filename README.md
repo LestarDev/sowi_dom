@@ -1,30 +1,47 @@
-# React + TypeScript + Vite
+# SOWI DOM
+Technology: React + TypeScript + Vite => HTML,CSS,PHP,SQL
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Author: Mateusz Borkowski
 
-Currently, two official plugins are available:
+PHP and SQL server used: `zsti.me/`. This server is only for ZSTI Gliwice students
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### More info:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
+- Configure the top-level `apiData.tsx` property like this:
 
 ```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
+const mainLink = "${Your Link}";
+
+const getMainLink = (isStackBlitz?: boolean) => {
+    if(isStackBlitz==true) return mainLink+'stackblitz/';
+    return mainLink
 }
+
+export const getProfileScript = "getUzytkownik.php?";
+export const getNickScript="getNick.php?";
+export const getUmiejetnosciScript="getUmiejetnosci.php?";
+export const getZdolnosciScript = "getZdolnosci.php?";
+export const getUmiejkiLike = "getUmiejetnosciLike.php?";
+export const getReceptaZdolki = "getRecepturaZdolnosci.php?";
+export const getEkwipunek = "getEkwipunek.php?";
+export const getBron = "getBronData.php?";
+export const getKsiazka = "getHandouty.php?";
+
+export default getMainLink
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- To run this project on github remember to start with `.github/workflows/mozaZadziala.yml` not 'root/'
+
+- In `vite.config.ts` change base to your project name
+
+```JS
+export default defineConfig({
+  plugins: [react()],
+  base: "/${Your project name}/",
+})
+
+```
+
+## Version: 0.5.0
+
+Version 1.0.0 will be delivered as soon as my dear Artist will do a figma for me :3
