@@ -54,7 +54,8 @@ const LoginPage = () => {
             HP: 0,
             lvl: 0,
             nick: '',
-            wybranyTyp: 'Ekwipunek'
+            wybranyTyp: 'Ekwipunek',
+            refreshPage: profile.refreshPage
         });
         setIsMainToReturn(false);
     }
