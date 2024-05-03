@@ -61,14 +61,14 @@ const EkwipunekSection = () => {
             }
 
         })
-    },[])
+    },[profile.refreshPage])
 
     const closeWindow = () => {
         setObecnyEkwipunek(emptyItem);
     }
 
     return <div className="EkwipunekSection">
-        <div ref={refDiv} className={profile.refreshPage ? '' : 'refresh'}></div>
+        <div ref={refDiv}></div>
         <div ref={refDivOpenWindow} className={obecnyEkwipunek.nazwa=='' ? 'window' : 'windowShowed'}>
             <div className="eqBox">
                 <div className="colorEq">
