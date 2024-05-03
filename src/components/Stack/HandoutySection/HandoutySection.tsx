@@ -61,7 +61,7 @@ const HandoutySection = () => {
     }
 
     return <div>
-        <div ref={refDiv}></div>
+        <div ref={refDiv} className={profile.refreshPage ? '' : 'refresh'}></div>
         {currentHandout.isPrzeczytana!=null ? (currentHandout.isPrzeczytana==false ? <>
             
             <div className="windowShowed">

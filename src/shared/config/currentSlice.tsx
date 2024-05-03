@@ -15,7 +15,8 @@ export interface CurrentState {
     Urok: number,
     Szczescie: number,
     idUzytkownika: number,
-    wybranyTyp: choosenType
+    wybranyTyp: choosenType,
+    refreshPage: boolean
 }
 
 
@@ -32,6 +33,7 @@ const initialState: CurrentState = {
     Urok: 0,
     Zrecznosc: 0,
     wybranyTyp: 'Ekwipunek',
+    refreshPage: false,
 }
 
 export const thisSlice = createSlice({
@@ -75,10 +77,13 @@ export const thisSlice = createSlice({
         },
         setWybrany: (state, action: PayloadAction<choosenType>) => {
             state.wybranyTyp=action.payload;
+        },
+        setRefresh: (state, action: PayloadAction<boolean>) => {
+            state.refreshPage=action.payload;
         }
     }
 })
 
-export const {setNick, setCialo, setUmysl, setZrecznosc, setHP, setSzczescie, setIntuicja, setIdUzytkownika, setNiezlomnosc, setLvl, setUrok, setWybrany, } = thisSlice.actions
+export const {setNick, setRefresh, setCialo, setUmysl, setZrecznosc, setHP, setSzczescie, setIntuicja, setIdUzytkownika, setNiezlomnosc, setLvl, setUrok, setWybrany, } = thisSlice.actions
 
 export default thisSlice.reducer

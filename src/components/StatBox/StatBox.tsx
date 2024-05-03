@@ -11,7 +11,7 @@ const StatBox = ({props}: any) => {
     props.wichOne as whichOneType;
 
     return <div className="StatBox">
-        <div>{props.whichOne}</div>
+        <div className={profile.refreshPage ? '' : 'refresh'}>{props.whichOne}</div>
         <div>
             {props.whichOne=='Cialo' ? profile.przelicznik(profile.Cialo):''}
             {props.whichOne=='Umysl' ? profile.przelicznik(profile.Umysl):''}

@@ -43,13 +43,16 @@ const MainPage = () => {
 
     const refreshMainPage = () => {
         //console.log('Odswierzanie...')
-        setToRefresh(!toRefresh);
+        // setToRefresh(!toRefresh);
+        profile.setRefreshPage(!profile.refreshPage);
     }
+
+    // refresh => useProfile [add refresh: boolean] => rerender aria
 
     return (<div aria-label="Main Page">
         <NavBar></NavBar>
         <StatsSection></StatsSection>
-        <SectionFromBar props={{refresh: refreshMainPage}}></SectionFromBar>
+        <SectionFromBar></SectionFromBar>
         <div className="refreshConteiner">
             <div ref={errorRef}></div>
             <button onClick={refreshMainPage}>Odswiez</button>

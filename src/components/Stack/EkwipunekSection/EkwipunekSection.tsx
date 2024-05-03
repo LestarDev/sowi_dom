@@ -68,7 +68,7 @@ const EkwipunekSection = () => {
     }
 
     return <div className="EkwipunekSection">
-        <div ref={refDiv}></div>
+        <div ref={refDiv} className={profile.refreshPage ? '' : 'refresh'}></div>
         <div ref={refDivOpenWindow} className={obecnyEkwipunek.nazwa=='' ? 'window' : 'windowShowed'}>
             <div className="eqBox">
                 <div className="colorEq">

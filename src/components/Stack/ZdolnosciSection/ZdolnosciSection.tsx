@@ -72,7 +72,7 @@ const ZdolnosciSection = () => {
     },[])
 
     return <div className="ZdolnosciSection">
-        <div ref={refDiv}></div>
+        <div ref={refDiv} className={profile.refreshPage ? '' : 'refresh'}></div>
         {infoToShow!="" ? <div className="windowShowed">
             <div className="zdolnoscInfoBox">
                 <textarea cols={40} rows={10} defaultValue={infoToShow} readOnly />

@@ -4,14 +4,12 @@ import HandoutySection from "../Stack/HandoutySection/HandoutySection";
 import UmiejetnosciSection from "../Stack/UmiejetnosciSection/UmiejetnosciSection";
 import ZdolnosciSection from "../Stack/ZdolnosciSection/ZdolnosciSection";
 
-const SectionFromBar = ({props}: any) => {
+const SectionFromBar = () => {
     const profile = useProfile();
-
-    const refresh = props.refresh;
 
     document.title = "Sowi Dom ["+profile.nick+"]";
 
-    return <div className={refresh ? '' : 'SectionFromBar'}>
+    return <div>
         {profile.wybranyTyp=='Umiejetnosci'? <UmiejetnosciSection /> : ''}
         {profile.wybranyTyp=='Zdolnosci' ? <ZdolnosciSection /> : ''}
         {profile.wybranyTyp=='Ekwipunek' ? <EkwipunekSection /> : ''}
