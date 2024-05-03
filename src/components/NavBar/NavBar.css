@@ -29,6 +29,10 @@ nav{
     height: 3rem;
 }
 
+.nav-choose-section{
+    display: none;
+}
+
 
 @media only screen and (max-width: 745px){
     .nav-el:last-child{
@@ -59,6 +63,23 @@ nav{
 }
 
 @media only screen and (max-width: 520px) {
+    .nav-choose-section{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .nav-choose-section div{
+        display: flex;
+        flex-direction: column;
+        background: var(--text);
+        padding: 1rem;
+    }
+
+    
+    
     .navClick{
         display: none;
     }
