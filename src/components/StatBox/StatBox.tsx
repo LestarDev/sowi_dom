@@ -30,7 +30,7 @@ const StatBox = ({props}: any) => {
             {' ]'}
         </div> 
         : 
-        <div>
+        <div className="refresh">
             {props.whichOne=='Cialo' ? profile.przelicznik(profile.Cialo):''}
             {props.whichOne=='Umysl' ? profile.przelicznik(profile.Umysl):''}
             {props.whichOne=='Urok' ? profile.przelicznik(profile.Urok):''}
