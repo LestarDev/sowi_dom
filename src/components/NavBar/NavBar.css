@@ -84,6 +84,10 @@ nav{
         align-items: center;
     }
 
+    .nav-choose-section button{
+        width: 100%;
+    }
+
     .nav-choose-section button:last-child{
         width: min-content;
     }
