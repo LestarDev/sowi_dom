@@ -32,21 +32,25 @@ const NavButton = () => {
     const setHereSectionE = () => {
         profile.setNewWybrany('Ekwipunek');
         //console.log(sectionName)
+        setIsChooseWhichSection(false);
     }
 
     const setHereSectionU = () => {
         profile.setNewWybrany('Umiejetnosci');
         //console.log(sectionName)
+        setIsChooseWhichSection(false);
     }
 
     const setHereSectionZ = () => {
         profile.setNewWybrany('Zdolnosci');
         //console.log(sectionName)
+        setIsChooseWhichSection(false);
     }
 
     const setHereSectionH = () => {
         profile.setNewWybrany('Handouty');
         //console.log(sectionName)
+        setIsChooseWhichSection(false);
     }
 
     const  showChoose = () => {
