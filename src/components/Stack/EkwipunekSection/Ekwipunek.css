@@ -64,3 +64,8 @@
     width: 90%;
     height: 90%;
 }
+
+.dataEQ{
+    display: flex;
+    flex-direction: column;
+}

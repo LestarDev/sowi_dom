@@ -84,7 +84,7 @@ const EkwipunekSection = () => {
                 <div className="dataEQ">
                     <span>Ilosc: {obecnyEkwipunek.ilosc}</span>
                     <span>Opis: {obecnyEkwipunek.opis}</span>
-                    <span>{obecnyEkwipunek.czyBron ? <BronModule props={{id: obecnyEkwipunek.id}} /> : ''}</span>
+                    {obecnyEkwipunek.czyBron ? <BronModule props={{id: obecnyEkwipunek.id}} /> : ''}
                 </div>
                 <button onClick={closeWindow}>x</button>
             </div>
