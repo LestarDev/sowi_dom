@@ -3,7 +3,7 @@
 }
 
 .windowShowed div.dataEQ{
-    flex-direction: row;
+    flex-direction: column;
     
 }
 
@@ -63,9 +63,4 @@
 .iconEq div svg{
     width: 90%;
     height: 90%;
-}
-
-.dataEQ{
-    display: flex;
-    flex-direction: column;
 }
