@@ -67,10 +67,10 @@ const NavButton = () => {
 
         <div className="nav-choose-section" style={{display: (isChooseWhichSection ? 'block' : 'none')}}>
                 <div>
-                    <button onClick={setHereSectionE} className="navClick b-1">Ekwipunek</button>
-                    <button onClick={setHereSectionU} className="navClick b-2">Umiejetnosci</button>
-                    <button onClick={setHereSectionZ} className="navClick b-3">Zdolnosci</button>
-                    <button onClick={setHereSectionH} className="navClick b-4">Handouty</button>
+                    <button onClick={setHereSectionE} className="b-1">Ekwipunek</button>
+                    <button onClick={setHereSectionU} className="b-2">Umiejetnosci</button>
+                    <button onClick={setHereSectionZ} className="b-3">Zdolnosci</button>
+                    <button onClick={setHereSectionH} className="b-4">Handouty</button>
                     <button onClick={()=>{
                         setIsChooseWhichSection(false);
                     }}>x</button>
