@@ -38,7 +38,7 @@ const MainPage = () => {
                     console.log(error);
                 }
             })
-    },[])
+    },[profile.refreshPage])
 
     const refreshMainPage = () => {
         //console.log('Odswierzanie...')
