@@ -82,7 +82,7 @@ const useProfile = () => {
         return pierwszaCyfra+'.'+drugaCyfra;
     }
 
-    const przeliczLvl = (toPrzelicz: number) => {
+    const przeliczLvl = (toPrzelicz: number, isSowiaMoneta: boolean=false) => {
 
         // 1=>1.0
         // 2=? 1.1
@@ -91,7 +91,7 @@ const useProfile = () => {
         //5 => 1.4
         // 6 => 2.0
         // 7=> 2.1
-        const pierwszaCyfra = Math.ceil(toPrzelicz/5);
+        const pierwszaCyfra = Math.ceil((toPrzelicz-(isSowiaMoneta ? 1 : 0))/5);
         const drugaCyfra = (toPrzelicz-1)%5;
         return pierwszaCyfra+'.'+drugaCyfra;
     }
