@@ -14,14 +14,21 @@ const ZdolnosciSection = () => {
 
     const [receptaToShow, setReceptaToShow] = useState(0);
 
-    const [infoToShow, setInfoToShow] = useState("");
-
+    
     type zdolnoscType = {
         nazwa: string, 
         czyPolaczone: boolean,
         tresc: string
     }
+    
+    const emptyZdolnosc: zdolnoscType = {
+        nazwa: '',
+        czyPolaczone: false,
+        tresc: ''
+    }
 
+    const [infoToShow, setInfoToShow] = useState(emptyZdolnosc);
+    
     const wyswietlRecepta = (idZdolnosci: number) => {
         setReceptaToShow(idZdolnosci);
     }
@@ -30,12 +37,12 @@ const ZdolnosciSection = () => {
         setReceptaToShow(0);
     }
 
-    const showInfo = (newInfo: string) => {
+    const showInfo = (newInfo: zdolnoscType) => {
         setInfoToShow(newInfo);
     }
 
     const hideInfo = () => {
-        setInfoToShow("");
+        setInfoToShow(emptyZdolnosc);
     }
 
     useEffect(()=>{
@@ -60,7 +67,7 @@ const ZdolnosciSection = () => {
                 }
                 buttonInfo.innerHTML="Info";
                 buttonInfo.onclick=function(){
-                    showInfo(preperZdolnosc.tresc);
+                    showInfo(preperZdolnosc);
                 }
                 divToPush.appendChild(spanToPush);
                 if(preperZdolnosc.czyPolaczone) divToPush.appendChild(imgToPush);
@@ -73,9 +80,10 @@ const ZdolnosciSection = () => {
 
     return <div className="ZdolnosciSection">
         <div ref={refDiv}></div>
-        {infoToShow!="" ? <div className="windowShowed">
+        {infoToShow.tresc!="" ? <div className="windowShowed">
             <div className="zdolnoscInfoBox">
-                <textarea cols={40} rows={10} defaultValue={infoToShow} readOnly />
+                <h2>{infoToShow.nazwa}</h2>
+                <textarea cols={40} rows={10} defaultValue={infoToShow.tresc + (infoToShow.czyPolaczone ? "\n \n Zdolnosc ta jest polaczona" : '')} readOnly />
                 <button onClick={hideInfo}>x</button>
             </div>
         </div> : ''}
