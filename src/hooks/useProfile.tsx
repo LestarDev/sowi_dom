@@ -83,7 +83,7 @@ const useProfile = () => {
     }
 
     const przeliczLvl = (toPrzelicz: number, isSowiaMoneta: boolean=false) => {
-
+        if(toPrzelicz==0) return '0';
         // 1=>1.0
         // 2=? 1.1
         //3=> 1.2

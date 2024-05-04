@@ -1,5 +1,5 @@
 .OwlModule{
-    width: 50%;
+    width: 45%;
     border: 1px solid var(--braz-ciemny);
     border-radius: 5px;
     display: flex;
@@ -13,5 +13,10 @@
 
 .OwlModule > div{
     display: flex;
+    align-items: center;
     gap: 0.5rem;
+}
+
+.OwlModule button{
+    height: min-content;
 }
