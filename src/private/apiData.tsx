@@ -14,5 +14,6 @@ export const getReceptaZdolki = "getRecepturaZdolnosci.php?";
 export const getEkwipunek = "getEkwipunek.php?";
 export const getBron = "getBronData.php?";
 export const getKsiazka = "getHandouty.php?";
+export const getMonetyScript = "getSowieMonety.php?";
 
 export default getMainLink

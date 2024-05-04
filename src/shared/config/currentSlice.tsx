@@ -17,7 +17,8 @@ export interface CurrentState {
     idUzytkownika: number,
     wybranyTyp: choosenType,
     refreshPage: boolean,
-    slimaki: number
+    slimaki: number,
+    sowieMonety: number,
 }
 
 
@@ -36,6 +37,7 @@ export const initialState: CurrentState = {
     wybranyTyp: 'Ekwipunek',
     refreshPage: false,
     slimaki: 0,
+    sowieMonety: 0,
 }
 
 export const thisSlice = createSlice({
@@ -85,10 +87,13 @@ export const thisSlice = createSlice({
         },
         setSlimaki: (state, action: PayloadAction<number>) => {
             state.slimaki=action.payload;
+        },
+        setSowieMonety: (state, action: PayloadAction<number>) => {
+            state.sowieMonety=action.payload;
         }
     }
 })
 
-export const {setNick, setRefresh, setSlimaki, setCialo, setUmysl, setZrecznosc, setHP, setSzczescie, setIntuicja, setIdUzytkownika, setNiezlomnosc, setLvl, setUrok, setWybrany, } = thisSlice.actions
+export const {setNick, setRefresh, setSlimaki, setSowieMonety, setCialo, setUmysl, setZrecznosc, setHP, setSzczescie, setIntuicja, setIdUzytkownika, setNiezlomnosc, setLvl, setUrok, setWybrany, } = thisSlice.actions
 
 export default thisSlice.reducer

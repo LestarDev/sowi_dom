@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from "react-redux"
-import { CurrentState, choosenType, setCialo, setHP, setIdUzytkownika, setIntuicja, setLvl, setNick, setNiezlomnosc, setRefresh, setSlimaki, setSzczescie, setUmysl, setUrok, setWybrany, setZrecznosc } from "../shared/config/currentSlice";
+import { CurrentState, choosenType, setCialo, setHP, setIdUzytkownika, setIntuicja, setLvl, setNick, setNiezlomnosc, setRefresh, setSlimaki, setSowieMonety, setSzczescie, setUmysl, setUrok, setWybrany, setZrecznosc } from "../shared/config/currentSlice";
 
 const useProfile = () => {
 
     const dispatch = useDispatch();
 
-    const {nick,HP, lvl, Umysl, slimaki, refreshPage, Cialo, Zrecznosc, idUzytkownika, Szczescie, Urok, Niezlomnosc, Intuicja, wybranyTyp} = (useSelector((state: any) => state) as any).currency;
+    const {nick,HP, lvl, Umysl, slimaki, sowieMonety, refreshPage, Cialo, Zrecznosc, idUzytkownika, Szczescie, Urok, Niezlomnosc, Intuicja, wybranyTyp} = (useSelector((state: any) => state) as any).currency;
 
     wybranyTyp as choosenType;
 
@@ -20,6 +20,10 @@ const useProfile = () => {
         dispatch(setUrok(data.Urok))
         dispatch(setIdUzytkownika(data.idUzytkownika));
         dispatch(setWybrany('Ekwipunek'));
+    }
+
+    const setNewSowieMonety = (newMonety: number) => {
+        dispatch(setSowieMonety(newMonety));
     }
     
     const setNewSlimaki = (newSlimaki: number) => {
@@ -510,8 +514,8 @@ const useProfile = () => {
     return ({
         przelicznik, setNewWybrany, pokazKostki, zlaczoneKostki, przeliczLvl, getFirstCyfra, getHP,
         setNewProfile, setNewIdUzytkownika, setNewNick,
-        setNewCialo, setNewIntuicja, setNewSzczescie, setNewNiezlomnosc, setNewUrok, setNewUmysl, setNewLvl,setNewZrecznosc, setNewAddHP, setRefreshPage, setNewSlimaki,
-        nick, lvl, Umysl, Cialo, Zrecznosc, idUzytkownika, Szczescie, Urok, Niezlomnosc, Intuicja, wybranyTyp, refreshPage, slimaki,
+        setNewCialo, setNewIntuicja, setNewSzczescie, setNewNiezlomnosc, setNewUrok, setNewUmysl, setNewLvl,setNewZrecznosc, setNewAddHP, setRefreshPage, setNewSlimaki, setNewSowieMonety,
+        nick, lvl, Umysl, sowieMonety, Cialo, Zrecznosc, idUzytkownika, Szczescie, Urok, Niezlomnosc, Intuicja, wybranyTyp, refreshPage, slimaki,
     })
 
 }
