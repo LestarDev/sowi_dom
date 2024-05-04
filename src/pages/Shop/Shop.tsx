@@ -8,6 +8,7 @@ const Shop = () => {
         <OwlShopTitle></OwlShopTitle>
         <div className="owlShop">
             <OwlModule nazwa="Polaczenie dwoch zdolnosci" koszt={1} />
+            <OwlModule nazwa="Wziecie nowej zdolnosci" koszt={1} />
         </div>
         {/* Sowi Sklep: 
 
