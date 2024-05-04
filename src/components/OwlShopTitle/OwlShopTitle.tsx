@@ -3,6 +3,7 @@ import useProfile from "../../hooks/useProfile";
 import getMainLink, { getMonetyScript } from "../../private/apiData";
 import { isStackBlitz } from "../../shared/config/isStackBlitz";
 import { GiOwl } from "react-icons/gi";
+import './OwlShopTitle.css'
 
 const OwlShopTitle = () => {
 
@@ -14,7 +15,7 @@ const OwlShopTitle = () => {
         })
     },[profile.refreshPage])
 
-    return (<h2>
+    return (<h2 className="OwlShopTitle">
         Sowi Sklep {profile.nick} - {'['}
             {profile.sowieMonety}
             <GiOwl />
