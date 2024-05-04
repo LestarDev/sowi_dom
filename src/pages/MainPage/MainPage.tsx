@@ -47,9 +47,7 @@ const MainPage = () => {
         <NavBar></NavBar>
         <StatsSection></StatsSection>
         <SectionFromBar></SectionFromBar>
-        <div className="refreshConteiner">
-            <div ref={errorRef}></div>
-        </div>
+        <div ref={errorRef}></div>
     </div>)
 }
 
