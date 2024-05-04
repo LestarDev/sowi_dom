@@ -1,0 +1,8 @@
+.OwlModule{
+    width: 50%;
+    border: 1px solid var(--braz-ciemny);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
