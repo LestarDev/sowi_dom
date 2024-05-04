@@ -1,10 +1,14 @@
 import NavBar from "../../components/NavBar/NavBar"
+import OwlModule from "../../components/OwlModule/OwlModule"
 import OwlShopTitle from "../../components/OwlShopTitle/OwlShopTitle"
 
 const Shop = () => {
     return <div>
         <NavBar></NavBar>
         <OwlShopTitle></OwlShopTitle>
+        <div className="owlShop">
+            <OwlModule nazwa="Polaczenie dwoch zdolnosci" koszt={1} />
+        </div>
         {/* Sowi Sklep: 
 
 - Połączenie Dwóch Zdolności 
