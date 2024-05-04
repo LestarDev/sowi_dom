@@ -6,10 +6,14 @@ import getMainLink from "../../private/apiData";
 import './LoginPage.css'
 import { isStackBlitz } from "../../shared/config/isStackBlitz";
 import { initialState } from "../../shared/config/currentSlice";
+import Shop from "../Shop/Shop";
 
 const LoginPage = () => {
 
-    const [isMainToReturn, setIsMainToReturn] = useState(false);
+    const [isMainToReturn, setIsMainToReturn] = useState(0);
+    // 0 => Login page
+    // 1 => Main page
+    // 2 => Sowi shop
 
     const profile=useProfile();
 
@@ -31,7 +35,7 @@ const LoginPage = () => {
             console.log(data);
             if(data!="Error login"){
                 profile.setNewIdUzytkownika(data as number);
-                setIsMainToReturn(true);
+                setIsMainToReturn(1);
             }
             // setUUID(data as number);
             // console.log("Profile id: "+profile.idUzytkownika)
@@ -44,22 +48,43 @@ const LoginPage = () => {
 
     const logOut = () => {
         profile.setNewProfile(initialState);
-        setIsMainToReturn(false);
+        setIsMainToReturn(0);
     }
 
-    return <div className={isMainToReturn ? 'mainPage' : 'FormConteiner'}>
-        {isMainToReturn ? <><MainPage />
-        <button onClick={logOut} className="logoutButton">Wyloguj</button>
-        </> : <form method="POST" onSubmit={e => e.preventDefault()}>
-            <label htmlFor="loginID">Login: <input type="text" id="loginID" name="login" ref={loginRef} required/></label>
-            <label htmlFor="passwordID">Password: <input type="text" id="passwordID" name="password" ref={passwordRef} required/></label>
-            <input type="submit" onClick={(e)=>{
-                e.preventDefault();
-                moveToMainPage();
-            }} value="Login" />
-        </form>}
-        
-    </div>
+    return <>
+        {isMainToReturn==0 ? <div className="FormConteiner">
+            <form method="POST" onSubmit={e => e.preventDefault()}>
+                <label htmlFor="loginID">Login: <input type="text" id="loginID" name="login" ref={loginRef} required/></label>
+                <label htmlFor="passwordID">Password: <input type="text" id="passwordID" name="password" ref={passwordRef} required/></label>
+                <input type="submit" onClick={(e)=>{
+                    e.preventDefault();
+                    moveToMainPage();
+                }} value="Login" />
+            </form>
+        </div> : ''}
+
+        {isMainToReturn==1 ? <div className="mainPage">
+            <MainPage />
+            <button onClick={logOut} className="logoutButton">Wyloguj</button>
+            <button onClick={()=>{
+                setIsMainToReturn(2);
+            }}>Sowi sklep</button>
+            <button onClick={()=>{
+                profile.setRefreshPage(!profile.refreshPage);
+            }}>Odswiez</button>
+        </div> : ''}
+
+        {isMainToReturn==2 ? <div className="sowiSklep">
+            <Shop />
+            <button onClick={logOut} className="logoutButton">Wyloguj</button>
+            <button onClick={()=>{
+                setIsMainToReturn(1);
+            }}>Glowne Konto</button>
+            <button onClick={()=>{
+                profile.setRefreshPage(!profile.refreshPage);
+            }}>Odswiez</button>
+        </div> : ''}
+    </>
 }
 
 export default LoginPage
