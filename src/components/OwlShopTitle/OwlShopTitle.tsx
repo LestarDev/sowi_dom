@@ -17,7 +17,7 @@ const OwlShopTitle = () => {
 
     return (<h2 className="OwlShopTitle">
         Sowi Sklep {profile.nick} - {'['}
-            {profile.sowieMonety}
+            {profile.przeliczLvl(profile.sowieMonety)}
             <GiOwl />
         {']'}
     </h2>)
