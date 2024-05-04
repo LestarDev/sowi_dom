@@ -14,12 +14,12 @@ const OwlShopTitle = () => {
         })
     },[profile.refreshPage])
 
-    return <h2>
+    return (<h2>
         Sowi Sklep {profile.nick} - {'['}
             {profile.sowieMonety}
             <GiOwl />
         {']'}
-    </h2>
+    </h2>)
 }
 
 export default OwlShopTitle

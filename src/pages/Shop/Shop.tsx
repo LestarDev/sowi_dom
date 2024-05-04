@@ -1,8 +1,10 @@
 import NavBar from "../../components/NavBar/NavBar"
+import OwlShopTitle from "../../components/OwlShopTitle/OwlShopTitle"
 
 const Shop = () => {
     return <div>
         <NavBar></NavBar>
+        <OwlShopTitle></OwlShopTitle>
         {/* Sowi Sklep: 
 
 - Połączenie Dwóch Zdolności 
