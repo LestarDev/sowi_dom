@@ -5,6 +5,7 @@ import { getProfileScript } from "../../private/apiData";
 import getMainLink from "../../private/apiData";
 import './LoginPage.css'
 import { isStackBlitz } from "../../shared/config/isStackBlitz";
+import { initialState } from "../../shared/config/currentSlice";
 
 const LoginPage = () => {
 
@@ -42,21 +43,7 @@ const LoginPage = () => {
     }
 
     const logOut = () => {
-        profile.setNewProfile({
-            idUzytkownika: 0,
-            Cialo: 0,
-            Zrecznosc: 0,
-            Intuicja: 0,
-            Umysl: 0,
-            Urok: 0,
-            Szczescie: 0,
-            Niezlomnosc: 0,
-            HP: 0,
-            lvl: 0,
-            nick: '',
-            wybranyTyp: 'Ekwipunek',
-            refreshPage: profile.refreshPage
-        });
+        profile.setNewProfile(initialState);
         setIsMainToReturn(false);
     }
 

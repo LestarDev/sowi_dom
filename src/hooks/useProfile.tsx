@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from "react-redux"
-import { CurrentState, choosenType, setCialo, setHP, setIdUzytkownika, setIntuicja, setLvl, setNick, setNiezlomnosc, setRefresh, setSzczescie, setUmysl, setUrok, setWybrany, setZrecznosc } from "../shared/config/currentSlice";
+import { CurrentState, choosenType, setCialo, setHP, setIdUzytkownika, setIntuicja, setLvl, setNick, setNiezlomnosc, setRefresh, setSlimaki, setSzczescie, setUmysl, setUrok, setWybrany, setZrecznosc } from "../shared/config/currentSlice";
 
 const useProfile = () => {
 
     const dispatch = useDispatch();
 
-    const {nick,HP, lvl, Umysl, refreshPage, Cialo, Zrecznosc, idUzytkownika, Szczescie, Urok, Niezlomnosc, Intuicja, wybranyTyp} = (useSelector((state: any) => state) as any).currency;
+    const {nick,HP, lvl, Umysl, Slimaki, refreshPage, Cialo, Zrecznosc, idUzytkownika, Szczescie, Urok, Niezlomnosc, Intuicja, wybranyTyp} = (useSelector((state: any) => state) as any).currency;
 
     wybranyTyp as choosenType;
 
@@ -20,6 +20,10 @@ const useProfile = () => {
         dispatch(setUrok(data.Urok))
         dispatch(setIdUzytkownika(data.idUzytkownika));
         dispatch(setWybrany('Ekwipunek'));
+    }
+    
+    const setNewSlimaki = (newSlimaki: number) => {
+        dispatch(setSlimaki(newSlimaki));
     }
 
     const setRefreshPage = (newRefresh: boolean) => {
@@ -506,8 +510,8 @@ const useProfile = () => {
     return ({
         przelicznik, setNewWybrany, pokazKostki, zlaczoneKostki, przeliczLvl, getFirstCyfra, getHP,
         setNewProfile, setNewIdUzytkownika, setNewNick,
-        setNewCialo, setNewIntuicja, setNewSzczescie, setNewNiezlomnosc, setNewUrok, setNewUmysl, setNewLvl,setNewZrecznosc, setNewAddHP, setRefreshPage,
-        nick, lvl, Umysl, Cialo, Zrecznosc, idUzytkownika, Szczescie, Urok, Niezlomnosc, Intuicja, wybranyTyp, refreshPage,
+        setNewCialo, setNewIntuicja, setNewSzczescie, setNewNiezlomnosc, setNewUrok, setNewUmysl, setNewLvl,setNewZrecznosc, setNewAddHP, setRefreshPage, setNewSlimaki,
+        nick, lvl, Umysl, Cialo, Zrecznosc, idUzytkownika, Szczescie, Urok, Niezlomnosc, Intuicja, wybranyTyp, refreshPage, Slimaki,
     })
 
 }

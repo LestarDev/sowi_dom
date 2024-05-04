@@ -30,6 +30,7 @@ const MainPage = () => {
                 profile.setNewNiezlomnosc(data[7] as number);
                 profile.setNewIntuicja(data[8] as number);
                 profile.setNewSzczescie(data[9] as number);
+                profile.setNewSlimaki(data[10] as number);
                 //profile.setNewNick('test1');
                 // console.log(data)
             }).catch((error)=>{

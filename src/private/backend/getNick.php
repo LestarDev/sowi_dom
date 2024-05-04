@@ -13,14 +13,14 @@ $con = mysqli_connect('localhost','lestardev','OptimusPrime9001!','lestardev_sow
         // header("Location: ".$url);
     exit();
  }else{
-    $query_uzytkownik = "SELECT nick from `postacie` WHERE id_uzytkownika='$id';";
+    $query_uzytkownik = "SELECT postacie.nick, postacie.lvl, postacie.HP, postacie.Cialo, postacie.Umysl, postacie.Urok, postacie.Zrecznosc, postacie.Niezlomnosc, postacie.Intuicja, postacie.Szczescie, postacie.Slimaki FROM `postacie` WHERE postacie.id_uzytkownika='$id';";
     $res_uzytkownik = mysqli_query($con, $query_uzytkownik);
     $row_uzytkownik = mysqli_fetch_row($res_uzytkownik);
     
     if($row_uzytkownik==null){
     	echo "Error id";
     }else{
-    	echo $row_uzytkownik[0];
+    	echo json_encode($row_uzytkownik);
     }
     
  }

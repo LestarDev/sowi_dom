@@ -16,11 +16,12 @@ export interface CurrentState {
     Szczescie: number,
     idUzytkownika: number,
     wybranyTyp: choosenType,
-    refreshPage: boolean
+    refreshPage: boolean,
+    slimaki: number
 }
 
 
-const initialState: CurrentState = {
+export const initialState: CurrentState = {
     nick: "",
     Cialo: 0,
     HP: 0,
@@ -34,6 +35,7 @@ const initialState: CurrentState = {
     Zrecznosc: 0,
     wybranyTyp: 'Ekwipunek',
     refreshPage: false,
+    slimaki: 0,
 }
 
 export const thisSlice = createSlice({
@@ -80,10 +82,13 @@ export const thisSlice = createSlice({
         },
         setRefresh: (state, action: PayloadAction<boolean>) => {
             state.refreshPage=action.payload;
+        },
+        setSlimaki: (state, action: PayloadAction<number>) => {
+            state.slimaki=action.payload;
         }
     }
 })
 
-export const {setNick, setRefresh, setCialo, setUmysl, setZrecznosc, setHP, setSzczescie, setIntuicja, setIdUzytkownika, setNiezlomnosc, setLvl, setUrok, setWybrany, } = thisSlice.actions
+export const {setNick, setRefresh, setSlimaki, setCialo, setUmysl, setZrecznosc, setHP, setSzczescie, setIntuicja, setIdUzytkownika, setNiezlomnosc, setLvl, setUrok, setWybrany, } = thisSlice.actions
 
 export default thisSlice.reducer
