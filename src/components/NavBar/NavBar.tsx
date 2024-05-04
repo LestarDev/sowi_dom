@@ -38,7 +38,7 @@ const NavBar = () => {
                     <GiLevelFourAdvanced />{profile.przeliczLvl(profile.lvl)}
                 </div>
                 <div>
-                    <ImCoinDollar />{profile.Slimaki}  
+                    <ImCoinDollar />{profile.slimaki}  
                 </div>
                 <div>
                     <LuMoonStar />{profile.Szczescie}
