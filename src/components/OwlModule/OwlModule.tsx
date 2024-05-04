@@ -14,7 +14,7 @@ const OwlModule = ({nazwa, koszt}: owlCard) => {
     return <div className="OwlModule">
         <p>{nazwaHere}</p>
         <div>
-            <h3>{kosztHere}</h3>
+            <h3>Koszt: {kosztHere}</h3>
             <button>Kup</button>
         </div>
     </div>
