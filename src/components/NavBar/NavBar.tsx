@@ -5,6 +5,7 @@ import { ImCoinDollar } from "react-icons/im";
 import { LuMoonStar } from "react-icons/lu";
 import './NavBar.css'
 import NavButton from "../NavButton/NavButton";
+import { FaRegHeart } from "react-icons/fa6";
 
 const NavBar = () => {
 
@@ -46,7 +47,7 @@ const NavBar = () => {
                 </div>
         </li>
         <li className="nav-el hp-el">
-            HP: {profile.getHP()}
+            HP: {profile.getHP()} <FaRegHeart />
         </li>
         <li className="nav-el">
             <div>
