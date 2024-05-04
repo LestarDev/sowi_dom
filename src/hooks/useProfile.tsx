@@ -91,7 +91,7 @@ const useProfile = () => {
         //5 => 1.4
         // 6 => 2.0
         // 7=> 2.1
-        const pierwszaCyfra = Math.ceil((toPrzelicz-(isSowiaMoneta ? 5 : 0))/5);
+        const pierwszaCyfra = Math.ceil((toPrzelicz-(isSowiaMoneta ? 4 : 0))/5);
         const drugaCyfra = ((toPrzelicz-(isSowiaMoneta ? 0 : 1)))%5;
         return pierwszaCyfra+'.'+drugaCyfra;
     }
