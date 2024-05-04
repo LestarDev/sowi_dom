@@ -37,3 +37,9 @@
 .logoutButton{
     transform: translateY(calc(-150% + 3px));
 }
+
+input[type="submit"]{
+    height: 2rem;
+    cursor: pointer;
+    background: var(--main-color);
+}
