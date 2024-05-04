@@ -38,3 +38,7 @@
     background: var(--text);
     border-radius: 5px;
 }
+
+.zdolnoscInfoBox h2{
+    color: var(--main-color);
+}
