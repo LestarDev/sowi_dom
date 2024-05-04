@@ -126,7 +126,7 @@ const useProfile = () => {
             case '12':
                 return "k10+2k8";
             default:
-                return "Error => useProfile => pokazKostki"
+                return "Ladowanie..."
 
         }
     }
