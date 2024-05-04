@@ -65,24 +65,28 @@ const LoginPage = () => {
 
         {isMainToReturn==1 ? <div className="mainPage">
             <MainPage />
-            <button onClick={logOut} className="logoutButton">Wyloguj</button>
-            <button onClick={()=>{
-                setIsMainToReturn(2);
-            }}>Sowi sklep</button>
-            <button onClick={()=>{
-                profile.setRefreshPage(!profile.refreshPage);
-            }}>Odswiez</button>
+            <div className="mainButtons">
+                <button onClick={logOut} className="logoutButton">Wyloguj</button>
+                <button onClick={()=>{
+                    setIsMainToReturn(2);
+                }}>Sowi sklep</button>
+                <button onClick={()=>{
+                    profile.setRefreshPage(!profile.refreshPage);
+                }}>Odswiez</button>
+            </div>
         </div> : ''}
 
         {isMainToReturn==2 ? <div className="sowiSklep">
             <Shop />
-            <button onClick={logOut} className="logoutButton">Wyloguj</button>
-            <button onClick={()=>{
-                setIsMainToReturn(1);
-            }}>Glowne Konto</button>
-            <button onClick={()=>{
-                profile.setRefreshPage(!profile.refreshPage);
-            }}>Odswiez</button>
+            <div className="mainButtons">
+                <button onClick={logOut} className="logoutButton">Wyloguj</button>
+                <button onClick={()=>{
+                    setIsMainToReturn(1);
+                }}>Glowne Konto</button>
+                <button onClick={()=>{
+                    profile.setRefreshPage(!profile.refreshPage);
+                }}>Odswiez</button>
+            </div>
         </div> : ''}
     </>
 }

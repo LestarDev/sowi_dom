@@ -43,3 +43,8 @@ input[type="submit"]{
     cursor: pointer;
     background: var(--main-color);
 }
+
+.mainButtons{
+    display: flex;
+    justify-content: space-between;
+}
