@@ -1,6 +1,7 @@
 import NavBar from "../../components/NavBar/NavBar"
 import OwlModule from "../../components/OwlModule/OwlModule"
 import OwlShopTitle from "../../components/OwlShopTitle/OwlShopTitle"
+import './Shop.css'
 
 const Shop = () => {
     return <div>
