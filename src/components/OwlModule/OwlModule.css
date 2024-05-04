@@ -7,6 +7,10 @@
     align-items: center;
 }
 
+.OwlModule h3{
+    border-bottom: 1px solid var(--braz-ciemny);
+}
+
 .OwlModule > div{
     display: flex;
     gap: 0.5rem;
