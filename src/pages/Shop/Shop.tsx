@@ -28,7 +28,14 @@ const Shop = () => {
             <OwlModule nazwa="Zdobycie k4+1 Szczescia" koszt={1} type={profile.sowieMonety >= 5 ? "kupuj" : "brak monet"} fun={setMessageToShop}/>
             <OwlModule nazwa={"Zdobycie +0.1 lvl [na "+profile.przeliczLvl(profile.lvl*1 + 1)+"]"} koszt={1} type={profile.sowieMonety >= 5 ? "kupuj" : "brak monet"} fun={setMessageToShop}/>
         </div>
-        {messageToShop.message}
+        {messageToShop.isToShow ? <div className="shopInfoBox">
+            <div>
+                {messageToShop.message}
+                <button onClick={()=>{
+                    setMessageToShop({message: messageToShop.message, isToShow: false});
+                }}>x</button>
+            </div>
+        </div> : ''}
         {/* Sowi Sklep: 
 
 - Połączenie Dwóch Zdolności 
