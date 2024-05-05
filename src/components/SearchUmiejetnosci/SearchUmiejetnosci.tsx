@@ -37,7 +37,7 @@ const SearchUmiejetnosci = ({props}: any) => {
                     const buttonOpen = document.createElement("button");
                     divEl.className="singleUmiejka";
                     firstSpan.innerHTML=preUmiejka.name;
-                    secondSpan.innerHTML=profile.przelicznik(preUmiejka.value);
+                    secondSpan.innerHTML=profile.przelicznik(preUmiejka.value) as string;
                     buttonOpen.innerHTML="Info";
                     buttonOpen.onclick= function(){
                         openWindow(preUmiejka);
