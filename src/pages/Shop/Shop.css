@@ -4,6 +4,7 @@
     flex-wrap: wrap;
     margin: 1rem 0;
     gap: 0.5rem;
+    row-gap: 1rem;
 }
 
 .shopInfoBox{
@@ -18,7 +19,6 @@
 }
 
 .shopInfoBox div{
-    width: min-content;
     height: min-content;
     padding: 1rem;
     border-radius: 5px;

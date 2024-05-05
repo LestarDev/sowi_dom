@@ -12,7 +12,7 @@
     width: 100%;
     border-bottom: 1px solid var(--braz-ciemny);
     text-align: center;
-    margin: 0 0 0.5rem 0;
+    padding: 0 0 0.5rem 0;
 }
 
 .OwlModule > div{
