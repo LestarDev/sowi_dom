@@ -74,15 +74,17 @@ const useProfile = () => {
         dispatch(setZrecznosc(newZrecznosc))
     }
 
-    const przelicznik = (toPrzelicz: number) => {
+    const przelicznik = (toPrzelicz: number, isReturnFirst: boolean = false, isReturnSecond: boolean = false) => {
         if(toPrzelicz==0) return "0 XD";
         const pierwszaCyfra = Math.ceil(toPrzelicz/4);
+        if(isReturnFirst) return pierwszaCyfra;
         const drugaCyfraPrzygotowanie = toPrzelicz%4;
         const drugaCyfra = drugaCyfraPrzygotowanie==0 ? 4 : drugaCyfraPrzygotowanie;
+        if(isReturnSecond) return drugaCyfra;
         return pierwszaCyfra+'.'+drugaCyfra;
     }
 
-    const przeliczLvl = (toPrzelicz: number, isSowiaMoneta: boolean=false) => {
+    const przeliczLvl = (toPrzelicz: number, isSowiaMoneta: boolean=false, isReturnFirst: boolean = false) => {
         if(toPrzelicz==0) return '0';
         // 1=>1.0
         // 2=? 1.1
@@ -92,6 +94,7 @@ const useProfile = () => {
         // 6 => 2.0
         // 7=> 2.1
         const pierwszaCyfra = Math.ceil((toPrzelicz-(isSowiaMoneta ? 4 : 0))/5);
+        if(isReturnFirst) return pierwszaCyfra as number;
         const drugaCyfra = ((toPrzelicz-(isSowiaMoneta ? 0 : 1)))%5;
         return pierwszaCyfra+'.'+drugaCyfra;
     }
