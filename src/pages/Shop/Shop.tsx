@@ -25,7 +25,10 @@ const Shop = () => {
     const [listUmiejetnosciToUpgrade, setListUmiejetnosciToUpgrade] = useState(emptyUmiejetnoscList);
     // todo: zmienic automatyczny sekcje z Ekwipunek na Umiejetnosci i pobierac z Umiejetnosci Section state'a
 
+    const [offset, setOffset] = useState(0);
+
     useEffect(()=>{
+        const onScroll = () => setOffset(window.scrollY);
         fetch(getMainLink(isStackBlitz)+getUmiejetnosciScript+'id='+profile.idUzytkownika).then(response=>response.json()).then((data: any)=>{
             console.log(data);
             for(let i=1; i<(data[0]*3); i+=3){
@@ -34,6 +37,9 @@ const Shop = () => {
                 }
             }
         })
+        window.removeEventListener('scroll', onScroll);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
     },[profile.refreshPage])
 
     console.log("Lista umiejek to upgrade: ",listUmiejetnosciToUpgrade);
@@ -65,7 +71,7 @@ const Shop = () => {
             }
 
         </div>
-        {messageToShop.isToShow ? <div className="shopInfoBox" style={{transform: "translateY("+window.scrollY+"px)"}}>
+        {messageToShop.isToShow ? <div className="shopInfoBox" style={{transform: "translateY("+offset+"px)"}}>
             <div>
                 {messageToShop.message}
                 <button onClick={()=>{
