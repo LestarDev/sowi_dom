@@ -24,3 +24,7 @@
 .OwlModule button{
     height: min-content;
 }
+
+.OwlModule button[class="Poinformuj MG o zakupie"]:hover{
+    background: orangered;
+}
