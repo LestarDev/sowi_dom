@@ -37,9 +37,9 @@ const Shop = () => {
     },[profile.refreshPage])
 
     console.log("Lista umiejek to upgrade: ",listUmiejetnosciToUpgrade);
-    const toRetun: JSX.Element[] = [];
+    const toRetunUpgradableUmiejetnosci: JSX.Element[] = [];
     listUmiejetnosciToUpgrade.forEach(singleUmiejka=>{
-        toRetun.push(<OwlModule nazwa={"Awansuj umiejetnosc '"+singleUmiejka.name+"'"} koszt={1} type="brak monet" fun={setMessageToShop} />)
+        toRetunUpgradableUmiejetnosci.push(<OwlModule nazwa={"Awansuj umiejetnosc '"+singleUmiejka.name+"'"} koszt={1} type="brak monet" fun={setMessageToShop} />)
     })
 
 
@@ -61,7 +61,7 @@ const Shop = () => {
             {(2*(profile.przelicznik(profile.Urok*1+1,true) as number))<=(profile.przeliczLvl(profile.lvl,false,true) as number) ? <OwlModule nazwa={'Podnies Urok o 0.1 [na '+profile.przelicznik(profile.Urok*1+1)+']'} koszt={1} type={profile.sowieMonety >= 5 ? "kupuj" : "brak monet"} fun={setMessageToShop} /> : ''}
         
             {
-                toRetun
+                toRetunUpgradableUmiejetnosci
             }
 
         </div>
