@@ -1,22 +1,34 @@
+import { useState } from "react"
 import NavBar from "../../components/NavBar/NavBar"
-import OwlModule from "../../components/OwlModule/OwlModule"
+import OwlModule, { typeOfCard } from "../../components/OwlModule/OwlModule"
 import OwlShopTitle from "../../components/OwlShopTitle/OwlShopTitle"
 import useProfile from "../../hooks/useProfile"
 import './Shop.css'
+
+export type messageShop = {
+    message: typeOfCard,
+    isToShow: boolean,
+}
 
 const Shop = () => {
 
     const profile = useProfile();
 
+
+    const emptyMessageShop: messageShop = {message: "brak monet", isToShow: false}; 
+
+    const [messageToShop, setMessageToShop] = useState(emptyMessageShop);
+
     return <div>
         <NavBar></NavBar>
         <OwlShopTitle></OwlShopTitle>
         <div className="owlShop">
-            <OwlModule nazwa="Polaczenie dwoch zdolnosci" koszt={1} type={profile.sowieMonety >= 5 ? "Poinformuj MG o zakupie" : "brak monet"} />
-            <OwlModule nazwa="Wziecie nowej zdolnosci" koszt={1} type={profile.sowieMonety >= 5 ? "Poinformuj MG o zakupie" : "brak monet"} />
-            <OwlModule nazwa="Zdobycie k4+1 Szczescia" koszt={1} type={profile.sowieMonety >= 5 ? "kupuj" : "brak monet"}/>
-            <OwlModule nazwa={"Zdobycie +0.1 lvl [na "+profile.przeliczLvl(profile.lvl*1 + 1)+"]"} koszt={1} type={profile.sowieMonety >= 5 ? "kupuj" : "brak monet"}/>
+            <OwlModule nazwa="Polaczenie dwoch zdolnosci" koszt={1} type={profile.sowieMonety >= 5 ? "Poinformuj MG o zakupie" : "brak monet"} fun={setMessageToShop} />
+            <OwlModule nazwa="Wziecie nowej zdolnosci" koszt={1} type={profile.sowieMonety >= 5 ? "Poinformuj MG o zakupie" : "brak monet"} fun={setMessageToShop}/>
+            <OwlModule nazwa="Zdobycie k4+1 Szczescia" koszt={1} type={profile.sowieMonety >= 5 ? "kupuj" : "brak monet"} fun={setMessageToShop}/>
+            <OwlModule nazwa={"Zdobycie +0.1 lvl [na "+profile.przeliczLvl(profile.lvl*1 + 1)+"]"} koszt={1} type={profile.sowieMonety >= 5 ? "kupuj" : "brak monet"} fun={setMessageToShop}/>
         </div>
+        {messageToShop.message}
         {/* Sowi Sklep: 
 
 - Połączenie Dwóch Zdolności 

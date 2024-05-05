@@ -1,13 +1,17 @@
+import { messageShop } from '../../pages/Shop/Shop';
 import './OwlModule.css'
+
+export type typeOfCard = "brak monet" | "Poinformuj MG o zakupie" | "kupuj";
 
 type owlCard = {
     nazwa: string,
     koszt: number,
-    type: "brak monet" | "Poinformuj MG o zakupie" | "kupuj",
+    type: typeOfCard,
+    fun: React.Dispatch<React.SetStateAction<messageShop>>
 }
 
 
-const OwlModule = ({nazwa, koszt, type}: owlCard) => {
+const OwlModule = ({nazwa, koszt, type, fun}: owlCard) => {
 
     const nazwaHere = nazwa;
     const kosztHere = koszt;
@@ -20,7 +24,7 @@ const OwlModule = ({nazwa, koszt, type}: owlCard) => {
             <button onClick={()=>{
                 typeHere=="Poinformuj MG o zakupie" ? alert(typeHere) : '';
                 typeHere=="brak monet" ? alert(typeHere) : '';
-                typeHere=="kupuj" ? '' : '';
+                typeHere=="kupuj" ? fun({message: "kupuj", isToShow: true}) : '';
             }} className={typeHere}>Kup</button>
         </div>
     </div>
