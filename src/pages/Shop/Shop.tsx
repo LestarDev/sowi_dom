@@ -1,15 +1,21 @@
 import NavBar from "../../components/NavBar/NavBar"
 import OwlModule from "../../components/OwlModule/OwlModule"
 import OwlShopTitle from "../../components/OwlShopTitle/OwlShopTitle"
+import useProfile from "../../hooks/useProfile"
 import './Shop.css'
 
 const Shop = () => {
+
+    const profile = useProfile();
+
     return <div>
         <NavBar></NavBar>
         <OwlShopTitle></OwlShopTitle>
         <div className="owlShop">
             <OwlModule nazwa="Polaczenie dwoch zdolnosci" koszt={1} />
             <OwlModule nazwa="Wziecie nowej zdolnosci" koszt={1} />
+            <OwlModule nazwa="Zdobycie k4+1 Szczescia" koszt={1} />
+            <OwlModule nazwa={"Zdobycie +0.1 lvl [na "+profile.przeliczLvl(profile.lvl+1)} koszt={1}/>
         </div>
         {/* Sowi Sklep: 
 
