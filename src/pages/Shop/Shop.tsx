@@ -65,7 +65,7 @@ const Shop = () => {
             }
 
         </div>
-        {messageToShop.isToShow ? <div className="shopInfoBox" style={{transform: "translateY(20px)"}}>
+        {messageToShop.isToShow ? <div className="shopInfoBox" style={{transform: "translateY("+window.scrollY+"px)"}}>
             <div>
                 {messageToShop.message}
                 <button onClick={()=>{
