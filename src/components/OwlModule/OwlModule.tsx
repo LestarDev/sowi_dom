@@ -22,9 +22,7 @@ const OwlModule = ({nazwa, koszt, type, fun}: owlCard) => {
         <div>
             <h3>Koszt: {kosztHere}</h3>
             <button onClick={()=>{
-                typeHere=="Poinformuj MG o zakupie" ? alert(typeHere) : '';
-                typeHere=="brak monet" ? alert(typeHere) : '';
-                typeHere=="kupuj" ? fun({message: "kupuj", isToShow: true}) : '';
+               fun({message: typeHere, isToShow: true});
             }} className={typeHere}>Kup</button>
         </div>
     </div>
