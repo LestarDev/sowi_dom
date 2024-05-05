@@ -7,7 +7,15 @@ const NavButton = () => {
 
     const profile = useProfile();
 
-    const [whichButton, setWhichButton] = useState(0);
+    const getInicjalWhichButton = (): number => {
+        const wybranyTyp: choosenType = profile.wybranyTyp;
+        if(wybranyTyp=="Umiejetnosci") return 1;
+        if(wybranyTyp=="Zdolnosci") return 2;
+        if(wybranyTyp=="Handouty") return 3;
+        return 0
+    }
+
+    const [whichButton, setWhichButton] = useState(getInicjalWhichButton);
 
     const [isChooseWhichSection, setIsChooseWhichSection] = useState(false);
 
