@@ -1,9 +1,12 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import NavBar from "../../components/NavBar/NavBar"
 import OwlModule, { typeOfCard } from "../../components/OwlModule/OwlModule"
 import OwlShopTitle from "../../components/OwlShopTitle/OwlShopTitle"
 import useProfile from "../../hooks/useProfile"
 import './Shop.css'
+import getMainLink, { getUmiejetnosciScript } from "../../private/apiData"
+import { isStackBlitz } from "../../shared/config/isStackBlitz"
+import umiejetnoscType from "../../shared/config/umiejetnosciType"
 
 export type messageShop = {
     message: typeOfCard,
@@ -14,12 +17,26 @@ const Shop = () => {
 
     const profile = useProfile();
 
-
+    
     const emptyMessageShop: messageShop = {message: "brak monet", isToShow: false}; 
-
+    const emptyUmiejetnoscList: umiejetnoscType[] = [];
+    
     const [messageToShop, setMessageToShop] = useState(emptyMessageShop);
+    const [listUmiejetnosciToUpgrade, setListUmiejetnosciToUpgrade] = useState(emptyUmiejetnoscList);
+    // todo: zmienic automatyczny sekcje z Ekwipunek na Umiejetnosci i pobierac z Umiejetnosci Section state'a
 
-    console.log((2*(profile.przelicznik(profile.Niezlomnosc+1,true) as number)),"<=",profile.przeliczLvl(profile.lvl,false,true) as number);
+    useEffect(()=>{
+        fetch(getMainLink(isStackBlitz)+getUmiejetnosciScript+'id='+profile.idUzytkownika).then(response=>response.json()).then((data: any)=>{
+            console.log(data);
+            for(let i=1; i<(data[0]*3); i+=3){
+                if(profile.przelicznik(data[i+1],false,true)==4){
+                    setListUmiejetnosciToUpgrade(previousList=>[...previousList,{name: data[i], value: data[i+1],type: data[i+2]}])
+                }
+            }
+        })
+    },[profile.refreshPage])
+
+    console.log("Lista umiejek to upgrade: ",listUmiejetnosciToUpgrade);
 
     return <div>
         <NavBar></NavBar>
