@@ -17,7 +17,7 @@ const OwlModule = ({nazwa, koszt, type, fun}: owlCard) => {
     const kosztHere = koszt;
     const typeHere = type;
 
-    return <div className="OwlModule" style={{transform: "translate-middle-y 20px"}}>
+    return <div className="OwlModule" style={{transform: "translateY(20px)"}}>
         <p>{nazwaHere}</p>
         <div>
             <h3>Koszt: {kosztHere}</h3>
