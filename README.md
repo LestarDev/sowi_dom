@@ -10,7 +10,7 @@ PHP and SQL server used: `zsti.me/`. This server is only for ZSTI Gliwice studen
 - Configure the top-level `apiData.tsx` property like this:
 
 ```js
-const mainLink = "${Your Link}";
+const mainLink = "${Your link}";
 
 const getMainLink = (isStackBlitz?: boolean) => {
     if(isStackBlitz==true) return mainLink+'stackblitz/';
@@ -26,6 +26,7 @@ export const getReceptaZdolki = "getRecepturaZdolnosci.php?";
 export const getEkwipunek = "getEkwipunek.php?";
 export const getBron = "getBronData.php?";
 export const getKsiazka = "getHandouty.php?";
+export const getMonetyScript = "getSowieMonety.php?";
 
 export default getMainLink
 ```
@@ -42,6 +43,6 @@ export default defineConfig({
 
 ```
 
-## Version: 0.5.0
+## Version: 0.5.1
 
 Version 1.0.0 will be delivered as soon as my dear Artist will do a figma for me :3

@@ -30,7 +30,7 @@ const Shop = () => {
     useEffect(()=>{
         const onScroll = () => setOffset(window.scrollY);
         fetch(getMainLink(isStackBlitz)+getUmiejetnosciScript+'id='+profile.idUzytkownika).then(response=>response.json()).then((data: any)=>{
-            console.log(data);
+            // console.log(data);
             for(let i=1; i<(data[0]*3); i+=3){
                 if(profile.przelicznik(data[i+1],false,true)==4){
                     setListUmiejetnosciToUpgrade(previousList=>[...previousList,{name: data[i], value: data[i+1],type: data[i+2]}])
@@ -42,7 +42,7 @@ const Shop = () => {
         return () => window.removeEventListener('scroll', onScroll);
     },[profile.refreshPage])
 
-    console.log("Lista umiejek to upgrade: ",listUmiejetnosciToUpgrade);
+    // console.log("Lista umiejek to upgrade: ",listUmiejetnosciToUpgrade);
     const toRetunUpgradableUmiejetnosci: JSX.Element[] = [];
     listUmiejetnosciToUpgrade.forEach(singleUmiejka=>{
         toRetunUpgradableUmiejetnosci.push(<OwlModule nazwa={"Awansuj umiejetnosc '"+singleUmiejka.name+"'"} koszt={1} type="brak monet" fun={setMessageToShop} />)
