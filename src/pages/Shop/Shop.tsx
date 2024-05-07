@@ -103,7 +103,7 @@ const Shop = () => {
                         {
                             podnies3UmiejkiTab
                         }
-                        <button className={countSelected3umiejki>=3 ? 'DoKupienia' : 'brakKupna'}>Kup</button>
+                        <button className={countSelected3umiejki==3 ? 'DoKupienia' : 'brakKupna'}>Kup</button>
                     </div> : <p>messageToShop.message</p>
                 }
                 <button onClick={()=>{

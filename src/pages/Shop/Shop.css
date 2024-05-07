@@ -29,3 +29,8 @@
     background: var(--text);
     color: var(--main-color);
 }
+
+.brakKupna{
+    cursor: not-allowed;
+    filter: grayscale(0.9);
+}
