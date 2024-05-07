@@ -27,7 +27,7 @@ const Shop = () => {
     const [listOfUmiejki3ulepsz, setListOfUmiejki3ulepsz] = useState(emptyUmiejetnoscList);
     // todo: zmienic automatyczny sekcje z Ekwipunek na Umiejetnosci i pobierac z Umiejetnosci Section state'a
 
-    // const [countSelected3umiejki, setCountSelected3umiejki] = useState(0);
+    const [countSelected3umiejki, setCountSelected3umiejki] = useState(0);
 
     const [offset, setOffset] = useState(0);
 
@@ -57,8 +57,12 @@ const Shop = () => {
     const podnies3UmiejkiTab: JSX.Element[] = [];
     listOfUmiejki3ulepsz.forEach(singleUmiejka=>{
         podnies3UmiejkiTab.push(<label htmlFor={singleUmiejka.name}>{singleUmiejka.name}{'['}{profile.przelicznik(singleUmiejka.value)}{']'}<input type="checkbox" onChange={(e)=>{
-            console.log(e);
-            
+            // console.log(e.target.checked);
+            if(e.target.checked){
+                setCountSelected3umiejki(prevVal=>prevVal+1)
+            }else{
+                setCountSelected3umiejki(prevVal=>prevVal-1)
+            }
         }} name={singleUmiejka.name} id={singleUmiejka.name} /></label>)
     })
 
@@ -93,6 +97,7 @@ const Shop = () => {
                         {
                             podnies3UmiejkiTab
                         }
+                        <button className={countSelected3umiejki>=3 ? 'DoKupienia' : ''}>Kup</button>
                     </div> : <p>messageToShop.message</p>
                 }
                 <button onClick={()=>{
