@@ -103,7 +103,13 @@ const Shop = () => {
                         {
                             podnies3UmiejkiTab
                         }
-                        <button className={countSelected3umiejki==3 ? 'DoKupienia' : 'brakKupna'}>Kup</button>
+                        <button className={countSelected3umiejki==3 ? 'DoKupienia' : 'brakKupna'} onClick={()=>{
+                            if(countSelected3umiejki!=3) return;
+
+                            // fetch => set +1 these 3 umiejetnosci
+
+                            setMessageToShop({message: messageToShop.message, isToShow: false, nameOfcard: ""});
+                        }}>Kup</button>
                     </div> : <p>messageToShop.message</p>
                 }
                 <button onClick={()=>{
