@@ -84,7 +84,9 @@ const Shop = () => {
             <div>
                 {
                     messageToShop.nameOfcard=="Rozwin 3 umiejetnosci [do x.4]" ? <div>
-                        podnies3UmiejkiTab
+                        {
+                            podnies3UmiejkiTab
+                        }
                     </div> : <p>messageToShop.message</p>
                 }
                 <button onClick={()=>{
