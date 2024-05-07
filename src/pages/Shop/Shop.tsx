@@ -27,6 +27,8 @@ const Shop = () => {
     const [listOfUmiejki3ulepsz, setListOfUmiejki3ulepsz] = useState(emptyUmiejetnoscList);
     // todo: zmienic automatyczny sekcje z Ekwipunek na Umiejetnosci i pobierac z Umiejetnosci Section state'a
 
+    const [countSelected3umiejki, setCountSelected3umiejki] = useState(0);
+
     const [offset, setOffset] = useState(0);
 
     useEffect(()=>{
@@ -54,7 +56,10 @@ const Shop = () => {
 
     const podnies3UmiejkiTab: JSX.Element[] = [];
     listOfUmiejki3ulepsz.forEach(singleUmiejka=>{
-        podnies3UmiejkiTab.push(<label htmlFor={singleUmiejka.name}>{singleUmiejka.name}{'['}{profile.przelicznik(singleUmiejka.value)}{']'}<input type="checkbox" name={singleUmiejka.name} id={singleUmiejka.name} /></label>)
+        podnies3UmiejkiTab.push(<label htmlFor={singleUmiejka.name}>{singleUmiejka.name}{'['}{profile.przelicznik(singleUmiejka.value)}{']'}<input type="checkbox" onChange={(e)=>{
+            console.log(e);
+            
+        }} name={singleUmiejka.name} id={singleUmiejka.name} /></label>)
     })
 
 
@@ -84,6 +89,7 @@ const Shop = () => {
             <div>
                 {
                     messageToShop.nameOfcard=="Rozwin 3 umiejetnosci [do x.4]" ? <div>
+                        {podnies3UmiejkiTab.length<3 ? <h3>Uwaga, masz mniej niz 3 umiejetnosci</h3> : ''}
                         {
                             podnies3UmiejkiTab
                         }
