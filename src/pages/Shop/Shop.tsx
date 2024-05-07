@@ -66,7 +66,8 @@ const Shop = () => {
         }} name={singleUmiejka.name} id={singleUmiejka.name} /></label>)
     })
 
-    if(podnies3UmiejkiTab.length<3) setCountSelected3umiejki(3-podnies3UmiejkiTab.length);
+    if(podnies3UmiejkiTab.length<3) console.log('x');
+    //setCountSelected3umiejki(3-podnies3UmiejkiTab.length)
 
 
     return <div>
