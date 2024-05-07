@@ -69,7 +69,7 @@ const Shop = () => {
     console.log("podnies3UmiejkiTab.length: ",podnies3UmiejkiTab.length);
 
     if(podnies3UmiejkiTab.length<3){
-        setCountSelected3umiejki(3-podnies3UmiejkiTab.length)
+        // setCountSelected3umiejki(3-podnies3UmiejkiTab.length)
     }
 
 
