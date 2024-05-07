@@ -73,15 +73,7 @@ const Shop = () => {
         }} name={singleUmiejka.name} id={singleUmiejka.name} /></label>)
     })
 
-    // if(podnies3UmiejkiTab.length<3) setCountSelected3umiejki(3-podnies3UmiejkiTab.length)
-
-    if(podnies3UmiejkiTab.length==1) setCountSelected3umiejki(2)
-    if(podnies3UmiejkiTab.length==2) setCountSelected3umiejki(1)
-
     return <div>
-        {
-            // podnies3UmiejkiTab.length<3 ? (setCountSelected3umiejki(3-podnies3UmiejkiTab.length), '') : ''
-        }
         <NavBar></NavBar>
         <OwlShopTitle></OwlShopTitle>
         <div className="owlShop">
@@ -111,7 +103,7 @@ const Shop = () => {
                         {
                             podnies3UmiejkiTab
                         }
-                        <button className={countSelected3umiejki>=3 ? 'DoKupienia' : ''}>Kup</button>
+                        <button className={countSelected3umiejki>=3 ? 'DoKupienia' : 'brakKupna'}>Kup</button>
                     </div> : <p>messageToShop.message</p>
                 }
                 <button onClick={()=>{
