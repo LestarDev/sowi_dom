@@ -27,7 +27,7 @@ const Shop = () => {
     const [listOfUmiejki3ulepsz, setListOfUmiejki3ulepsz] = useState(emptyUmiejetnoscList);
     // todo: zmienic automatyczny sekcje z Ekwipunek na Umiejetnosci i pobierac z Umiejetnosci Section state'a
 
-    const [countSelected3umiejki, setCountSelected3umiejki] = useState(0);
+    // const [countSelected3umiejki, setCountSelected3umiejki] = useState(0);
 
     const [offset, setOffset] = useState(0);
 
