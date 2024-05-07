@@ -75,7 +75,8 @@ const Shop = () => {
 
     // if(podnies3UmiejkiTab.length<3) setCountSelected3umiejki(3-podnies3UmiejkiTab.length)
 
-    setCountSelected3umiejki(3-podnies3UmiejkiTab.length)
+    if(podnies3UmiejkiTab.length==1) setCountSelected3umiejki(2)
+    if(podnies3UmiejkiTab.length==2) setCountSelected3umiejki(1)
 
     return <div>
         {
