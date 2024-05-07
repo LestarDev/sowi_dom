@@ -50,26 +50,28 @@ const Shop = () => {
         window.addEventListener('scroll', onScroll, { passive: true });
 
 
-        listUmiejetnosciToUpgrade.forEach(singleUmiejka=>{
-            toRetunUpgradableUmiejetnosci.push(<OwlModule nazwa={"Awansuj umiejetnosc '"+singleUmiejka.name+"'"} koszt={1} type="brak monet" fun={setMessageToShop} />)
-        })
-
-        listOfUmiejki3ulepsz.forEach(singleUmiejka=>{
-            podnies3UmiejkiTab.push(<label htmlFor={singleUmiejka.name}>{singleUmiejka.name}{'['}{profile.przelicznik(singleUmiejka.value)}{']'}<input type="checkbox" onChange={(e)=>{
-                // console.log(e.target.checked);
-                if(e.target.checked){
-                    setCountSelected3umiejki(prevVal=>prevVal+1)
-                }else{
-                    setCountSelected3umiejki(prevVal=>prevVal-1)
-                }
-            }} name={singleUmiejka.name} id={singleUmiejka.name} /></label>)
-        })
+        
 
         if(podnies3UmiejkiTab.length<3) setCountSelected3umiejki(3-podnies3UmiejkiTab.length)
 
 
         return () => window.removeEventListener('scroll', onScroll);
     },[profile.refreshPage])
+
+    listUmiejetnosciToUpgrade.forEach(singleUmiejka=>{
+        toRetunUpgradableUmiejetnosci.push(<OwlModule nazwa={"Awansuj umiejetnosc '"+singleUmiejka.name+"'"} koszt={1} type="brak monet" fun={setMessageToShop} />)
+    })
+
+    listOfUmiejki3ulepsz.forEach(singleUmiejka=>{
+        podnies3UmiejkiTab.push(<label htmlFor={singleUmiejka.name}>{singleUmiejka.name}{'['}{profile.przelicznik(singleUmiejka.value)}{']'}<input type="checkbox" onChange={(e)=>{
+            // console.log(e.target.checked);
+            if(e.target.checked){
+                setCountSelected3umiejki(prevVal=>prevVal+1)
+            }else{
+                setCountSelected3umiejki(prevVal=>prevVal-1)
+            }
+        }} name={singleUmiejka.name} id={singleUmiejka.name} /></label>)
+    })
 
     return <div>
         <NavBar></NavBar>
