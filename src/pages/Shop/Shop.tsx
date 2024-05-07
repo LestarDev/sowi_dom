@@ -11,6 +11,7 @@ import umiejetnoscType from "../../shared/config/umiejetnosciType"
 export type messageShop = {
     message: typeOfCard,
     isToShow: boolean,
+    nameOfcard: string
 }
 
 const Shop = () => {
@@ -18,7 +19,7 @@ const Shop = () => {
     const profile = useProfile();
 
     
-    const emptyMessageShop: messageShop = {message: "brak monet", isToShow: false}; 
+    const emptyMessageShop: messageShop = {message: "brak monet", isToShow: false, nameOfcard: ""}; 
     const emptyUmiejetnoscList: umiejetnoscType[] = [];
     
     const [messageToShop, setMessageToShop] = useState(emptyMessageShop);
@@ -51,6 +52,11 @@ const Shop = () => {
         toRetunUpgradableUmiejetnosci.push(<OwlModule nazwa={"Awansuj umiejetnosc '"+singleUmiejka.name+"'"} koszt={1} type="brak monet" fun={setMessageToShop} />)
     })
 
+    const podnies3UmiejkiTab: JSX.Element[] = [];
+    listOfUmiejki3ulepsz.forEach(singleUmiejka=>{
+        podnies3UmiejkiTab.push(<label htmlFor={singleUmiejka.name}>{singleUmiejka.name}{'['}{profile.przelicznik(singleUmiejka.value)}{']'}<input type="checkbox" name={singleUmiejka.name} id={singleUmiejka.name} /></label>)
+    })
+
 
     return <div>
         <NavBar></NavBar>
@@ -60,7 +66,7 @@ const Shop = () => {
             <OwlModule nazwa="Wziecie nowej zdolnosci" koszt={1} type={profile.sowieMonety >= 5 ? "Poinformuj MG o zakupie" : "brak monet"} fun={setMessageToShop}/>
             <OwlModule nazwa="Zdobycie k4+1 Szczescia" koszt={1} type={profile.sowieMonety >= 5 ? "kupuj" : "brak monet"} fun={setMessageToShop}/>
             <OwlModule nazwa={"Zdobycie +0.1 lvl [na "+profile.przeliczLvl(profile.lvl*1 + 1)+"]"} koszt={1} type={profile.sowieMonety >= 5 ? "kupuj" : "brak monet"} fun={setMessageToShop}/>
-            <OwlModule nazwa="Rozwin 3 umiejetnosci [do x.4]" koszt={1} type={profile.sowieMonety >= 5 ? "kupuj" : "brak monet"} fun={setMessageToShop} dodatkowaTab={listOfUmiejki3ulepsz} />
+            <OwlModule nazwa="Rozwin 3 umiejetnosci [do x.4]" koszt={1} type={profile.sowieMonety >= 5 ? "kupuj" : "brak monet"} fun={setMessageToShop} />
             
             {(2*(profile.przelicznik(profile.Cialo*1+1,true) as number))<=(profile.przeliczLvl(profile.lvl,false,true) as number) ? <OwlModule nazwa={'Podnies Cialo o 0.1 [na '+profile.przelicznik(profile.Cialo*1+1)+']'} koszt={1} type={profile.sowieMonety >= 5 ? "kupuj" : "brak monet"} fun={setMessageToShop} /> : ''}
             {(2*(profile.przelicznik(profile.Umysl*1+1,true) as number))<=(profile.przeliczLvl(profile.lvl,false,true) as number) ? <OwlModule nazwa={'Podnies Umysl o 0.1 [na '+profile.przelicznik(profile.Umysl*1+1)+']'} koszt={1} type={profile.sowieMonety >= 5 ? "kupuj" : "brak monet"} fun={setMessageToShop} /> : ''}
@@ -76,9 +82,13 @@ const Shop = () => {
         </div>
         {messageToShop.isToShow ? <div className="shopInfoBox" style={{transform: "translateY("+offset+"px)"}}>
             <div>
-                {messageToShop.message}
+                {
+                    messageToShop.nameOfcard=="Rozwin 3 umiejetnosci [do x.4]" ? <div>
+                        podnies3UmiejkiTab
+                    </div> : <p>messageToShop.message</p>
+                }
                 <button onClick={()=>{
-                    setMessageToShop({message: messageToShop.message, isToShow: false});
+                    setMessageToShop({message: messageToShop.message, isToShow: false, nameOfcard: ""});
                 }}>x</button>
             </div>
         </div> : ''}
