@@ -23,6 +23,7 @@ const Shop = () => {
     
     const [messageToShop, setMessageToShop] = useState(emptyMessageShop);
     const [listUmiejetnosciToUpgrade, setListUmiejetnosciToUpgrade] = useState(emptyUmiejetnoscList);
+    const [listOfUmiejki3ulepsz, setListOfUmiejki3ulepsz] = useState(emptyUmiejetnoscList);
     // todo: zmienic automatyczny sekcje z Ekwipunek na Umiejetnosci i pobierac z Umiejetnosci Section state'a
 
     const [offset, setOffset] = useState(0);
@@ -34,7 +35,9 @@ const Shop = () => {
             for(let i=1; i<(data[0]*3); i+=3){
                 if(profile.przelicznik(data[i+1],false,true)==4){
                     setListUmiejetnosciToUpgrade(previousList=>[...previousList,{name: data[i], value: data[i+1],type: data[i+2]}])
-                }
+                }else{
+                    setListOfUmiejki3ulepsz(previousList=>[...previousList,{name: data[i], value: data[i+1],type: data[i+2]}])
+                }   
             }
         })
         window.removeEventListener('scroll', onScroll);
@@ -57,7 +60,7 @@ const Shop = () => {
             <OwlModule nazwa="Wziecie nowej zdolnosci" koszt={1} type={profile.sowieMonety >= 5 ? "Poinformuj MG o zakupie" : "brak monet"} fun={setMessageToShop}/>
             <OwlModule nazwa="Zdobycie k4+1 Szczescia" koszt={1} type={profile.sowieMonety >= 5 ? "kupuj" : "brak monet"} fun={setMessageToShop}/>
             <OwlModule nazwa={"Zdobycie +0.1 lvl [na "+profile.przeliczLvl(profile.lvl*1 + 1)+"]"} koszt={1} type={profile.sowieMonety >= 5 ? "kupuj" : "brak monet"} fun={setMessageToShop}/>
-            <OwlModule nazwa="Rozwin 3 umiejetnosci [do x.4]" koszt={1} type={profile.sowieMonety >= 5 ? "kupuj" : "brak monet"} fun={setMessageToShop} />
+            <OwlModule nazwa="Rozwin 3 umiejetnosci [do x.4]" koszt={1} type={profile.sowieMonety >= 5 ? "kupuj" : "brak monet"} fun={setMessageToShop} dodatkowaTab={listOfUmiejki3ulepsz} />
             
             {(2*(profile.przelicznik(profile.Cialo*1+1,true) as number))<=(profile.przeliczLvl(profile.lvl,false,true) as number) ? <OwlModule nazwa={'Podnies Cialo o 0.1 [na '+profile.przelicznik(profile.Cialo*1+1)+']'} koszt={1} type={profile.sowieMonety >= 5 ? "kupuj" : "brak monet"} fun={setMessageToShop} /> : ''}
             {(2*(profile.przelicznik(profile.Umysl*1+1,true) as number))<=(profile.przeliczLvl(profile.lvl,false,true) as number) ? <OwlModule nazwa={'Podnies Umysl o 0.1 [na '+profile.przelicznik(profile.Umysl*1+1)+']'} koszt={1} type={profile.sowieMonety >= 5 ? "kupuj" : "brak monet"} fun={setMessageToShop} /> : ''}
