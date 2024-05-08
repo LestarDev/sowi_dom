@@ -68,7 +68,7 @@ const Shop = () => {
             if(e.target.checked){
                 setCountSelected3umiejki({counter: countSelected3umiejki.counter+1, tab: [...countSelected3umiejki.tab, singleUmiejka]})
             }else{
-                setCountSelected3umiejki({counter: countSelected3umiejki.counter-11, tab: [...countSelected3umiejki.tab, singleUmiejka]})
+                setCountSelected3umiejki({counter: countSelected3umiejki.counter-1, tab: [...countSelected3umiejki.tab, singleUmiejka]})
                 // setCountSelected3umiejki(prevVal=>prevVal-1)
             }
         }} name={singleUmiejka.name} id={singleUmiejka.name} /></label>)
