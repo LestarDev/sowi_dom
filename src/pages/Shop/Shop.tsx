@@ -119,7 +119,6 @@ const Shop = () => {
                             // fetch => set +1 these 3 umiejetnosci
 
                             setCountSelected3umiejki({counter: 0, tab: []});
-
                             setMessageToShop({message: messageToShop.message, isToShow: false, nameOfcard: ""});
                         }}>Kup</button>
                     </div> : <p>
@@ -127,6 +126,7 @@ const Shop = () => {
                     </p>
                 }
                 <button onClick={()=>{
+                    setCountSelected3umiejki({counter: 0, tab: []});
                     setMessageToShop({message: messageToShop.message, isToShow: false, nameOfcard: ""});
                 }}>x</button>
             </div>
