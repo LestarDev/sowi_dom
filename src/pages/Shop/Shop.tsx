@@ -90,7 +90,7 @@ const Shop = () => {
         <div className="owlShop">
             <OwlModule nazwa="Polaczenie dwoch zdolnosci" koszt={1} type={profile.sowieMonety >= 5 ? "Poinformuj MG o zakupie" : "brak monet"} fun={setMessageToShop} />
             <OwlModule nazwa="Wziecie nowej zdolnosci" koszt={1} type={profile.sowieMonety >= 5 ? "Poinformuj MG o zakupie" : "brak monet"} fun={setMessageToShop}/>
-            <OwlModule nazwa="Zdobycie k4+1 Szczescia" koszt={1} type={profile.sowieMonety >= 5 ? "kupuj" : "brak monet"} fun={setMessageToShop}/>
+            <OwlModule nazwa="Dodanie k4+1 Szczescia" koszt={1} type={profile.sowieMonety >= 5 ? "kupuj" : "brak monet"} fun={setMessageToShop}/>
             <OwlModule nazwa={"Zdobycie +0.1 lvl [na "+profile.przeliczLvl(profile.lvl*1 + 1)+"]"} koszt={1} type={profile.sowieMonety >= 5 ? "kupuj" : "brak monet"} fun={setMessageToShop}/>
             <OwlModule nazwa="Rozwin 3 umiejetnosci [do x.4]" koszt={1} type={profile.sowieMonety >= 5 ? "kupuj" : "brak monet"} fun={setMessageToShop} />
             
@@ -104,6 +104,8 @@ const Shop = () => {
             {
                 toRetunUpgradableUmiejetnosci
             }
+
+            <OwlModule nazwa="Dodanie k12ᵣ+5 Szczescia" koszt={3} type={profile.sowieMonety >= 15 ? "kupuj" : "brak monet"} fun={setMessageToShop} />
 
         </div>
         {messageToShop.isToShow ? <div className="shopInfoBox" style={{transform: "translateY("+offset+"px)"}}>
