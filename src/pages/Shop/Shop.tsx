@@ -111,7 +111,9 @@ const Shop = () => {
 
                             setMessageToShop({message: messageToShop.message, isToShow: false, nameOfcard: ""});
                         }}>Kup</button>
-                    </div> : <p>messageToShop.message</p>
+                    </div> : <p>
+                        {messageToShop.message}
+                    </p>
                 }
                 <button onClick={()=>{
                     setMessageToShop({message: messageToShop.message, isToShow: false, nameOfcard: ""});
