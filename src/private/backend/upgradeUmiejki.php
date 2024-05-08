@@ -21,8 +21,8 @@ $con = mysqli_connect('localhost','lestardev','OptimusPrime9001!','lestardev_sow
     SET `lvlUmiejki` = `lvlUmiejki`+1 
     WHERE umiejetnosci.id_uzytkownika=uzytkownicy.id AND uzytkownicy.sowieMonety='$sowiStatus' AND uzytkownicy.id='$idUzytkownika' AND 
     (umiejetnosci.id='$id1' OR umiejetnosci.id='$id2' OR umiejetnosci.id='$id3');";
-    mysqli_query($con, $query_uzytkownik);
-    return "pomyslnieDodano";
+    mysqli_query($con, $query_update);
+    echo "pomyslnieDodano";
  }
 
 ?>

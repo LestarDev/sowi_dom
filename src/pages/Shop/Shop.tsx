@@ -110,10 +110,12 @@ const Shop = () => {
                             fetch(getMainLink(isStackBlitz)+upgrade3UmiejkiScript+"idUz="+profile.idUzytkownika+
                             "&id1="+countSelected3umiejki.tab[0].id+"&id2="+countSelected3umiejki.tab[1].id+"&id3="+countSelected3umiejki.tab[2].id+
                             "&sowieMonety="+profile.sowieMonety).then(response=>response.text()).then((data: unknown)=>{
-                                console.log(data);
+                                console.log(data as string);
                             })
 
                             // fetch => set +1 these 3 umiejetnosci
+
+                            setCountSelected3umiejki({counter: 0, tab: []});
 
                             setMessageToShop({message: messageToShop.message, isToShow: false, nameOfcard: ""});
                         }}>Kup</button>
