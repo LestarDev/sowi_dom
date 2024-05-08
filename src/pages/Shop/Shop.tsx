@@ -145,6 +145,12 @@ const Shop = () => {
                             restoreStates();
                         }}>Potwierdzam</button> : ''
                     }
+                    {
+                        messageToShop.nameOfcard.startsWith("Awansuj umiejetnosc") ? <button onClick={()=>{
+                            const umiejkiHere =  listUmiejetnosciToUpgrade.filter(singleUmiejka=>singleUmiejka.name==messageToShop.nameOfcard.split("'")[1]);
+                            console.log(umiejkiHere);
+                        }}>Potwierdzam</button> : ''
+                    }
                     
                     </> : <p>{messageToShop.message}</p>
                 }
