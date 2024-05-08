@@ -4,7 +4,7 @@ import OwlModule, { typeOfCard } from "../../components/OwlModule/OwlModule"
 import OwlShopTitle from "../../components/OwlShopTitle/OwlShopTitle"
 import useProfile from "../../hooks/useProfile"
 import './Shop.css'
-import getMainLink, { getUmiejetnosciScript, upgrade3UmiejkiScript } from "../../private/apiData"
+import getMainLink, { getUmiejetnosciScript, upgrade3UmiejkiScript, upgradeCecheScript } from "../../private/apiData"
 import { isStackBlitz } from "../../shared/config/isStackBlitz"
 import umiejetnoscType from "../../shared/config/umiejetnosciType"
 
@@ -135,9 +135,10 @@ const Shop = () => {
                     {
                         messageToShop.nameOfcard.startsWith("Podnies") ? <button onClick={()=>{
 
-                            // fetch
-
-                            console.log("Podnies: ",messageToShop.nameOfcard.split(' ')[1]);
+                            fetch(getMainLink(isStackBlitz)+upgradeCecheScript+"idUz="+profile.idUzytkownika+"&cecha="+messageToShop.nameOfcard.split(' ')[1]+"&sowieMonety="+profile.sowieMonety).then(response=>response.text()).then((data: unknown)=>{
+                                console.log(data as string);
+                                profile.setRefreshPage(!profile.refreshPage);
+                            })
 
                             restoreStates();
                         }}>Potwierdzam</button> : ''

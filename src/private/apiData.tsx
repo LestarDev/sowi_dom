@@ -16,5 +16,6 @@ export const getBron = "getBronData.php?";
 export const getKsiazka = "getHandouty.php?";
 export const getMonetyScript = "getSowieMonety.php?";
 export const upgrade3UmiejkiScript = "upgradeUmiejki.php?";
+export const upgradeCecheScript = "upgradeCeche.php?";
 
 export default getMainLink
