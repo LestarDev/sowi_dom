@@ -64,7 +64,7 @@ const Shop = () => {
     },[profile.refreshPage])
 
     listUmiejetnosciToUpgrade.forEach(singleUmiejka=>{
-        toRetunUpgradableUmiejetnosci.push(<OwlModule nazwa={"Awansuj umiejetnosc '"+singleUmiejka.name+"'"} koszt={1} type="brak monet" fun={setMessageToShop} />)
+        toRetunUpgradableUmiejetnosci.push(<OwlModule nazwa={"Awansuj umiejetnosc '"+singleUmiejka.name+"'"} koszt={1} type={profile.sowieMonety >= 5 ? "kupuj" : "brak monet"} fun={setMessageToShop} />)
     })
 
     listOfUmiejki3ulepsz.forEach(singleUmiejka=>{
