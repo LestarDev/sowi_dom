@@ -27,7 +27,7 @@ const Shop = () => {
     const [listOfUmiejki3ulepsz, setListOfUmiejki3ulepsz] = useState(emptyUmiejetnoscList);
     // todo: zmienic automatyczny sekcje z Ekwipunek na Umiejetnosci i pobierac z Umiejetnosci Section state'a
 
-    const [countSelected3umiejki, setCountSelected3umiejki] = useState(0);
+    const [countSelected3umiejki, setCountSelected3umiejki] = useState({counter: 0, tab: emptyUmiejetnoscList});
 
     const [offset, setOffset] = useState(0);
 
@@ -38,11 +38,11 @@ const Shop = () => {
         const onScroll = () => setOffset(window.scrollY);
         fetch(getMainLink(isStackBlitz)+getUmiejetnosciScript+'id='+profile.idUzytkownika).then(response=>response.json()).then((data: any)=>{
             // console.log(data);
-            for(let i=1; i<(data[0]*3); i+=3){
+            for(let i=1; i<(data[0]*4); i+=4){
                 if(profile.przelicznik(data[i+1],false,true)==4){
-                    setListUmiejetnosciToUpgrade(previousList=>[...previousList,{name: data[i], value: data[i+1],type: data[i+2]}])
+                    setListUmiejetnosciToUpgrade(previousList=>[...previousList,{name: data[i], value: data[i+1],type: data[i+2], id: data[i+3]}])
                 }else{
-                    setListOfUmiejki3ulepsz(previousList=>[...previousList,{name: data[i], value: data[i+1],type: data[i+2]}])
+                    setListOfUmiejki3ulepsz(previousList=>[...previousList,{name: data[i], value: data[i+1],type: data[i+2], id: data[i+3]}])
                 }   
             }
         })
@@ -66,9 +66,10 @@ const Shop = () => {
         podnies3UmiejkiTab.push(<label htmlFor={singleUmiejka.name}>{singleUmiejka.name}{'['}{profile.przelicznik(singleUmiejka.value)}{']'}<input type="checkbox" onChange={(e)=>{
             // console.log(e.target.checked);
             if(e.target.checked){
-                setCountSelected3umiejki(prevVal=>prevVal+1)
+                setCountSelected3umiejki({counter: countSelected3umiejki.counter+1, tab: [...countSelected3umiejki.tab, singleUmiejka]})
             }else{
-                setCountSelected3umiejki(prevVal=>prevVal-1)
+                setCountSelected3umiejki({counter: countSelected3umiejki.counter-11, tab: [...countSelected3umiejki.tab, singleUmiejka]})
+                // setCountSelected3umiejki(prevVal=>prevVal-1)
             }
         }} name={singleUmiejka.name} id={singleUmiejka.name} /></label>)
     })
@@ -103,8 +104,8 @@ const Shop = () => {
                         {
                             podnies3UmiejkiTab
                         }
-                        <button className={countSelected3umiejki==3 ? 'DoKupienia' : 'brakKupna'} onClick={()=>{
-                            if(countSelected3umiejki!=3) return;
+                        <button className={countSelected3umiejki.counter==3 ? 'DoKupienia' : 'brakKupna'} onClick={()=>{
+                            if(countSelected3umiejki.counter!=3) return;
 
                             // fetch => set +1 these 3 umiejetnosci
 

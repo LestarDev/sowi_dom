@@ -5,7 +5,6 @@ header("Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Accept, Authorization, X-Requested-With, X-Auth-Token, Origin, Application");
 
 $id = $_GET["id"];
-$like = $_GET["like"];
 
 $con = mysqli_connect('localhost','lestardev','OptimusPrime9001!','lestardev_sowka');
 
@@ -14,7 +13,7 @@ $con = mysqli_connect('localhost','lestardev','OptimusPrime9001!','lestardev_sow
         // header("Location: ".$url);
     exit();
  }else{
-    $query_uzytkownik = "SELECT umiejetnosci.nazwa, umiejetnosci.lvlUmiejki, umiejetnosci.typCechy, umiejetnosci.id FROM `umiejetnosci` WHERE id_uzytkownika='$id' AND umiejetnosci.nazwa LIKE '%$like%';";
+    $query_uzytkownik = "SELECT umiejetnosci.nazwa, umiejetnosci.lvlUmiejki, umiejetnosci.typCechy, umiejetnosci.id FROM `umiejetnosci` WHERE id_uzytkownika='$id';";
     $res_uzytkownik = mysqli_query($con, $query_uzytkownik);
     
     $tab = [mysqli_num_rows($res_uzytkownik)];
