@@ -74,6 +74,11 @@ const Shop = () => {
         }} name={singleUmiejka.name} id={singleUmiejka.name} /></label>)
     })
 
+    const restoreStates = () => {
+        setCountSelected3umiejki({counter: 0, tab: []});
+        setMessageToShop({message: messageToShop.message, isToShow: false, nameOfcard: ""});
+    }
+
     return <div>
         <NavBar></NavBar>
         <OwlShopTitle></OwlShopTitle>
@@ -99,34 +104,44 @@ const Shop = () => {
         {messageToShop.isToShow ? <div className="shopInfoBox" style={{transform: "translateY("+offset+"px)"}}>
             <div>
                 {
-                    messageToShop.nameOfcard=="Rozwin 3 umiejetnosci [do x.4]" ? <div>
-                        {podnies3UmiejkiTab.length<3 ? <h3>Uwaga, masz mniej niz 3 umiejetnosci</h3> : ''}
-                        {
-                            podnies3UmiejkiTab
-                        }
-                        <button className={countSelected3umiejki.counter==3 ? 'DoKupienia' : 'brakKupna'} onClick={()=>{
-                            if(countSelected3umiejki.counter!=3) return;
+                    messageToShop.message=="kupuj" ? <>
+                    {
+                        messageToShop.nameOfcard=="Rozwin 3 umiejetnosci [do x.4]" ? <div>
+                            {podnies3UmiejkiTab.length<3 ? <h3>Uwaga, masz mniej niz 3 umiejetnosci</h3> : ''}
+                            {
+                                podnies3UmiejkiTab
+                            }
+                            <button className={countSelected3umiejki.counter==3 ? 'DoKupienia' : 'brakKupna'} onClick={()=>{
+                                if(countSelected3umiejki.counter!=3) return;
 
-                            fetch(getMainLink(isStackBlitz)+upgrade3UmiejkiScript+"idUz="+profile.idUzytkownika+
-                            "&id1="+countSelected3umiejki.tab[0].id+"&id2="+countSelected3umiejki.tab[1].id+"&id3="+countSelected3umiejki.tab[2].id+
-                            "&sowieMonety="+profile.sowieMonety).then(response=>response.text()).then((data: unknown)=>{
-                                console.log(data as string);
-                                profile.setRefreshPage(!profile.refreshPage);
-                            })
+                                fetch(getMainLink(isStackBlitz)+upgrade3UmiejkiScript+"idUz="+profile.idUzytkownika+
+                                "&id1="+countSelected3umiejki.tab[0].id+"&id2="+countSelected3umiejki.tab[1].id+"&id3="+countSelected3umiejki.tab[2].id+
+                                "&sowieMonety="+profile.sowieMonety).then(response=>response.text()).then((data: unknown)=>{
+                                    console.log(data as string);
+                                    profile.setRefreshPage(!profile.refreshPage);
+                                })
 
-                            // fetch => set +1 these 3 umiejetnosci
+                                // fetch => set +1 these 3 umiejetnosci
 
-                            setCountSelected3umiejki({counter: 0, tab: []});
-                            setMessageToShop({message: messageToShop.message, isToShow: false, nameOfcard: ""});
-                        }}>Kup</button>
-                    </div> : <p>
-                        {messageToShop.message}
-                    </p>
+                                restoreStates();
+                            }}>Kup</button>
+                        </div> : ''
+                    }
+                    {
+                        messageToShop.nameOfcard.startsWith("Podnies") ? <button onClick={()=>{
+
+                            // fetch
+
+                            console.log("Podnies: ",messageToShop.nameOfcard.split(' ')[1]);
+
+                            restoreStates();
+                        }}>Potwierdzam</button> : ''
+                    }
+                    
+                    </> : <p>{messageToShop.message}</p>
                 }
-                <button onClick={()=>{
-                    setCountSelected3umiejki({counter: 0, tab: []});
-                    setMessageToShop({message: messageToShop.message, isToShow: false, nameOfcard: ""});
-                }}>x</button>
+                
+                <button onClick={restoreStates}>x</button>
             </div>
         </div> : ''}
         {/* Sowi Sklep: 
