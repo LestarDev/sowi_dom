@@ -147,8 +147,10 @@ const Shop = () => {
                     }
                     {
                         messageToShop.nameOfcard.startsWith("Awansuj umiejetnosc") ? <button onClick={()=>{
-                            const umiejkiHere =  listUmiejetnosciToUpgrade.filter(singleUmiejka=>singleUmiejka.name==messageToShop.nameOfcard.split("'")[1]);
-                            console.log(umiejkiHere);
+                            const idUmiejki =  listUmiejetnosciToUpgrade.filter(singleUmiejka=>singleUmiejka.name==messageToShop.nameOfcard.split("'")[1])[0].id;
+                            console.log(idUmiejki);
+
+                            restoreStates();
                         }}>Potwierdzam</button> : ''
                     }
                     
