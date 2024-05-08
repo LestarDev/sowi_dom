@@ -31,6 +31,8 @@ const Shop = () => {
 
     const [offset, setOffset] = useState(0);
 
+    const [refreshHere, setRefreshHere] = useState(false);
+
     const toRetunUpgradableUmiejetnosci: JSX.Element[] = [];
     const podnies3UmiejkiTab: JSX.Element[] = [];
 
@@ -56,7 +58,7 @@ const Shop = () => {
 
 
         return () => window.removeEventListener('scroll', onScroll);
-    },[profile.refreshPage])
+    },[profile.refreshPage, refreshHere])
 
     listUmiejetnosciToUpgrade.forEach(singleUmiejka=>{
         toRetunUpgradableUmiejetnosci.push(<OwlModule nazwa={"Awansuj umiejetnosc '"+singleUmiejka.name+"'"} koszt={1} type="brak monet" fun={setMessageToShop} />)
@@ -111,6 +113,7 @@ const Shop = () => {
                             "&id1="+countSelected3umiejki.tab[0].id+"&id2="+countSelected3umiejki.tab[1].id+"&id3="+countSelected3umiejki.tab[2].id+
                             "&sowieMonety="+profile.sowieMonety).then(response=>response.text()).then((data: unknown)=>{
                                 console.log(data as string);
+                                setRefreshHere(prevVal=>!prevVal);
                             })
 
                             // fetch => set +1 these 3 umiejetnosci
