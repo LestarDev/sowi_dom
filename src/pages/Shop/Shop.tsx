@@ -4,7 +4,7 @@ import OwlModule, { typeOfCard } from "../../components/OwlModule/OwlModule"
 import OwlShopTitle from "../../components/OwlShopTitle/OwlShopTitle"
 import useProfile from "../../hooks/useProfile"
 import './Shop.css'
-import getMainLink, { getUmiejetnosciScript } from "../../private/apiData"
+import getMainLink, { getUmiejetnosciScript, upgrade3UmiejkiScript } from "../../private/apiData"
 import { isStackBlitz } from "../../shared/config/isStackBlitz"
 import umiejetnoscType from "../../shared/config/umiejetnosciType"
 
@@ -106,6 +106,12 @@ const Shop = () => {
                         }
                         <button className={countSelected3umiejki.counter==3 ? 'DoKupienia' : 'brakKupna'} onClick={()=>{
                             if(countSelected3umiejki.counter!=3) return;
+
+                            fetch(getMainLink(isStackBlitz)+upgrade3UmiejkiScript+"idUz="+profile.idUzytkownika+
+                            "&id1="+countSelected3umiejki.tab[0].id+"&id2="+countSelected3umiejki.tab[1].id+"&id3="+countSelected3umiejki.tab[2].id+
+                            "&sowieMonety="+profile.sowieMonety).then(response=>response.text()).then((data: unknown)=>{
+                                console.log(data);
+                            })
 
                             // fetch => set +1 these 3 umiejetnosci
 
