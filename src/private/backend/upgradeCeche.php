@@ -16,10 +16,10 @@ $con = mysqli_connect('localhost','lestardev','OptimusPrime9001!','lestardev_sow
     exit();
  }else{
     $query_update = "UPDATE `postacie`, `uzytkownicy` 
-    SET postacie.'$cecha' = postacie.'$cecha'+1, uzytkownicy.sowieMonety = uzytkownicy.sowieMonety-5 
+    SET postacie.`$cecha` = postacie.`$cecha`+1, uzytkownicy.sowieMonety = uzytkownicy.sowieMonety-5 
     WHERE postacie.id_uzytkownika=uzytkownicy.id AND uzytkownicy.sowieMonety='$sowiStatus' AND uzytkownicy.id='$idUzytkownika'";
     mysqli_query($con, $query_update);
-    echo "pomyslnieDodano";
+    echo $query_update;
  }
 
 ?>
