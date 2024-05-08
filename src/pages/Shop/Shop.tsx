@@ -148,7 +148,11 @@ const Shop = () => {
                     {
                         messageToShop.nameOfcard.startsWith("Awansuj umiejetnosc") ? <button onClick={()=>{
                             const idUmiejki =  listUmiejetnosciToUpgrade.filter(singleUmiejka=>singleUmiejka.name==messageToShop.nameOfcard.split("'")[1])[0].id;
-                            console.log(idUmiejki);
+                            
+                            fetch(getMainLink(isStackBlitz)+getUmiejetnosciScript+"idUz="+profile.idUzytkownika+"&id1="+idUmiejki+"&id2=0&id3=0").then(response=>response.text()).then((data: unknown)=>{
+                                console.log(data as string);
+                                profile.setRefreshPage(!profile.refreshPage);
+                            })
 
                             restoreStates();
                         }}>Potwierdzam</button> : ''
