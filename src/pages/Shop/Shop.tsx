@@ -35,10 +35,11 @@ const Shop = () => {
     const podnies3UmiejkiTab: JSX.Element[] = [];
 
     useEffect(()=>{
-        toRetunUpgradableUmiejetnosci.splice(0, toRetunUpgradableUmiejetnosci.length);
-        podnies3UmiejkiTab.splice(0, podnies3UmiejkiTab.length);
-
         const onScroll = () => setOffset(window.scrollY);
+
+        setListOfUmiejki3ulepsz(emptyUmiejetnoscList);
+        setListUmiejetnosciToUpgrade(emptyUmiejetnoscList);
+
         fetch(getMainLink(isStackBlitz)+getUmiejetnosciScript+'id='+profile.idUzytkownika).then(response=>response.json()).then((data: any)=>{
             // console.log(data);
             for(let i=1; i<(data[0]*4); i+=4){
@@ -53,7 +54,8 @@ const Shop = () => {
         window.addEventListener('scroll', onScroll, { passive: true });
 
 
-        
+        toRetunUpgradableUmiejetnosci.splice(0, toRetunUpgradableUmiejetnosci.length);
+        podnies3UmiejkiTab.splice(0, podnies3UmiejkiTab.length);
 
         
 
