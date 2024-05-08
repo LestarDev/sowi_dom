@@ -35,6 +35,9 @@ const Shop = () => {
     const podnies3UmiejkiTab: JSX.Element[] = [];
 
     useEffect(()=>{
+        toRetunUpgradableUmiejetnosci.splice(0, toRetunUpgradableUmiejetnosci.length);
+        podnies3UmiejkiTab.splice(0, podnies3UmiejkiTab.length);
+
         const onScroll = () => setOffset(window.scrollY);
         fetch(getMainLink(isStackBlitz)+getUmiejetnosciScript+'id='+profile.idUzytkownika).then(response=>response.json()).then((data: any)=>{
             // console.log(data);
