@@ -105,34 +105,34 @@ const useProfile = () => {
         return Math.ceil(toPrzelicz/4);
     }
 
-    const pokazKostki = (toPrzelicz: string) => {
+    const pokazKostki = (toPrzelicz: number) => {
         //console.log(typeof toPrzelicz)
         switch(toPrzelicz){
-            case '0':
+            case 0:
                 return "PECH";
-            case '1':
+            case 1:
                 return "k3";
-            case '2':
+            case 2:
                 return "k4";
-            case '3':
+            case 3:
                 return "k6";
-            case '4':
+            case 4:
                 return "k8";
-            case '5':
+            case 5:
                 return "k8+k3";
-            case '6':
+            case 6:
                 return "k8+k4";
-            case '7':
+            case 7:
                 return "k8+k6";
-            case '8':
+            case 8:
                 return "2k8";
-            case '9':
+            case 9:
                 return "2k8+k4";
-            case '10':
+            case 10:
                 return "2k8+k6";
-            case '11':
+            case 11:
                 return "3k8";
-            case '12':
+            case 12:
                 return "k10+2k8";
             default:
                 return "Ladowanie..."
@@ -140,11 +140,11 @@ const useProfile = () => {
         }
     }
 
-    const zlaczoneKostki = (toPrzelicz_1: string, toPrzelicz_2: string) => {
+    const zlaczoneKostki = (toPrzelicz_2: string, toPrzelicz_1: number) => {
 
-        if(toPrzelicz_1=='0' || toPrzelicz_2=='0') return 'PECH';
+        if(toPrzelicz_1==0 || toPrzelicz_2=='0') return 'PECH';
 
-        if(toPrzelicz_1=='1'){
+        if(toPrzelicz_1==1){
             switch(toPrzelicz_2){
                 case '1':
                     return '2k3';
@@ -173,7 +173,7 @@ const useProfile = () => {
             }
         }
 
-        if(toPrzelicz_1=='2'){
+        if(toPrzelicz_1==2){
             switch(toPrzelicz_2){
                 case '1':
                     return 'k4+k3';
@@ -202,7 +202,7 @@ const useProfile = () => {
             }
         }
 
-        if(toPrzelicz_1=='3'){
+        if(toPrzelicz_1==3){
             switch(toPrzelicz_2){
                 case '1':
                     return 'k6+k3';
@@ -231,7 +231,7 @@ const useProfile = () => {
             }
         }
 
-        if(toPrzelicz_1=='4'){
+        if(toPrzelicz_1==4){
             switch(toPrzelicz_2){
                 case '1':
                     return 'k8+k3';
@@ -260,7 +260,7 @@ const useProfile = () => {
             }
         }
 
-        if(toPrzelicz_1=='5'){
+        if(toPrzelicz_1==5){
             switch(toPrzelicz_2){
                 case '1':
                     return 'k8+2k3';
@@ -289,7 +289,7 @@ const useProfile = () => {
             }
         }
 
-        if(toPrzelicz_1=='6'){
+        if(toPrzelicz_1==6){
             switch(toPrzelicz_2){
                 case '1':
                     return 'k8+k4+k3';
@@ -318,7 +318,7 @@ const useProfile = () => {
             }
         }
 
-        if(toPrzelicz_1=='7'){
+        if(toPrzelicz_1==7){
             switch(toPrzelicz_2){
                 case '1':
                     return 'k8+k6+k3';
@@ -347,7 +347,7 @@ const useProfile = () => {
             }
         }
 
-        if(toPrzelicz_1=='8'){
+        if(toPrzelicz_1==8){
             switch(toPrzelicz_2){
                 case '1':
                     return '2k8+k3';
@@ -376,7 +376,7 @@ const useProfile = () => {
             }
         }
 
-        if(toPrzelicz_1=='9'){
+        if(toPrzelicz_1==9){
             switch(toPrzelicz_2){
                 case '1':
                     return '2k8+k4+k3';
@@ -405,7 +405,7 @@ const useProfile = () => {
             }
         }
 
-        if(toPrzelicz_1=='10'){
+        if(toPrzelicz_1==10){
             switch(toPrzelicz_2){
                 case '1':
                     return '2k8+k6+k3';
@@ -434,7 +434,7 @@ const useProfile = () => {
             }
         }
 
-        if(toPrzelicz_1=='11'){
+        if(toPrzelicz_1==11){
             switch(toPrzelicz_2){
                 case '1':
                     return '3k8+k3';
@@ -463,7 +463,7 @@ const useProfile = () => {
             }
         }
 
-        if(toPrzelicz_1=='12'){
+        if(toPrzelicz_1==12){
             switch(toPrzelicz_2){
                 case '1':
                     return 'k10+2k8+k3';
