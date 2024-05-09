@@ -54,14 +54,14 @@ const HandoutySection = () => {
             }
 
         })
-    },[])
+    },[profile.refreshPage])
 
     const closeWindow = () => {
         setCurrentHandout(emptyHandout);
     }
 
     return <div>
-        <div ref={refDiv} className={profile.refreshPage ? '' : 'refresh'}></div>
+        <div ref={refDiv} className="HandoutySection"></div>
         {currentHandout.isPrzeczytana!=null ? (currentHandout.isPrzeczytana==false ? <>
             
             <div className="windowShowed">
