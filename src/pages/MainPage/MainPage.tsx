@@ -19,13 +19,13 @@ const MainPage = () => {
     // profile.setNewIdUzytkownika(uuid);
 
     useEffect(()=>{
-            fetch(getMainLink(isStackBlitz)+getNickScript+"id="+profile.idUzytkownika).then((response)=>response.json()).then((data: [string, number, number, number, number, number, number, number, number,number, number])=>{
+            fetch(getMainLink(isStackBlitz)+getNickScript+"id="+profile.idUzytkownika).then((response)=>response.json()).then((data: any[])=>{
                 console.log("Data:",data);
                 console.log("Main Page Cialo", typeof data[3]);
                 profile.setNewNick(data[0] as string);
-                profile.setNewLvl(data[1] as number);
+                profile.setNewLvl(data[1]);
                 profile.setNewAddHP(data[2] as number);
-                profile.setNewCialo(data[3] as number);
+                profile.setNewCialo(Number(data[3]));
                 profile.setNewUmysl(data[4] as number);
                 profile.setNewUrok(data[5] as number);
                 profile.setNewZrecznosc(data[6] as number);
