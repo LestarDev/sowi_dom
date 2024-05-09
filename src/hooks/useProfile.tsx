@@ -53,7 +53,7 @@ const useProfile = () => {
     }
 
     const setNewCialo = (newCialo: number) => {
-        console.log("Set new cialo:", typeof newCialo)
+        // console.log("Set new cialo:", typeof newCialo)
         dispatch(setCialo(newCialo));
     }
 
@@ -97,7 +97,7 @@ const useProfile = () => {
         // 6 => 2.0
         // 7=> 2.1
         const pierwszaCyfra = Math.ceil((toPrzelicz-(isSowiaMoneta ? 4 : 0))/5);
-        if(isReturnFirst) return pierwszaCyfra as number;
+        if(isReturnFirst) return pierwszaCyfra;
         const drugaCyfra = ((toPrzelicz-(isSowiaMoneta ? 0 : 1)))%5;
         return pierwszaCyfra+'.'+drugaCyfra;
     }
@@ -107,38 +107,9 @@ const useProfile = () => {
     }
 
     const pokazKostki = (toPrzelicz: number) => {
-        console.log("Pokaz kostki: ",typeof toPrzelicz)
-        switch(toPrzelicz){
-            case 0:
-                return "PECH";
-            case 1:
-                return "k3";
-            case 2:
-                return "k4";
-            case 3:
-                return "k6";
-            case 4:
-                return "k8";
-            case 5:
-                return "k8+k3";
-            case 6:
-                return "k8+k4";
-            case 7:
-                return "k8+k6";
-            case 8:
-                return "2k8";
-            case 9:
-                return "2k8+k4";
-            case 10:
-                return "2k8+k6";
-            case 11:
-                return "3k8";
-            case 12:
-                return "k10+2k8";
-            default:
-                return "Ladowanie..."
-
-        }
+        // console.log("Pokaz kostki: ",typeof toPrzelicz)
+        const tabPrzelicz = ["PECH", "k3", "k4", "k6", "k8", "k8+k3", "k8+k4", "k8+k6", "2k8", "2k8+k4", "2k8+k6", "3k8", "k10+2k8"];
+        return tabPrzelicz[toPrzelicz] ?? 0;
     }
 
     const zlaczoneKostki = (toPrzelicz_2: string, toPrzelicz_1: number) => {
@@ -510,7 +481,7 @@ const useProfile = () => {
 
 
 
-        return (HP*1+prepHPzCiala+prepHPzLvla)
+        return (HP+prepHPzCiala+prepHPzLvla)
     }
 
     const setNewAddHP = (newHP: number) => {

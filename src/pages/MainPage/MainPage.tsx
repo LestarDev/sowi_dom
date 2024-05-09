@@ -20,8 +20,8 @@ const MainPage = () => {
 
     useEffect(()=>{
             fetch(getMainLink(isStackBlitz)+getNickScript+"id="+profile.idUzytkownika).then((response)=>response.json()).then((data: string[])=>{
-                console.log("Data:",data);
-                console.log("Main Page Cialo", typeof data[3]);
+                // console.log("Data:",data);
+                // console.log("Main Page Cialo", typeof data[3]);
                 profile.setNewNick(data[0] as string);
                 profile.setNewLvl(Number(data[1]));
                 profile.setNewAddHP(Number(data[2]));
