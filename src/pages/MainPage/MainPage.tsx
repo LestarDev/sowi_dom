@@ -19,7 +19,7 @@ const MainPage = () => {
     // profile.setNewIdUzytkownika(uuid);
 
     useEffect(()=>{
-            fetch(getMainLink(isStackBlitz)+getNickScript+"id="+profile.idUzytkownika).then((response)=>response.json()).then((data: unknown[])=>{
+            fetch(getMainLink(isStackBlitz)+getNickScript+"id="+profile.idUzytkownika).then((response)=>response.json()).then((data: [string, number, number, number, number, number, number, number, number,number, number])=>{
                 profile.setNewNick(data[0] as string);
                 profile.setNewLvl(data[1] as number);
                 profile.setNewAddHP(data[2] as number);
