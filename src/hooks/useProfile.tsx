@@ -5,7 +5,9 @@ const useProfile = () => {
 
     const dispatch = useDispatch();
 
-    const {nick,HP, lvl, Umysl, slimaki, sowieMonety, refreshPage, Cialo, Zrecznosc, idUzytkownika, Szczescie, Urok, Niezlomnosc, Intuicja, wybranyTyp} = (useSelector((state: any) => state) as any).currency;
+    const {nick,HP, lvl, Umysl, slimaki, sowieMonety, refreshPage, Cialo, Zrecznosc, idUzytkownika, Szczescie, Urok, Niezlomnosc, Intuicja, wybranyTyp}: {
+        nick: string, HP: number, lvl: number, Umysl: number, slimaki: number, sowieMonety: number, refreshPage: boolean, Cialo: number, Zrecznosc: number, idUzytkownika: number, Szczescie: number, Urok: number, Niezlomnosc: number, Intuicja: number, wybranyTyp: choosenType
+    } = (useSelector((state: any) => state) as any).currency;
 
     wybranyTyp as choosenType;
 
@@ -518,7 +520,7 @@ const useProfile = () => {
         przelicznik, setNewWybrany, pokazKostki, zlaczoneKostki, przeliczLvl, getFirstCyfra, getHP,
         setNewProfile, setNewIdUzytkownika, setNewNick,
         setNewCialo, setNewIntuicja, setNewSzczescie, setNewNiezlomnosc, setNewUrok, setNewUmysl, setNewLvl,setNewZrecznosc, setNewAddHP, setRefreshPage, setNewSlimaki, setNewSowieMonety,
-        nick, lvl, Umysl, sowieMonety, Cialo, Zrecznosc, idUzytkownika, Szczescie, Urok, Niezlomnosc, Intuicja, wybranyTyp, refreshPage, slimaki,
+        nick, lvl, Umysl, sowieMonety, Cialo, Zrecznosc, idUzytkownika, Szczescie, Urok, Niezlomnosc, Intuicja, wybranyTyp, refreshPage, slimaki, 
     })
 
 }
