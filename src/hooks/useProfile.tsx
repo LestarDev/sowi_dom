@@ -106,7 +106,8 @@ const useProfile = () => {
     }
 
     const pokazKostki = (toPrzelicz: number) => {
-        //console.log(typeof toPrzelicz)
+        console.log("Pokaz kostki: ",typeof toPrzelicz)
+        console.trace(typeof toPrzelicz);
         switch(toPrzelicz){
             case 0:
                 return "PECH";
