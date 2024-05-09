@@ -13,17 +13,13 @@ type owlCard = {
 
 const OwlModule = ({nazwa, koszt, type, fun}: owlCard) => {
 
-    const nazwaHere = nazwa;
-    const kosztHere = koszt;
-    const typeHere = type;
-
     return <div className="OwlModule">
-        <p>{nazwaHere}</p>
+        <p>{nazwa}</p>
         <div>
-            <h3>Koszt: {kosztHere}</h3>
+            <h3>Koszt: {koszt}</h3>
             <button onClick={()=>{
-               fun({message: typeHere, isToShow: true, nameOfcard: nazwaHere});
-            }} className={typeHere}>Kup</button>
+               fun({message: type, isToShow: true, nameOfcard: nazwa});
+            }} className={type}>Kup</button>
         </div>
     </div>
 }
