@@ -19,20 +19,20 @@ const MainPage = () => {
     // profile.setNewIdUzytkownika(uuid);
 
     useEffect(()=>{
-            fetch(getMainLink(isStackBlitz)+getNickScript+"id="+profile.idUzytkownika).then((response)=>response.json()).then((data: any[])=>{
+            fetch(getMainLink(isStackBlitz)+getNickScript+"id="+profile.idUzytkownika).then((response)=>response.json()).then((data: string[])=>{
                 console.log("Data:",data);
                 console.log("Main Page Cialo", typeof data[3]);
                 profile.setNewNick(data[0] as string);
-                profile.setNewLvl(data[1]);
-                profile.setNewAddHP(data[2] as number);
+                profile.setNewLvl(Number(data[1]));
+                profile.setNewAddHP(Number(data[2]));
                 profile.setNewCialo(Number(data[3]));
-                profile.setNewUmysl(data[4] as number);
-                profile.setNewUrok(data[5] as number);
-                profile.setNewZrecznosc(data[6] as number);
-                profile.setNewNiezlomnosc(data[7] as number);
-                profile.setNewIntuicja(data[8] as number);
-                profile.setNewSzczescie(data[9] as number);
-                profile.setNewSlimaki(data[10] as number);
+                profile.setNewUmysl(Number(data[4]));
+                profile.setNewUrok(Number(data[5]));
+                profile.setNewZrecznosc(Number(data[6]));
+                profile.setNewNiezlomnosc(Number(data[7]));
+                profile.setNewIntuicja(Number(data[8]));
+                profile.setNewSzczescie(Number(data[9]));
+                profile.setNewSlimaki(Number(data[10]));
                 //profile.setNewNick('test1');
                 // console.log(data)
             }).catch((error)=>{
