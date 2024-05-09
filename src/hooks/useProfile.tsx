@@ -53,6 +53,7 @@ const useProfile = () => {
     }
 
     const setNewCialo = (newCialo: number) => {
+        console.log("Set new cialo:", typeof newCialo)
         dispatch(setCialo(newCialo));
     }
 
@@ -107,7 +108,6 @@ const useProfile = () => {
 
     const pokazKostki = (toPrzelicz: number) => {
         console.log("Pokaz kostki: ",typeof toPrzelicz)
-        console.trace(typeof toPrzelicz);
         switch(toPrzelicz){
             case 0:
                 return "PECH";
