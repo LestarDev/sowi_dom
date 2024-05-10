@@ -67,7 +67,7 @@ const UmiejetnosciSection = () => {
 
             for(let i=1; i<(data[0]*4); i+=4){
 
-                const preUmiejka: umiejetnoscType = {name: data[i], value: data[i+1],type: data[i+2], id: data[i+3]};
+                const preUmiejka: umiejetnoscType = {name: data[i], value: Number(data[i+1]),type: data[i+2], id: data[i+3]};
 
                 //console.log(i,data[i],data[i+1],data[i+2]);
                 if(refDiv.current){
