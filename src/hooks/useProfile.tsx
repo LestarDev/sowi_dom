@@ -148,8 +148,28 @@ const useProfile = () => {
         dispatch(setHP(newHP));
     }
 
+    const getCeche = (typeCecha: number): number => {
+        //console.log(typeof typeCecha);
+        switch(typeCecha){
+            case 1:
+                return Umysl;
+            case 2:
+                return Cialo;
+            case 3:
+                return Zrecznosc;
+            case 4:
+                return Niezlomnosc;
+            case 5:
+                return Intuicja;
+            case 6:
+                return Urok;
+            default:
+                return 0
+        }
+    }
+
     return ({
-        przelicznik, setNewWybrany, pokazKostki, zlaczoneKostki, przeliczLvl, getFirstCyfra, getHP,
+        przelicznik, setNewWybrany, pokazKostki, zlaczoneKostki, przeliczLvl, getFirstCyfra, getHP, getCeche,
         setNewProfile, setNewIdUzytkownika, setNewNick,
         setNewCialo, setNewIntuicja, setNewSzczescie, setNewNiezlomnosc, setNewUrok, setNewUmysl, setNewLvl,setNewZrecznosc, setNewAddHP, setRefreshPage, setNewSlimaki, setNewSowieMonety,
         nick, lvl, Umysl, sowieMonety, Cialo, Zrecznosc, idUzytkownika, Szczescie, Urok, Niezlomnosc, Intuicja, wybranyTyp, refreshPage, slimaki, 

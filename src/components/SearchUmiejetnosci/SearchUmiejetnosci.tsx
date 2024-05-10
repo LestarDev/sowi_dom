@@ -26,7 +26,7 @@ const SearchUmiejetnosci = ({props}: any) => {
             
             for(let i=1; i<(data[0]+4); i+=4){
 
-                const preUmiejka: umiejetnoscType = {name: data[i], value: data[i+1],type: data[i+2], id: data[i+3]};
+                const preUmiejka: umiejetnoscType = {name: data[i], value: Number(data[i+1]),type: data[i+2], id: data[i+3]};
 
                 //console.log(i,data[i],data[i+1],data[i+2]);
                 if(refDiv.current){
@@ -61,34 +61,14 @@ const SearchUmiejetnosci = ({props}: any) => {
         setWindowUmiejkaData({value:0, cecha: 0, nazwa:''});
     }
 
-    const getCeche = (typeCecha: number) => {
-        //console.log(typeof typeCecha);
-        switch((typeCecha as unknown) as string){
-            case '1':
-                return profile.Umysl;
-            case '2':
-                return profile.Cialo;
-            case '3':
-                return profile.Zrecznosc;
-            case '4':
-                return profile.Niezlomnosc;
-            case '5':
-                return profile.Intuicja;
-            case '6':
-                return profile.Urok;
-            default:
-                return 0
-        }
-    }
-
     return <>
         <div ref={refDiv}></div>
             <div ref={refDivOpenWindow} className={windowUmiejkaData.cecha==0 ? "window" : "windowShowed"}>
                 <div>
                     <h2>{windowUmiejkaData.nazwa}</h2>
                     <span>Umiejetnosc: {profile.przelicznik(windowUmiejkaData.value)}</span>
-                    <span>Cecha: {profile.przelicznik(getCeche(windowUmiejkaData.cecha))}</span>
-                    <span>{profile.zlaczoneKostki(windowUmiejkaData.value, getCeche(windowUmiejkaData.cecha))}</span>
+                    <span>Cecha: {profile.przelicznik(profile.getCeche(windowUmiejkaData.cecha))}</span>
+                    <span>{profile.zlaczoneKostki(windowUmiejkaData.value, profile.getCeche(windowUmiejkaData.cecha))}</span>
                     <button onClick={closeWindow}>x</button>
                 </div>
                 
