@@ -53,7 +53,6 @@ const useProfile = () => {
     }
 
     const setNewCialo = (newCialo: number) => {
-        // console.log("Set new cialo:", typeof newCialo)
         dispatch(setCialo(newCialo));
     }
 
@@ -89,27 +88,20 @@ const useProfile = () => {
 
     const przeliczLvl = (toPrzelicz: number, isSowiaMoneta: boolean=false, isReturnFirst: boolean = false) => {
         if(toPrzelicz==0) return '0';
-        // 1=>1.0
-        // 2=? 1.1
-        //3=> 1.2
-        //4=> 1.3
-        //5 => 1.4
-        // 6 => 2.0
-        // 7=> 2.1
         const pierwszaCyfra = Math.ceil((toPrzelicz-(isSowiaMoneta ? 4 : 0))/5);
         if(isReturnFirst) return pierwszaCyfra;
         const drugaCyfra = ((toPrzelicz-(isSowiaMoneta ? 0 : 1)))%5;
         return pierwszaCyfra+'.'+drugaCyfra;
     }
 
-    const getFirstCyfra = (toPrzelicz: number) => {
+    const getFirstCyfra = (toPrzelicz: number): number => {
         return Math.ceil(toPrzelicz/4);
     }
 
-    const pokazKostki = (toPrzelicz: number) => {
+    const pokazKostki = (toPrzelicz: number): string => {
         // console.log("Pokaz kostki: ",typeof toPrzelicz)
         const tabPrzelicz = ["PECH", "k3", "k4", "k6", "k8", "k8+k3", "k8+k4", "k8+k6", "2k8", "2k8+k4", "2k8+k6", "3k8", "k10+2k8"];
-        return tabPrzelicz[toPrzelicz] ?? 0;
+        return tabPrzelicz[toPrzelicz] ?? '0';
     }
 
     const zlaczoneKostkiTablica: string[][] = [
@@ -127,7 +119,7 @@ const useProfile = () => {
         ['k10+2k8+k3', 'k10+2k8+k4', 'k10+2k8+k6', 'k10+3k8', 'k10+3k8+k3', 'k10+3k8+k4', 'k10+3k8+k6', 'k10+4k8', 'k10+4k8+k4', 'k10+4k8+k6', 'k10+4k8', '2k10+4k8']
     ];
 
-    const zlaczoneKostki = (toPrzelicz_2: number, toPrzelicz_1: number) => {
+    const zlaczoneKostki = (toPrzelicz_2: number, toPrzelicz_1: number): string => {
 
         if(toPrzelicz_1==0 || toPrzelicz_2==0) return 'PECH';
 
