@@ -58,14 +58,22 @@ const LoginPage = () => {
     return <>
         {isMainToReturn==0 ? <div className="FormConteiner">
             <form method="POST" onSubmit={e => e.preventDefault()}>
-                <label htmlFor="loginID">Login: <input type="text" id="loginID" name="login" ref={loginRef} required /></label>
-                <label htmlFor="passwordID">Password: <input type={isToShowPassword ? "text" : "password"} id="passwordID" name="password" ref={passwordRef} required/> 
-                    <div onClick={()=>{
-                        setIsToShowPassword(!isToShowPassword);
-                    }}>
-                        {isToShowPassword ? <FaRegEye /> : <FaRegEyeSlash />}
+                <div className="inputsConteiner">
+                    <div>
+                        <label htmlFor="loginID">Login: </label>
+                        <label htmlFor="passwordID">Password:  </label>
                     </div>
-                </label>
+                    <div>
+                        <input type="text" id="loginID" name="login" ref={loginRef} required />
+                        <input type={isToShowPassword ? "text" : "password"} id="passwordID" name="password" ref={passwordRef} required/>
+                    </div>
+                    <div onClick={()=>{
+                            setIsToShowPassword(!isToShowPassword);
+                        }}>
+                            {isToShowPassword ? <FaRegEye /> : <FaRegEyeSlash />}
+                    </div>
+                </div>
+                
                 <input type="submit" onClick={(e)=>{
                     e.preventDefault();
                     moveToMainPage();
