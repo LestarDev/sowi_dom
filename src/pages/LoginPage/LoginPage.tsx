@@ -6,6 +6,8 @@ import getMainLink from "../../private/apiData";
 import './LoginPage.css'
 import { isStackBlitz } from "../../shared/config/isStackBlitz";
 import { initialState } from "../../shared/config/currentSlice";
+import { FaRegEye } from "react-icons/fa6";
+import { FaRegEyeSlash } from "react-icons/fa6";
 import Shop from "../Shop/Shop";
 
 const LoginPage = () => {
@@ -14,6 +16,8 @@ const LoginPage = () => {
     // 0 => Login page
     // 1 => Main page
     // 2 => Sowi shop
+
+    const [isToShowPassword, setIsToShowPassword] = useState(false);
 
     const profile=useProfile();
 
@@ -55,7 +59,13 @@ const LoginPage = () => {
         {isMainToReturn==0 ? <div className="FormConteiner">
             <form method="POST" onSubmit={e => e.preventDefault()}>
                 <label htmlFor="loginID">Login: <input type="text" id="loginID" name="login" ref={loginRef} required/></label>
-                <label htmlFor="passwordID">Password: <input type="text" id="passwordID" name="password" ref={passwordRef} required/></label>
+                <label htmlFor="passwordID">Password: <input type={isToShowPassword ? "text" : "password"} id="passwordID" name="password" ref={passwordRef} required/> 
+                    <div onClick={()=>{
+                        setIsToShowPassword(!isToShowPassword);
+                    }}>
+                        {isToShowPassword ? <FaRegEye /> : <FaRegEyeSlash />}
+                    </div>
+                </label>
                 <input type="submit" onClick={(e)=>{
                     e.preventDefault();
                     moveToMainPage();
