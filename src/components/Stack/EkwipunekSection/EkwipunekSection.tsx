@@ -26,7 +26,10 @@ const EkwipunekSection = () => {
 
     const [obecnyEkwipunek, setObecnyEkwipunek] = useState(emptyItem);
 
+    const [offset, setOffset] = useState(0);
+
     useEffect(()=>{
+        const onScroll = () => setOffset(window.scrollY);
         fetch(getMainLink(isStackBlitz)+getEkwipunek+"id="+profile.idUzytkownika).then(response=>response.json()).then((data: any)=>{
             // console.log(data);
 
@@ -62,6 +65,18 @@ const EkwipunekSection = () => {
             }
 
         })
+
+        window.removeEventListener('scroll', onScroll);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.removeEventListener('touchmove', onScroll);
+        window.addEventListener('touchmove', onScroll, { passive: true });
+
+        return () => {
+            window.removeEventListener('scroll', onScroll);
+            window.removeEventListener('touchmove', onScroll);
+        }
+
+
     },[profile.refreshPage])
 
     const closeWindow = () => {
@@ -70,7 +85,7 @@ const EkwipunekSection = () => {
 
     return <div className="EkwipunekSection">
         <div ref={refDiv}></div>
-        <div ref={refDivOpenWindow} className={obecnyEkwipunek.nazwa=='' ? 'window' : 'windowShowed'}>
+        <div ref={refDivOpenWindow} style={{transform: "translateY("+offset+"px)"}} className={obecnyEkwipunek.nazwa=='' ? 'window' : 'windowShowed'}>
             <div className="eqBox">
                 <div className="colorEq">
                     <div className="iconEq">

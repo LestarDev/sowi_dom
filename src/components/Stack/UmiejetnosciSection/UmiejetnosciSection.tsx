@@ -33,7 +33,10 @@ const UmiejetnosciSection = () => {
         setWindowUmiejkaData({value:0, cecha: 0, nazwa:''});
     }
 
+    const [offset, setOffset] = useState(0);
+
     useEffect(()=>{
+        const onScroll = () => setOffset(window.scrollY);
         fetch(getMainLink(isStackBlitz)+getUmiejetnosciScript+'id='+profile.idUzytkownika).then(response=>response.json()).then((data: any)=>{
             
 
@@ -76,6 +79,17 @@ const UmiejetnosciSection = () => {
             
             //const thisManyUmiejetnosci = 
         })
+
+        window.removeEventListener('scroll', onScroll);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.removeEventListener('touchmove', onScroll);
+        window.addEventListener('touchmove', onScroll, { passive: true });
+
+        return () => {
+            window.removeEventListener('scroll', onScroll);
+            window.removeEventListener('touchmove', onScroll);
+        }
+
     },[showSearch, profile.refreshPage])
 
     const changeShow = () => {
@@ -100,7 +114,7 @@ const UmiejetnosciSection = () => {
         {
             !showSearch ? <>
             <div ref={refDiv}></div>
-            <div ref={refDivOpenWindow} className={windowUmiejkaData.cecha==0 ? "window" : "windowShowed"}>
+            <div ref={refDivOpenWindow} className={windowUmiejkaData.cecha==0 ? "window" : "windowShowed"} style={{transform: "translateY("+offset+"px)"}}>
                 <div className="umiejkaBox">
                     <h2>{windowUmiejkaData.nazwa}</h2>
                     <span>Umiejetnosc: {profile.przelicznik(windowUmiejkaData.value)}</span>

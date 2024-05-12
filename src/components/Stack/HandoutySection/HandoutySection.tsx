@@ -23,8 +23,10 @@ const HandoutySection = () => {
     }
 
     const [currentHandout, setCurrentHandout] = useState(emptyHandout);
+    const [offset, setOffset] = useState(0);
 
     useEffect(()=>{
+        const onScroll = () => setOffset(window.scrollY);
         fetch(getMainLink(isStackBlitz)+getKsiazka+"id="+profile.idUzytkownika).then(response=>response.json()).then((data: any)=>{
             // console.log(data);
 
@@ -54,6 +56,17 @@ const HandoutySection = () => {
             }
 
         })
+
+        window.removeEventListener('scroll', onScroll);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.removeEventListener('touchmove', onScroll);
+        window.addEventListener('touchmove', onScroll, { passive: true });
+
+        return () => {
+            window.removeEventListener('scroll', onScroll);
+            window.removeEventListener('touchmove', onScroll);
+        }
+
     },[profile.refreshPage])
 
     const closeWindow = () => {
@@ -64,14 +77,14 @@ const HandoutySection = () => {
         <div ref={refDiv} className="HandoutySection"></div>
         {currentHandout.isPrzeczytana!=null ? (currentHandout.isPrzeczytana==false ? <>
             
-            <div className="windowShowed">
+            <div className="windowShowed" style={{transform: "translateY("+offset+"px)"}}>
                 <div className="handout">
                     <span className="unreaded">Nie przeczytales jeszcze</span>
                     <button onClick={closeWindow}>x</button>
                 </div>
             </div>
             
-            </> : <><div className="windowShowed">
+            </> : <><div className="windowShowed" style={{transform: "translateY("+offset+"px)"}}>
             <div className="handout">
                 <textarea cols={40} rows={20} defaultValue={currentHandout.tres} readOnly />
                 <button onClick={closeWindow}>x</button>
