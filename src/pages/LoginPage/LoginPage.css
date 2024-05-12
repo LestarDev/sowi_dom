@@ -49,11 +49,15 @@ input[type="submit"]{
 .inputsConteiner, .inputsConteiner > div > div{
     display: flex;
     align-items: center;
-    gap: 0.5reml
+    gap: 0.5rem;
 }
 
 .inputsConteiner > div{
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+}
+
+#loginID{
+    margin-right: 1.5rem;
 }
