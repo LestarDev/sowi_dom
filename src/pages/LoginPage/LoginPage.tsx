@@ -56,6 +56,7 @@ const LoginPage = () => {
     }
 
     const showRefresh = () => {
+        localStorage.setItem('pasy', JSON.stringify({login: loginRef.current?.value, passowrd: passwordRef.current?.value}));
         alert('refresh!')
     }
 
@@ -66,10 +67,16 @@ const LoginPage = () => {
         return () => window.removeEventListener('beforeunload', showRefresh);
     },[])
 
+    const checkPasy = (): string => {
+        const dane = localStorage.getItem('pasy');
+        console.log("Dane: lcoalStorage:", dane);
+        return dane==undefined ? '' : 'dane';
+    }
+
     return <>
         {isMainToReturn==0 ? <div className="FormConteiner">
             <form method="POST" onSubmit={e => e.preventDefault()}>
-                <label htmlFor="loginID">Login: <input type="text" id="loginID" name="login" ref={loginRef} required/></label>
+                <label htmlFor="loginID">Login: <input type="text" id="loginID" name="login" ref={loginRef} required value={checkPasy}/></label>
                 <label htmlFor="passwordID">Password: <input type={isToShowPassword ? "text" : "password"} id="passwordID" name="password" ref={passwordRef} required/> 
                     <div onClick={()=>{
                         setIsToShowPassword(!isToShowPassword);
