@@ -46,11 +46,14 @@ input[type="submit"]{
     justify-content: space-between;
 }
 
-.inputsConteiner{
+.inputsConteiner, .inputsConteiner > div > div{
     display: flex;
+    align-items: center;
+    gap: 0.5reml
 }
 
 .inputsConteiner > div{
     display: flex;
     flex-direction: column;
+    gap: 0.5rem;
 }

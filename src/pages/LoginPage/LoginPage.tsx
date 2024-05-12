@@ -65,13 +65,14 @@ const LoginPage = () => {
                     </div>
                     <div>
                         <input type="text" id="loginID" name="login" ref={loginRef} required />
-                        <input type={isToShowPassword ? "text" : "password"} id="passwordID" name="password" ref={passwordRef} required/>
+                        <div>
+                            <input type={isToShowPassword ? "text" : "password"} id="passwordID" name="password" ref={passwordRef} required/>
+                            <div onClick={()=>{setIsToShowPassword(!isToShowPassword);}}>
+                                {isToShowPassword ? <FaRegEye /> : <FaRegEyeSlash />}
+                            </div>
+                        </div>
                     </div>
-                    <div onClick={()=>{
-                            setIsToShowPassword(!isToShowPassword);
-                        }}>
-                            {isToShowPassword ? <FaRegEye /> : <FaRegEyeSlash />}
-                    </div>
+                    
                 </div>
                 
                 <input type="submit" onClick={(e)=>{
