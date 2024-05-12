@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import useProfile from "../../hooks/useProfile"
 import MainPage from "../MainPage/MainPage";
 import { getProfileScript } from "../../private/apiData";
@@ -54,6 +54,17 @@ const LoginPage = () => {
         profile.setNewProfile(initialState);
         setIsMainToReturn(0);
     }
+
+    const showRefresh = () => {
+        alert('refresh!')
+    }
+
+    useEffect(()=>{
+        window.removeEventListener('beforeunload', showRefresh);
+        window.addEventListener('beforeunload', showRefresh, { passive: true });
+
+        return () => window.removeEventListener('beforeunload', showRefresh);
+    },[])
 
     return <>
         {isMainToReturn==0 ? <div className="FormConteiner">
