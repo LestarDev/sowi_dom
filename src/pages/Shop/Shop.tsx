@@ -52,6 +52,8 @@ const Shop = () => {
         })
         window.removeEventListener('scroll', onScroll);
         window.addEventListener('scroll', onScroll, { passive: true });
+        window.removeEventListener('touchmove', onScroll);
+        window.addEventListener('touchmove', onScroll, { passive: true });
 
 
         toRetunUpgradableUmiejetnosci.splice(0, toRetunUpgradableUmiejetnosci.length);
@@ -60,7 +62,10 @@ const Shop = () => {
         
 
 
-        return () => window.removeEventListener('scroll', onScroll);
+        return () => {
+            window.removeEventListener('scroll', onScroll);
+            window.removeEventListener('touchmove', onScroll);
+        }
     },[profile.refreshPage])
 
     listUmiejetnosciToUpgrade.forEach(singleUmiejka=>{
