@@ -45,3 +45,12 @@ input[type="submit"]{
     display: flex;
     justify-content: space-between;
 }
+
+.inputsConteiner{
+    display: flex;
+}
+
+.inputsConteiner > div{
+    display: flex;
+    flex-direction: column;
+}
