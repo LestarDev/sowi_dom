@@ -13,7 +13,7 @@ $con = mysqli_connect('localhost','lestardev','OptimusPrime9001!','lestardev_sow
         // header("Location: ".$url);
     exit();
  }else{
-    $query_uzytkownik = "SELECT umiejetnosci.nazwa, umiejetnosci.lvlUmiejki, umiejetnosci.typCechy, umiejetnosci.id FROM `umiejetnosci` WHERE id_uzytkownika='$id';";
+    $query_uzytkownik = "SELECT umiejetnosci.nazwa, umiejetnosci.lvlUmiejki, umiejetnosci.typCechy, umiejetnosci.id FROM `umiejetnosci` WHERE id_uzytkownika='$id' ORDER BY `umiejetnosci`.`nazwa` ASC;";
     $res_uzytkownik = mysqli_query($con, $query_uzytkownik);
     
     $tab = [mysqli_num_rows($res_uzytkownik)];
