@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import useProfile from "../../../hooks/useProfile"
 import getMainLink, { getKsiazka } from "../../../private/apiData";
 import { isStackBlitz } from "../../../shared/config/isStackBlitz";
@@ -14,7 +14,7 @@ const HandoutySection = () => {
         tres: string
     }
 
-    const refDiv = useRef<HTMLDivElement>(null);
+    // const refDiv = useRef<HTMLDivElement>(null);
 
     const emptyHandout: handoutTyep = {
         tytul: '',
@@ -25,34 +25,48 @@ const HandoutySection = () => {
     const [currentHandout, setCurrentHandout] = useState(emptyHandout);
     const [offset, setOffset] = useState(0);
 
+    const [divElement, setDivElement] = useState(<div className="HandoutySection"></div>);
+
     useEffect(()=>{
         const onScroll = () => setOffset(window.scrollY);
         fetch(getMainLink(isStackBlitz)+getKsiazka+"id="+profile.idUzytkownika).then(response=>response.json()).then((data: any)=>{
             // console.log(data);
 
-            if(refDiv.current){
-                refDiv.current.innerHTML="";
-            }
+            // if(refDiv.current){
+            //     refDiv.current.innerHTML="";
+            // }
+
+            if(data[0]==0) return;
 
             for(let i=1; i<(data[0]*3); i+=3){
                 const preItem: handoutTyep = {tytul: data[i],isPrzeczytana: (data[i+1]==1),tres: data[i+2]}
                 // console.log(preItem);
                 
-                if(data[0]==0) return;
+                
 
-                const prepDiv = document.createElement('div');
-                const spanTresc = document.createElement('span');
-                const buttonTresc = document.createElement('button');
-                spanTresc.innerHTML=preItem.tytul;
-                buttonTresc.innerHTML="Czytaj";
-                buttonTresc.className = preItem.isPrzeczytana ? "publiczny" : "doPrzeczytania";
-                buttonTresc.onclick=function(){
-                    // if(!preItem.isPrzeczytana) return;
-                    setCurrentHandout(preItem);
-                }
-                prepDiv.appendChild(spanTresc);
-                prepDiv.append(buttonTresc);
-                refDiv.current?.appendChild(prepDiv)
+                // const prepDiv = document.createElement('div');
+                // const spanTresc = document.createElement('span');
+                // const buttonTresc = document.createElement('button');
+                // spanTresc.innerHTML=preItem.tytul;
+                // buttonTresc.innerHTML="Czytaj";
+                // buttonTresc.className = preItem.isPrzeczytana ? "publiczny" : "doPrzeczytania";
+                // buttonTresc.onclick=function(){
+                //     // if(!preItem.isPrzeczytana) return;
+                //     setCurrentHandout(preItem);
+                // }
+                // prepDiv.appendChild(spanTresc);
+                // prepDiv.append(buttonTresc);
+                // refDiv.current?.appendChild(prepDiv)
+
+                setDivElement(preDiv=><div>
+                    {preDiv.props.children}
+                    <div>
+                        <span>{preItem.tytul}</span>
+                        <button className={preItem.isPrzeczytana ? "publiczny" : "doPrzeczytania"} onClick={()=>{
+                            setCurrentHandout(preItem);
+                        }}>Czytaj</button>
+                    </div>
+                </div>)
             }
 
         })
@@ -74,7 +88,9 @@ const HandoutySection = () => {
     }
 
     return <div>
-        <div ref={refDiv} className="HandoutySection"></div>
+        {
+            divElement
+        }
         {currentHandout.isPrzeczytana!=null ? (currentHandout.isPrzeczytana==false ? <>
             
             <div className="windowShowed" style={{transform: "translateY("+offset+"px)"}}>
