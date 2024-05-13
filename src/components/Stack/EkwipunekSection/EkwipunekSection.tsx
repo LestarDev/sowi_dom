@@ -38,7 +38,7 @@ const EkwipunekSection = () => {
             }
             for(let i=1; i<(data[0]*5); i+=5){
                 // console.log(data[i+3], typeof data[i+3]);
-                const preItem: ekwipunekType = {id: data[i], nazwa: data[i+1], ilosc: data[i+2],czyBron: (data[i+3]=='1'), opis: data[i+4]};
+                const preItem: ekwipunekType = {id: Number(data[i]), nazwa: data[i+1], ilosc: data[i+2],czyBron: (data[i+3]=='1'), opis: data[i+4]};
 
                 //console.log(i,data[i],data[i+1],data[i+2]);
                 if(refDiv.current){
@@ -99,7 +99,7 @@ const EkwipunekSection = () => {
                 <div className="dataEQ">
                     <span>Ilosc: {obecnyEkwipunek.ilosc}</span>
                     <span>Opis: {obecnyEkwipunek.opis}</span>
-                    {obecnyEkwipunek.czyBron ? <BronModule props={{id: obecnyEkwipunek.id}} /> : ''}
+                    {obecnyEkwipunek.czyBron ? <BronModule idBroni={obecnyEkwipunek.id} /> : ''}
                 </div>
                 <button onClick={closeWindow}>x</button>
             </div>
