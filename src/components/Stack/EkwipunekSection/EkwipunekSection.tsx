@@ -14,6 +14,8 @@ const EkwipunekSection = () => {
     const refDiv = useRef<HTMLDivElement>(null);
     const refDivOpenWindow = useRef<HTMLDivElement>(null);
 
+    const [divElement, setDivElement] = useState(<div></div>);
+
     type ekwipunekType = {
         id: number,
         nazwa: string,
@@ -41,27 +43,36 @@ const EkwipunekSection = () => {
                 const preItem: ekwipunekType = {id: Number(data[i]), nazwa: data[i+1], ilosc: data[i+2],czyBron: (data[i+3]=='1'), opis: data[i+4]};
 
                 //console.log(i,data[i],data[i+1],data[i+2]);
-                if(refDiv.current){
-                    //const divEl = createElement("div",{className: "singleUmiejka"},createElement("span",preUmiejka.name));
-                    const divEl = document.createElement("div");
-                    const firstSpan = document.createElement("span");
-                    const secondSpan = document.createElement("span");
-                    const buttonOpen = document.createElement("button");
-                    divEl.className="singleUmiejka";
-                    firstSpan.innerHTML=preItem.nazwa;
-                    secondSpan.innerHTML= "("+preItem.ilosc as string+")";
-                    buttonOpen.innerHTML="Info";
-                    buttonOpen.onclick= function(){
-                        // openWindow(preUmiejka);
-                        setObecnyEkwipunek(preItem);
-                    }
-                    divEl.appendChild(firstSpan);
-                    divEl.appendChild(secondSpan);
-                    divEl.appendChild(buttonOpen);
-                    refDiv.current.appendChild(divEl);
+                // if(refDiv.current){
+                //     //const divEl = createElement("div",{className: "singleUmiejka"},createElement("span",preUmiejka.name));
+                //     const divEl = document.createElement("div");
+                //     const firstSpan = document.createElement("span");
+                //     const secondSpan = document.createElement("span");
+                //     const buttonOpen = document.createElement("button");
+                //     divEl.className="singleUmiejka";
+                //     firstSpan.innerHTML=preItem.nazwa;
+                //     secondSpan.innerHTML= "("+preItem.ilosc as string+")";
+                //     buttonOpen.innerHTML="Info";
+                //     buttonOpen.onclick= function(){
+                //         // openWindow(preUmiejka);
+                //         setObecnyEkwipunek(preItem);
+                //     }
+                //     divEl.appendChild(firstSpan);
+                //     divEl.appendChild(secondSpan);
+                //     divEl.appendChild(buttonOpen);
+                //     refDiv.current.appendChild(divEl);
                     
-                    //refDiv.current.innerHTML+=preUmiejka.name+' : '+preUmiejka.value+'<br> ';
-                }
+                //     //refDiv.current.innerHTML+=preUmiejka.name+' : '+preUmiejka.value+'<br> ';
+                // }
+
+                setDivElement(preElement=><div>
+                    {preElement.props.children}
+                    <div className="singleUmiejka">
+                        <span>{preItem.nazwa}</span>
+                        <span>({preItem.ilosc})</span>
+                        <button onClick={()=>{setObecnyEkwipunek(preItem)}}>Info</button>
+                    </div>
+                </div>)
             }
 
         })
@@ -85,6 +96,9 @@ const EkwipunekSection = () => {
 
     return <div className="EkwipunekSection">
         <div ref={refDiv}></div>
+        {
+            divElement
+        }
         <div ref={refDivOpenWindow} style={{transform: "translateY("+offset+"px)"}} className={obecnyEkwipunek.nazwa=='' ? 'window' : 'windowShowed'}>
             <div className="eqBox">
                 <div className="colorEq">
