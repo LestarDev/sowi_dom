@@ -33,10 +33,8 @@ const LoginPage = () => {
 
         // profile.setLogowanie(loginValue as string, passwordValue as string);
         
-        const link = getMainLink(isStackBlitz)+getProfileScript+"login="+loginValue+"&password="+passwordValue;
-        //console.log(link)
-        fetch(link).then((response)=>response.text()).then((data: unknown)=>{
-            console.log(data);
+        fetch(getMainLink(isStackBlitz)+getProfileScript+"login="+loginValue+"&password="+passwordValue).then((response)=>response.text()).then((data: unknown)=>{
+            // console.log(data);
             if(data!="Error login"){
                 profile.setNewIdUzytkownika(data as number);
                 setIsMainToReturn(1);

@@ -4,12 +4,12 @@ import './StatsSection.css'
 const StatsSection = () => {
     return <div className="StatsSection">
         
-        <StatBox props={{whichOne: 'Umysl'}} />
-        <StatBox props={{whichOne: 'Cialo'}} />
-        <StatBox props={{whichOne: 'Zrecznosc'}} />
-        <StatBox props={{whichOne: 'Niezlomnosc'}} />
-        <StatBox props={{whichOne: 'Intuicja'}} />
-        <StatBox props={{whichOne: 'Urok'}} />
+        <StatBox whichOne="Umysl"/>
+        <StatBox whichOne="Cialo" />
+        <StatBox whichOne="Zrecznosc" />
+        <StatBox whichOne="Niezlomnosc" />
+        <StatBox whichOne="Intuicja" />
+        <StatBox whichOne="Urok" />
     </div>
 }
 
