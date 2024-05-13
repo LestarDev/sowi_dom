@@ -10,6 +10,7 @@ const StatsSection = () => {
         <StatBox whichOne="Niezlomnosc" />
         <StatBox whichOne="Intuicja" />
         <StatBox whichOne="Urok" />
+        
     </div>
 }
 

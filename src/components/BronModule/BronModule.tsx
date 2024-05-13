@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 import getMainLink, { getBron } from "../../private/apiData";
 import { isStackBlitz } from "../../shared/config/isStackBlitz";
 import './BronModule.css'
@@ -10,19 +10,14 @@ const BronModule = ({props}: any) => {
 
     const profile = useProfile();
 
-    const refDiv = useRef<HTMLDivElement>(null);
+    const [divElement, setDivElement] = useState(<div></div>);
+    
 
     useEffect(()=>{
-        fetch(getMainLink(isStackBlitz)+getBron+"id="+idBroni).then(response=>response.json()).then((data: any)=>{
+        fetch(getMainLink(isStackBlitz)+getBron+"id="+idBroni).then(response=>response.json()).then((data: string[])=>{
 
-            if(refDiv.current){
-                refDiv.current.innerHTML="";
-            }
 
-            console.log(data);
-            const span1 = document.createElement('span');
-            const span2 = document.createElement('span');
-            const dwieOstatnie: string = (data[1]as string).slice(data[1].length-2, data[1].length);
+            const dwieOstatnie: string = (data[1]).slice(data[1].length-2, data[1].length);
             if(dwieOstatnie=="S*"){
                 data[1]+=" ["+profile.getFirstCyfra(profile.Cialo)+"+"+profile.getFirstCyfra(profile.Zrecznosc)+"]";
             }else if(dwieOstatnie=="Zr"){
@@ -30,15 +25,19 @@ const BronModule = ({props}: any) => {
             }else if(dwieOstatnie[1]=='S'){
                 data[1]+=" ["+profile.getFirstCyfra(profile.Cialo)+"]";
             }
-            span1.innerHTML='Obrazenia: '+data[1];
-            span2.innerHTML='Cechy: '+data[2];
-            refDiv.current?.appendChild(span1);
-            refDiv.current?.appendChild(span2);
+            setDivElement(
+                <div>
+                    <span>Obrazenia: {data[1]}</span>
+                    <span>Cechy: {data[2]}</span>
+                </div>
+            )
         })
     }, [])
 
     return <div className="BronModule">
-        <div ref={refDiv}></div>
+        {
+            divElement
+        }
     </div>
 }
 
