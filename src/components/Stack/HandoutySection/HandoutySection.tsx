@@ -25,9 +25,12 @@ const HandoutySection = () => {
     const [currentHandout, setCurrentHandout] = useState(emptyHandout);
     const [offset, setOffset] = useState(0);
 
-    const [divElement, setDivElement] = useState(<div className="HandoutySection"></div>);
+    const emptyDivEl = <div className="HandoutySection"></div>;
+
+    const [divElement, setDivElement] = useState(emptyDivEl);
 
     useEffect(()=>{
+        setDivElement(emptyDivEl);
         const onScroll = () => setOffset(window.scrollY);
         fetch(getMainLink(isStackBlitz)+getKsiazka+"id="+profile.idUzytkownika).then(response=>response.json()).then((data: any)=>{
             // console.log(data);
