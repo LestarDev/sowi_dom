@@ -1,18 +1,19 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import getMainLink, { getZdolnosciScript } from "../../../private/apiData"
 import useProfile from "../../../hooks/useProfile";
-import ChainLinkIcon from "../../../assets/chain_link_icon.png";
 import "./ZdolnosciSection.css"
 import { isStackBlitz } from "../../../shared/config/isStackBlitz";
 import RecepturaZdolnosci from "../../RecepturaZdolnosci/RecepturaZdolnosci";
+import { IoIosLink } from "react-icons/io";
 
 const ZdolnosciSection = () => {
 
     const profile = useProfile();
 
-    const refDiv = useRef<HTMLDivElement>(null);
+    const emptyDiv = <div></div>
 
     const [receptaToShow, setReceptaToShow] = useState(0);
+    const [divElement, setDivElement] = useState(emptyDiv);
 
     
     type zdolnoscType = {
@@ -51,31 +52,26 @@ const ZdolnosciSection = () => {
         const onScroll = () => setOffset(window.scrollY);
         fetch(getMainLink(isStackBlitz)+getZdolnosciScript+"id="+profile.idUzytkownika).then(response=>response.json()).then((data: any)=>{
 
-            if(refDiv.current){
-                refDiv.current.innerHTML="";
-            }
+            setDivElement(emptyDiv);
             // console.log(data);
             for(let i=1; i<(data[0]*4); i+=4){
                 //console.log('Zdolnosc: ',data[i],data[i+1], data[i+2]);
                 const preperZdolnosc: zdolnoscType = {nazwa: data[i+1], czyPolaczone: (data[i+2]==1), tresc: data[i+3]}
-                const divToPush = document.createElement("div");
-                const spanToPush = document.createElement("span");
-                const imgToPush = document.createElement("img");
-                const buttonInfo = document.createElement('button');
-                spanToPush.innerHTML=preperZdolnosc.nazwa+"<IoIosLink />";
-                imgToPush.src=ChainLinkIcon;
-                imgToPush.className="imgChain";
-                imgToPush.onclick=function(){
-                    wyswietlRecepta(data[i]);
-                }
-                buttonInfo.innerHTML="Info";
-                buttonInfo.onclick=function(){
-                    showInfo(preperZdolnosc);
-                }
-                divToPush.appendChild(spanToPush);
-                if(preperZdolnosc.czyPolaczone) divToPush.appendChild(imgToPush);
-                divToPush.appendChild(buttonInfo);
-                refDiv.current?.appendChild(divToPush);
+
+                setDivElement(prevEl=><div>
+                    {prevEl.props.children}
+                    <div>
+                        <span>
+                            {preperZdolnosc.nazwa}
+                            {
+                                preperZdolnosc.czyPolaczone ? <IoIosLink onClick={()=>{wyswietlRecepta(data[i])}} /> : ''
+                            }
+                            
+                        </span>
+                        <button onClick={()=>{showInfo(preperZdolnosc)}}>Info</button>
+                    </div>
+                </div>)
+
             }
 
         })
@@ -93,7 +89,9 @@ const ZdolnosciSection = () => {
     },[profile.refreshPage])
 
     return <div className="ZdolnosciSection">
-        <div ref={refDiv}></div>
+        {
+            divElement
+        }
         {infoToShow.tresc!="" ? <div className="windowShowed" style={{transform: "translateY("+offset+"px)"}}>
             <div className="zdolnoscInfoBox">
                 <h2>{infoToShow.nazwa}</h2>
