@@ -13,7 +13,9 @@ const EkwipunekSection = () => {
 
     const refDivOpenWindow = useRef<HTMLDivElement>(null);
 
-    const [divElement, setDivElement] = useState(<div></div>);
+    const emptyDiv = <div></div>;
+
+    const [divElement, setDivElement] = useState(emptyDiv);
 
     type ekwipunekType = {
         id: number,
@@ -33,7 +35,7 @@ const EkwipunekSection = () => {
         const onScroll = () => setOffset(window.scrollY);
         fetch(getMainLink(isStackBlitz)+getEkwipunek+"id="+profile.idUzytkownika).then(response=>response.json()).then((data: any)=>{
             // console.log(data);
-
+            setDivElement(emptyDiv);
             for(let i=1; i<(data[0]*5); i+=5){
                 const preItem: ekwipunekType = {id: Number(data[i]), nazwa: data[i+1], ilosc: data[i+2],czyBron: (data[i+3]=='1'), opis: data[i+4]};
 
