@@ -1,9 +1,10 @@
 .section > div{
     flex-direction: column;
-}
-
-.section div{
     display: flex;
     gap: 0.5rem;
     align-items: center;
+}
+
+.section .window{
+    display: none;
 }
