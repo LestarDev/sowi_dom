@@ -121,7 +121,7 @@ const useProfile = () => {
 
     const zlaczoneKostki = (toPrzelicz_2: number, toPrzelicz_1: number): string => {
 
-        if(toPrzelicz_1==0 || toPrzelicz_2==0) return 'PECH';
+        if(toPrzelicz_1===0 || toPrzelicz_2===0) return 'PECH';
 
         return zlaczoneKostkiTablica[toPrzelicz_1-1][toPrzelicz_2-1] ?? `Error => useProfile => zlaczoneKostki(${toPrzelicz_1}, ${toPrzelicz_2})!`;
         
