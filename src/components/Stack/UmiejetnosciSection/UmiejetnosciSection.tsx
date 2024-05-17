@@ -113,7 +113,7 @@ const UmiejetnosciSection = () => {
         </div>
         {
             !showSearch ? <>
-            <div ref={refDiv}></div>
+            <div ref={refDiv} className="section"></div>
             <div ref={refDivOpenWindow} className={windowUmiejkaData.cecha==0 ? "window" : "windowShowed"} style={{transform: "translateY("+offset+"px)"}}>
                 <div className="umiejkaBox">
                     <h2>{windowUmiejkaData.nazwa}</h2>

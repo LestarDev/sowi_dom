@@ -88,7 +88,7 @@ const ZdolnosciSection = () => {
 
     },[profile.refreshPage])
 
-    return <div className="ZdolnosciSection">
+    return <div className="section">
         {
             divElement
         }

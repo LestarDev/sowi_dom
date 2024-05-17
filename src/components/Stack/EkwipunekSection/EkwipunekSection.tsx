@@ -68,7 +68,7 @@ const EkwipunekSection = () => {
         setObecnyEkwipunek(emptyItem);
     }
 
-    return <div className="EkwipunekSection">
+    return <div className="section">
         {
             divElement
         }

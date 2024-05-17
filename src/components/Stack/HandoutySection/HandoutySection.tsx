@@ -90,7 +90,7 @@ const HandoutySection = () => {
         setCurrentHandout(emptyHandout);
     }
 
-    return <div>
+    return <div className="section">
         {
             divElement
         }

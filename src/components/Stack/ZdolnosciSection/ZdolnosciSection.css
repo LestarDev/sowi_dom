@@ -4,15 +4,7 @@
     filter: invert(1);
 }
 
-.ZdolnosciSection > div{
-    flex-direction: column;
-}
 
-.ZdolnosciSection div{
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-}
 
 .ReceptaZdolnosci{
     position: absolute;

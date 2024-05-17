@@ -3,6 +3,7 @@ import EkwipunekSection from "../Stack/EkwipunekSection/EkwipunekSection";
 import HandoutySection from "../Stack/HandoutySection/HandoutySection";
 import UmiejetnosciSection from "../Stack/UmiejetnosciSection/UmiejetnosciSection";
 import ZdolnosciSection from "../Stack/ZdolnosciSection/ZdolnosciSection";
+import "./SectionFromBar.css"
 
 const SectionFromBar = () => {
     const profile = useProfile();
