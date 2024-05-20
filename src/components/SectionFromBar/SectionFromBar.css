@@ -5,6 +5,12 @@
     align-items: center;
 }
 
+.section > div > div{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 .section .window{
     display: none;
 }
