@@ -123,9 +123,9 @@ const UmiejetnosciSection = () => {
                     <span>Cecha: {cechyNazwy[windowUmiejkaData.cecha-1]} {'['}{profile.przelicznik(profile.getCeche(windowUmiejkaData.cecha))}{']'}</span>
                     <span>Rzucasz: <b>{profile.zlaczoneKostki(windowUmiejkaData.value, profile.getCeche(windowUmiejkaData.cecha))}</b></span>
                     <div>
-                        <button onClick={()=>setModifyRoll(prevV=>prevV--)}>-</button>
+                        <button onClick={()=>setModifyRoll(prevV=>prevV-1)}>-</button>
                         <button onClick={closeWindow}>x</button>
-                        <button onClick={()=>setModifyRoll(prevV=>prevV++)}>+</button>
+                        <button onClick={()=>setModifyRoll(prevV=>prevV+1)}>+</button>
                     </div>
                 </div>
                 
