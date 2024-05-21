@@ -76,8 +76,19 @@ const useProfile = () => {
         dispatch(setZrecznosc(newZrecznosc))
     }
 
-    const przelicznik = (toPrzelicz: number, isReturnFirst: boolean = false, isReturnSecond: boolean = false) => {
+    const przelicznikBoga = (toPrzelicz: number, isReturnFirst: boolean = false, isReturnSecond: boolean = false): string | number => {
+        if(toPrzelicz<0) return "PECH";
         if(toPrzelicz==0) return "0 XD";
+        if(toPrzelicz<21) return przelicznik(toPrzelicz, isReturnFirst, isReturnSecond);
+        const przelicznikBoga= toPrzelicz-16;
+        if(przelicznikBoga>9) return `6.${przelicznikBoga-9}`
+        return `5.${przelicznikBoga}`;
+    }
+
+    const przelicznik = (toPrzelicz: number, isReturnFirst: boolean = false, isReturnSecond: boolean = false): string | number => {
+        if(toPrzelicz<0) return "PECH";
+        if(toPrzelicz==0) return "0 XD";
+        if(toPrzelicz>20) return przelicznikBoga(toPrzelicz, isReturnFirst, isReturnSecond);
         const pierwszaCyfra = Math.ceil(toPrzelicz/4);
         if(isReturnFirst) return pierwszaCyfra;
         const drugaCyfraPrzygotowanie = toPrzelicz%4;
