@@ -35,6 +35,8 @@ const UmiejetnosciSection = () => {
 
     const [offset, setOffset] = useState(0);
 
+    const [modifyRoll, setModifyRoll] = useState(0);
+
     useEffect(()=>{
         const onScroll = () => setOffset(window.scrollY);
         fetch(getMainLink(isStackBlitz)+getUmiejetnosciScript+'id='+profile.idUzytkownika).then(response=>response.json()).then((data: any)=>{
@@ -117,10 +119,14 @@ const UmiejetnosciSection = () => {
             <div ref={refDivOpenWindow} className={windowUmiejkaData.cecha==0 ? "window" : "windowShowed"} style={{transform: "translateY("+offset+"px)"}}>
                 <div className="umiejkaBox">
                     <h2>{windowUmiejkaData.nazwa}</h2>
-                    <span>Umiejetnosc: {profile.przelicznik(windowUmiejkaData.value)}</span>
+                    <span>Umiejetnosc{modifyRoll ? `${modifyRoll>0 ? '+' : '-'}${modifyRoll}` : ''}: {profile.przelicznik(windowUmiejkaData.value+modifyRoll)}</span>
                     <span>Cecha: {cechyNazwy[windowUmiejkaData.cecha-1]} {'['}{profile.przelicznik(profile.getCeche(windowUmiejkaData.cecha))}{']'}</span>
                     <span>Rzucasz: <b>{profile.zlaczoneKostki(windowUmiejkaData.value, profile.getCeche(windowUmiejkaData.cecha))}</b></span>
-                    <button onClick={closeWindow}>x</button>
+                    <div>
+                        <button onClick={()=>setModifyRoll(prevV=>prevV--)}>-</button>
+                        <button onClick={closeWindow}>x</button>
+                        <button onClick={()=>setModifyRoll(prevV=>prevV++)}>+</button>
+                    </div>
                 </div>
                 
             </div></>
