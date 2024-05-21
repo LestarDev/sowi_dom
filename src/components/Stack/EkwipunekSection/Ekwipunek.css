@@ -33,7 +33,7 @@
     padding: 0 0 1rem 0;
     width: 100%;
     position: absolute;
-    transform: translateY(calc(-100% + -0.5rem)) translateX(-1rem);
+    transform: translateY(calc(-100% + -0.5rem)) translateX(0);
     border-radius: 5px 5px 0 0;
     display: flex;
     justify-content: center;
