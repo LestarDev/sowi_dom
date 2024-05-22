@@ -169,10 +169,6 @@ if(val1<=0 || val2<=0) return 'PECH';
         return pierwszaCyfra+'.'+drugaCyfra;
     }
 
-    const getFirstCyfra = (toPrzelicz: number): number => {
-        return Math.ceil(toPrzelicz/4);
-    }
-
     const pokazKostki = (toPrzelicz: number): string => {
         // console.log("Pokaz kostki: ",typeof toPrzelicz)
         if(toPrzelicz <= 0) return "PECH";
@@ -223,7 +219,7 @@ if(val1<=0 || val2<=0) return 'PECH';
     }
 
     return ({
-        przelicznik, setNewWybrany, pokazKostki, zlaczoneKostki, przeliczLvl, getFirstCyfra, getHP, getCeche,
+        przelicznik, setNewWybrany, pokazKostki, zlaczoneKostki, przeliczLvl, getHP, getCeche,
         setNewProfile, setNewIdUzytkownika, setNewNick,
         setNewCialo, setNewIntuicja, setNewSzczescie, setNewNiezlomnosc, setNewUrok, setNewUmysl, setNewLvl,setNewZrecznosc, setNewAddHP, setRefreshPage, setNewSlimaki, setNewSowieMonety,
         nick, lvl, Umysl, sowieMonety, Cialo, Zrecznosc, idUzytkownika, Szczescie, Urok, Niezlomnosc, Intuicja, wybranyTyp, refreshPage, slimaki, 

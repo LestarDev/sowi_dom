@@ -23,11 +23,11 @@ const BronModule = ({idBroni}: propsType) => {
 
             const dwieOstatnie: string = data[1].slice(-2);
             if(dwieOstatnie=="S*"){
-                data[1]+=" ["+profile.getFirstCyfra(profile.Cialo)+"+"+profile.getFirstCyfra(profile.Zrecznosc)+"]";
+                data[1]+=" ["+profile.przelicznik(profile.Cialo,true)+"+"+profile.przelicznik(profile.Zrecznosc,true)+"]";
             }else if(dwieOstatnie=="Zr"){
-                data[1]+=" ["+profile.getFirstCyfra(profile.Zrecznosc)+"]";
+                data[1]+=" ["+profile.przelicznik(profile.Zrecznosc,true)+"]";
             }else if(dwieOstatnie[1]=='S'){
-                data[1]+=" ["+profile.getFirstCyfra(profile.Cialo)+"]";
+                data[1]+=" ["+profile.przelicznik(profile.Cialo, true)+"]";
             }
             setDivElement(
                 <div>
