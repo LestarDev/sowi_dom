@@ -164,7 +164,7 @@ if(val1<=0 || val2<=0) return 'PECH';
         if(isReturnFirst) return Object.keys(diceLevels)[toPrzelicz-1].split(".")[0]
         if(isReturnSecond) return Object.keys(diceLevels)[toPrzelicz-1].split(".")[1]
 
-        return Object.values(diceLevels)[toPrzelicz-1];
+        return Object.keys(diceLevels)[toPrzelicz-1];
 
         if(toPrzelicz>20) return przelicznikBoga(toPrzelicz, isReturnFirst, isReturnSecond);
         const pierwszaCyfra = Math.ceil(toPrzelicz/4);
