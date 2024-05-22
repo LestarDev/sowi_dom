@@ -135,6 +135,8 @@ function combineDice(dice1: string, dice2: string): string {
 
 const zlaczoneKostki = (val1: number, val2: number): string => {
 
+if(val1>Object.keys(diceLevels).length || val2>Object.keys(diceLevels).length) return 'SUKCES'
+
 if(val1<=0 || val2<=0) return 'PECH';
 
   const levelKeys = Object.keys(diceLevels);
@@ -148,15 +150,6 @@ if(val1<=0 || val2<=0) return 'PECH';
 }
 
 
-    const przelicznikBoga = (toPrzelicz: number, isReturnFirst: boolean = false, isReturnSecond: boolean = false): string | number => {
-        if(toPrzelicz<0) return "PECH";
-        if(toPrzelicz==0) return "0 XD";
-        if(toPrzelicz<21) return przelicznik(toPrzelicz, isReturnFirst, isReturnSecond);
-        const przelicznikBoga= toPrzelicz-16;
-        if(przelicznikBoga>9) return `6.${przelicznikBoga-9}`
-        return `5.${przelicznikBoga}`;
-    }
-
     const przelicznik = (toPrzelicz: number, isReturnFirst: boolean = false, isReturnSecond: boolean = false): string | number => {
         if(toPrzelicz<0) return "PECH";
         if(toPrzelicz==0) return "0 XD";
@@ -166,20 +159,13 @@ if(val1<=0 || val2<=0) return 'PECH';
 
         return Object.keys(diceLevels)[toPrzelicz-1];
 
-        if(toPrzelicz>20) return przelicznikBoga(toPrzelicz, isReturnFirst, isReturnSecond);
-        const pierwszaCyfra = Math.ceil(toPrzelicz/4);
-        if(isReturnFirst) return pierwszaCyfra;
-        const drugaCyfraPrzygotowanie = toPrzelicz%4;
-        const drugaCyfra = drugaCyfraPrzygotowanie==0 ? 4 : drugaCyfraPrzygotowanie;
-        if(isReturnSecond) return drugaCyfra;
-        return pierwszaCyfra+'.'+drugaCyfra;
     }
 
-    const przeliczLvl = (toPrzelicz: number, isSowiaMoneta: boolean=false, isReturnFirst: boolean = false) => {
+    const przeliczLvl = (toPrzelicz: number, isSowiaMoneta: boolean=false, isReturnFirst: boolean = false): string | number => {
         if(toPrzelicz==0) return '0';
-        const pierwszaCyfra = Math.ceil((toPrzelicz-(isSowiaMoneta ? 4 : 0))/5);
+        const pierwszaCyfra: number = Math.ceil((toPrzelicz-(isSowiaMoneta ? 4 : 0))/5);
         if(isReturnFirst) return pierwszaCyfra;
-        const drugaCyfra = ((toPrzelicz-(isSowiaMoneta ? 0 : 1)))%5;
+        const drugaCyfra: number = ((toPrzelicz-(isSowiaMoneta ? 0 : 1)))%5;
         return pierwszaCyfra+'.'+drugaCyfra;
     }
 
@@ -189,8 +175,8 @@ if(val1<=0 || val2<=0) return 'PECH';
 
     const pokazKostki = (toPrzelicz: number): string => {
         // console.log("Pokaz kostki: ",typeof toPrzelicz)
-        const tabPrzelicz = ["PECH", "k3", "k4", "k6", "k8", "k8+k3", "k8+k4", "k8+k6", "2k8", "2k8+k4", "2k8+k6", "3k8", "k10+2k8"];
-        return tabPrzelicz[toPrzelicz] ?? '0';
+        if(toPrzelicz <= 0) return "PECH";
+        return Object.values(diceLevels)[toPrzelicz-1] ?? "0";
     }
 
     
@@ -202,7 +188,7 @@ if(val1<=0 || val2<=0) return 'PECH';
 
     const getHP = () => {
         const prepHPzCiala: number = (10+Cialo*1)*2;
-        const prepLvl = Math.ceil((lvl*1)/5);   
+        const prepLvl = przeliczLvl(lvl,false,true) as number;   
 
         const prepHPzLvla: number = (prepLvl-1)*3;
 
