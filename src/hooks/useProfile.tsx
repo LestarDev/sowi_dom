@@ -144,7 +144,7 @@ if(val1<=0 || val2<=0) return 'PECH';
   const dice1 = diceLevels[level1];
   const dice2 = diceLevels[level2];
 
-  return combineDice(dice1, dice2).split("+").reverse().join("+");
+  return (combineDice(dice1, dice2) ?? "").split("+").reverse().join("+");
 }
 
 
