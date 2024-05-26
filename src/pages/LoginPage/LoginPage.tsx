@@ -9,6 +9,7 @@ import { initialState } from "../../shared/config/currentSlice";
 import { FaRegEye } from "react-icons/fa6";
 import { FaRegEyeSlash } from "react-icons/fa6";
 import Shop from "../Shop/Shop";
+import { MdError } from "react-icons/md";
 
 const LoginPage = () => {
 
@@ -64,7 +65,7 @@ const LoginPage = () => {
     return <>
         {isMainToReturn==0 ? <div className="FormConteiner">
             {
-                isError ? <p className="catchedError">Wrong login or password</p> : ''
+                isError ? <p className="catchedError"><MdError />Wrong login or password</p> : ''
             }
             <form method="POST" onSubmit={e => e.preventDefault()}>
                 <div className="inputsConteiner">
