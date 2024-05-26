@@ -38,7 +38,7 @@ const SearchUmiejetnosci = ({props}: any) => {
                     <div className="umiejkaBox">
                         <span>{preUmiejka.name}</span>
                         <span>{profile.przelicznik(preUmiejka.value)}</span>
-                        <button onClick={()=>{openWindow}}>Info</button>
+                        <button onClick={()=>{openWindow(preUmiejka)}}>Info</button>
                     </div>
                 </div>)
 
