@@ -88,7 +88,11 @@ const EkwipunekSection = () => {
                     <span>Opis: {obecnyEkwipunek.opis}</span>
                     {obecnyEkwipunek.czyBron ? <BronModule idBroni={obecnyEkwipunek.id} /> : ''}
                 </div>
-                <button onClick={closeWindow}>x</button>
+                <div>
+                    <button>More info</button>
+                    <button onClick={closeWindow}>x</button>
+                    <button>Przekaz</button>
+                </div>
             </div>
         </div>
     </div>
