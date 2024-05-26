@@ -52,7 +52,7 @@ const MainPage = ({setLoginPage}: mainPageType) => {
     return (<div aria-label="Main Page">
         <NavBar setLoginPage={setLoginPage}></NavBar>
         <StatsSection></StatsSection>
-        <SectionFromBar></SectionFromBar>
+        <SectionFromBar setLoginPage={setLoginPage}></SectionFromBar>
         <div ref={errorRef}></div>
     </div>)
 }

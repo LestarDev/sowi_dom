@@ -17,21 +17,25 @@ const NavBar = ({setLoginPage}: navBarType) => {
 
     const setHereSectionE = () => {
         profile.setNewWybrany('Ekwipunek');
+        setLoginPage(1);
         //console.log(sectionName)
     }
 
     const setHereSectionU = () => {
         profile.setNewWybrany('Umiejetnosci');
+        setLoginPage(1);
         //console.log(sectionName)
     }
 
     const setHereSectionZ = () => {
         profile.setNewWybrany('Zdolnosci');
+        setLoginPage(1);
         //console.log(sectionName)
     }
 
     const setHereSectionH = () => {
         profile.setNewWybrany('Handouty');
+        setLoginPage(1);
         //console.log(sectionName)
     }
 

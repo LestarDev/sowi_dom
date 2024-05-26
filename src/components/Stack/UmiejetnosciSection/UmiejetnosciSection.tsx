@@ -6,8 +6,13 @@ import { isStackBlitz } from "../../../shared/config/isStackBlitz"
 import SearchUmiejetnosci from "../../SearchUmiejetnosci/SearchUmiejetnosci"
 import umiejetnoscType from "../../../shared/config/umiejetnosciType"
 import { FaSearch } from "react-icons/fa";
+import { GrUpgrade } from "react-icons/gr";
 
-const UmiejetnosciSection = () => {
+type umiejetnosciSectionType = {
+    setLoginPage: React.Dispatch<React.SetStateAction<number>>
+}
+
+const UmiejetnosciSection = ({setLoginPage}: umiejetnosciSectionType) => {
 
     const profile = useProfile();
 
@@ -112,7 +117,12 @@ const UmiejetnosciSection = () => {
             }
             <div ref={refDivOpenWindow} className={windowUmiejkaData.type==0 ? "window" : "windowShowed"} style={{transform: "translateY("+offset+"px)"}}>
                 <div className="umiejkaBox">
-                    <h2>{windowUmiejkaData.name}</h2>
+                    <h2>
+                        {windowUmiejkaData.name}
+                        {Number(profile.przelicznik(windowUmiejkaData.value,false,true))>=4 ? <div onClick={()=>{
+                            setLoginPage(2);
+                        }}><GrUpgrade /></div> : ''}
+                    </h2>
                     <span>Umiejetnosc{modifyRoll ? `${modifyRoll>0 ? '+' : ''}${modifyRoll}` : ''}: {profile.przelicznik(windowUmiejkaData.value+modifyRoll)}</span>
                     <span>Cecha: {cechyNazwy[windowUmiejkaData.type-1]} {'['}{profile.przelicznik(profile.getCeche(windowUmiejkaData.type))}{']'}</span>
                     <span>Rzucasz: <b>{profile.zlaczoneKostki(windowUmiejkaData.value+modifyRoll, profile.getCeche(windowUmiejkaData.type))}</b></span>
