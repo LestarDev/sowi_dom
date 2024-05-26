@@ -24,7 +24,7 @@ const LoginPage = () => {
     const loginRef = useRef<HTMLInputElement>(null);
     const passwordRef = useRef<HTMLInputElement>(null);
 
-    
+    const [isError, setIsError] = useState(false);
 
     const moveToMainPage = () => {
         
@@ -35,10 +35,18 @@ const LoginPage = () => {
         
         fetch(getMainLink(isStackBlitz)+getProfileScript+"login="+loginValue+"&password="+passwordValue).then((response)=>response.text()).then((data: unknown)=>{
             // console.log(data);
-            if(data!="Error login"){
-                profile.setNewIdUzytkownika(data as number);
-                setIsMainToReturn(1);
+
+            if(data=="Error login"){
+                setIsError(true);
+                return;
             }
+            
+            setIsError(false);
+            profile.setNewIdUzytkownika(data as number);
+            setIsMainToReturn(1);
+
+
+
             // setUUID(data as number);
             // console.log("Profile id: "+profile.idUzytkownika)
             
@@ -55,6 +63,9 @@ const LoginPage = () => {
 
     return <>
         {isMainToReturn==0 ? <div className="FormConteiner">
+            {
+                isError ? <p>Wrong login or password</p> : ''
+            }
             <form method="POST" onSubmit={e => e.preventDefault()}>
                 <div className="inputsConteiner">
                     <div>
