@@ -107,7 +107,9 @@ const diceLevels: DiceLevel = {
   "5.8": "4k20+k12+3",
   "5.9": "5k20+3",
   "6.1": "6k20+5",
-  "6.2": "7k20+7"
+  "6.2": "7k20+7",
+  "6.3": "8k20+10",
+  "6.4": "10k20+10",
 };
 
 function combineDice(dice1: string, dice2: string): string {
