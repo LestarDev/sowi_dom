@@ -13,7 +13,9 @@ const SearchUmiejetnosci = ({props}: any) => {
 
     const [divElement, setDivElement] = useState(<div></div>);
 
-    const [windowUmiejkaData, setWindowUmiejkaData] = useState({value: 0, cecha: 0,nazwa:''});
+    const emptyUmiejka: umiejetnoscType = {id: 0, name: '', type: 0, value: 0};
+
+    const [windowUmiejkaData, setWindowUmiejkaData] = useState(emptyUmiejka);
 
     useEffect(()=>{
         fetch(getMainLink(isStackBlitz)+getUmiejkiLike+"id="+profile.idUzytkownika+"&like="+wyszukaj).then(response=>response.json()).then((data: any)=>{
@@ -47,22 +49,24 @@ const SearchUmiejetnosci = ({props}: any) => {
     },[props, profile.refreshPage])
 
     const openWindow = (danaUmiejka: umiejetnoscType) => {
-        setWindowUmiejkaData({value: danaUmiejka.value, cecha: danaUmiejka.type, nazwa: danaUmiejka.name});
+        setWindowUmiejkaData(danaUmiejka);
+        // setWindowUmiejkaData({value: danaUmiejka.value, cecha: danaUmiejka.type, nazwa: danaUmiejka.name});
     }
 
     const closeWindow = () => {
-        setWindowUmiejkaData({value:0, cecha: 0, nazwa:''});
+        setWindowUmiejkaData(emptyUmiejka)
+        // setWindowUmiejkaData({value:0, cecha: 0, nazwa:''});
     }
 
     return <>
         {
             divElement
         }
-            <div ref={refDivOpenWindow} className={windowUmiejkaData.cecha==0 ? "window" : "windowShowed"}>
+            <div ref={refDivOpenWindow} className={windowUmiejkaData.type==0 ? "window" : "windowShowed"}>
                 <div>
-                    <h2>{windowUmiejkaData.nazwa}</h2>
+                    <h2>{windowUmiejkaData.name}</h2>
                     <span>Umiejetnosc: {profile.przelicznik(windowUmiejkaData.value)}</span>
-                    <span>Cecha: {profile.przelicznik(profile.getCeche(windowUmiejkaData.cecha))}</span>
+                    <span>Cecha: {profile.przelicznik(profile.getCeche(windowUmiejkaData.type))}</span>
                     <span>{profile.zlaczoneKostki(windowUmiejkaData.value, profile.getCeche(windowUmiejkaData.cecha))}</span>
                     <button onClick={closeWindow}>x</button>
                 </div>
