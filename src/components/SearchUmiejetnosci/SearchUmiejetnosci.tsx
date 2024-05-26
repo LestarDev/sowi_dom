@@ -9,7 +9,6 @@ const SearchUmiejetnosci = ({props}: any) => {
 
     const profile = useProfile();
 
-    const refDiv = useRef<HTMLDivElement>(null);
     const refDivOpenWindow = useRef<HTMLDivElement>(null);
 
     const [divElement, setDivElement] = useState(<div></div>);
@@ -36,7 +35,7 @@ const SearchUmiejetnosci = ({props}: any) => {
 
                 setDivElement(prevDiv=><div>
                     {prevDiv.props.children}
-                    <div>
+                    <div className="umiejkaBox">
                         <span>{preUmiejka.name}</span>
                         <span>{profile.przelicznik(preUmiejka.value)}</span>
                         <button onClick={()=>{openWindow}}>Info</button>
