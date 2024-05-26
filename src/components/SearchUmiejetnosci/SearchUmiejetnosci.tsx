@@ -41,7 +41,7 @@ const SearchUmiejetnosci = ({wyszukaj}: searchType) => {
 
                 setDivElement(prevDiv=><div>
                     {prevDiv.props.children}
-                    <div className="umiejkaBox">
+                    <div>
                         <span>{preUmiejka.name}</span>
                         <span>{profile.przelicznik(preUmiejka.value)}</span>
                         <button onClick={()=>{openWindow(preUmiejka)}}>Info</button>
@@ -67,7 +67,7 @@ const SearchUmiejetnosci = ({wyszukaj}: searchType) => {
             divElement
         }
             <div ref={refDivOpenWindow} className={windowUmiejkaData.type==0 ? "window" : "windowShowed"}>
-                <div>
+                <div className="umiejkaBox">
                     <h2>{windowUmiejkaData.name}</h2>
                     <span>Umiejetnosc: {profile.przelicznik(windowUmiejkaData.value)}</span>
                     <span>Cecha: {profile.przelicznik(profile.getCeche(windowUmiejkaData.type))}</span>

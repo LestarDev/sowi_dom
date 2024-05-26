@@ -11,7 +11,7 @@ const UmiejetnosciSection = () => {
 
     const profile = useProfile();
 
-    
+        
 
     const [windowUmiejkaData, setWindowUmiejkaData] = useState({value: 0, cecha: 0,nazwa:''});
 
