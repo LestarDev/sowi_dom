@@ -67,7 +67,7 @@ const SearchUmiejetnosci = ({props}: any) => {
                     <h2>{windowUmiejkaData.name}</h2>
                     <span>Umiejetnosc: {profile.przelicznik(windowUmiejkaData.value)}</span>
                     <span>Cecha: {profile.przelicznik(profile.getCeche(windowUmiejkaData.type))}</span>
-                    <span>{profile.zlaczoneKostki(windowUmiejkaData.value, profile.getCeche(windowUmiejkaData.cecha))}</span>
+                    <span>{profile.zlaczoneKostki(windowUmiejkaData.value, profile.getCeche(windowUmiejkaData.type))}</span>
                     <button onClick={closeWindow}>x</button>
                 </div>
                 
