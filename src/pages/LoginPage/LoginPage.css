@@ -61,3 +61,11 @@ input[type="submit"]{
 #loginID{
     margin-right: 1.5rem;
 }
+
+.catchedError{
+    position: absolute;
+    top: 5rem;
+    border: 1px dotted red;
+    padding: 1rem;
+    border-radius: 10px;
+}

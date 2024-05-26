@@ -64,7 +64,7 @@ const LoginPage = () => {
     return <>
         {isMainToReturn==0 ? <div className="FormConteiner">
             {
-                isError ? <p>Wrong login or password</p> : ''
+                isError ? <p className="catchedError">Wrong login or password</p> : ''
             }
             <form method="POST" onSubmit={e => e.preventDefault()}>
                 <div className="inputsConteiner">
