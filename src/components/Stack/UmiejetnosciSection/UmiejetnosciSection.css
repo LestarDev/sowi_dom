@@ -50,6 +50,8 @@
     gap: 0.5rem;
 }
 
-.section>div.singleUmiejka{
+.UmiejetnosciSection>div.singleUmiejka{
+    display: flex;
     flex-direction: row;
+    gap: 0.5rem;
 }
