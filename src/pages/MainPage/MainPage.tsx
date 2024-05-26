@@ -8,7 +8,11 @@ import SectionFromBar from "../../components/SectionFromBar/SectionFromBar";
 import { isStackBlitz } from "../../shared/config/isStackBlitz";
 import './MainPage.css'
 
-const MainPage = () => {
+type mainPageType = {
+    setLoginPage: React.Dispatch<React.SetStateAction<number>>
+}
+
+const MainPage = ({setLoginPage}: mainPageType) => {
 
     const profile = useProfile();
 
@@ -46,7 +50,7 @@ const MainPage = () => {
     // refresh => useProfile [add refresh: boolean] => rerender aria
 
     return (<div aria-label="Main Page">
-        <NavBar></NavBar>
+        <NavBar setLoginPage={setLoginPage}></NavBar>
         <StatsSection></StatsSection>
         <SectionFromBar></SectionFromBar>
         <div ref={errorRef}></div>

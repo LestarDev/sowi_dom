@@ -93,7 +93,7 @@ const LoginPage = () => {
         </div> : ''}
 
         {isMainToReturn==1 ? <div className="mainPage">
-            <MainPage />
+            <MainPage setLoginPage={setIsMainToReturn} />
             <div className="mainButtons">
                 <button onClick={logOut} className="logoutButton">Wyloguj</button>
                 <button onClick={()=>{
@@ -106,7 +106,7 @@ const LoginPage = () => {
         </div> : ''}
 
         {isMainToReturn==2 ? <div className="sowiSklep">
-            <Shop />
+            <Shop loginSetPage={setIsMainToReturn} />
             <div className="mainButtons">
                 <button onClick={logOut} className="logoutButton">Wyloguj</button>
                 <button onClick={()=>{

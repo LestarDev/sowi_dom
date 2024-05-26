@@ -3,7 +3,11 @@ import './NavButton.css'
 import useProfile from "../../hooks/useProfile";
 import { choosenType } from "../../shared/config/currentSlice";
 
-const NavButton = () => {
+type navButtonType = {
+    setLoginPage: React.Dispatch<React.SetStateAction<number>>
+}
+
+const NavButton = ({setLoginPage}: navButtonType) => {
 
     const profile = useProfile();
 
@@ -26,39 +30,46 @@ const NavButton = () => {
     const nextButton = () => {
         setWhichButton(whichButton==3 ? 0 : whichButton+1);
         profile.setNewWybrany(tabNamesOfButton[whichButton==3 ? 0 : whichButton+1]);
+        setLoginPage(1);
     }
 
     const previousButton = () => {
         setWhichButton(whichButton==0 ? 3 : whichButton-1);
         profile.setNewWybrany(tabNamesOfButton[whichButton==0 ? 3 : whichButton-1]);
+        setLoginPage(1);
     }
 
     const setCurrentShowing = () => {
         profile.setNewWybrany(tabNamesOfButton[whichButton]);
+        setLoginPage(1);
     }
 
     const setHereSectionE = () => {
         profile.setNewWybrany('Ekwipunek');
         //console.log(sectionName)
         setIsChooseWhichSection(false);
+        setLoginPage(1);
     }
 
     const setHereSectionU = () => {
         profile.setNewWybrany('Umiejetnosci');
         //console.log(sectionName)
         setIsChooseWhichSection(false);
+        setLoginPage(1);
     }
 
     const setHereSectionZ = () => {
         profile.setNewWybrany('Zdolnosci');
         //console.log(sectionName)
         setIsChooseWhichSection(false);
+        setLoginPage(1);
     }
 
     const setHereSectionH = () => {
         profile.setNewWybrany('Handouty');
         //console.log(sectionName)
         setIsChooseWhichSection(false);
+        setLoginPage(1);
     }
 
     const  showChoose = () => {

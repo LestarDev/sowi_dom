@@ -9,7 +9,7 @@ const useProfile = () => {
         nick: string, HP: number, lvl: number, Umysl: number, slimaki: number, sowieMonety: number, refreshPage: boolean, Cialo: number, Zrecznosc: number, idUzytkownika: number, Szczescie: number, Urok: number, Niezlomnosc: number, Intuicja: number, wybranyTyp: choosenType
     } = (useSelector((state: any) => state) as any).currency;
 
-    wybranyTyp as choosenType;
+    // wybranyTyp as choosenType;
 
     const setNewProfile = (data: CurrentState) => {
         dispatch(setNick(data.nick));
@@ -184,8 +184,8 @@ if(val1<=0 || val2<=0) return 'PECH';
         //console.log(newWybrany);
     }
 
-    const getHP = () => {
-        const prepHPzCiala: number = (10+Cialo*1)*2;
+    const getHP = ():number => {
+        const prepHPzCiala: number = (10+Cialo)*2;
         const prepLvl = przeliczLvl(lvl,false,true) as number;   
 
         const prepHPzLvla: number = (prepLvl-1)*3;

@@ -7,7 +7,11 @@ import './NavBar.css'
 import NavButton from "../NavButton/NavButton";
 import { FaRegHeart } from "react-icons/fa6";
 
-const NavBar = () => {
+type navBarType = {
+    setLoginPage: React.Dispatch<React.SetStateAction<number>>
+}
+
+const NavBar = ({setLoginPage}: navBarType) => {
 
     const profile = useProfile();
 
@@ -61,7 +65,7 @@ const NavBar = () => {
             
             <div className="NavButton-div">
 
-                <NavButton />
+                <NavButton setLoginPage={setLoginPage} />
             </div>
             {
                 //ekwipunek

@@ -14,7 +14,11 @@ export type messageShop = {
     nameOfcard: string
 }
 
-const Shop = () => {
+type shopType = {
+    loginSetPage: React.Dispatch<React.SetStateAction<number>>
+}
+
+const Shop = ({loginSetPage}: shopType) => {
 
     const profile = useProfile();
 
@@ -90,7 +94,7 @@ const Shop = () => {
     }
 
     return <div>
-        <NavBar></NavBar>
+        <NavBar setLoginPage={loginSetPage}></NavBar>
         <OwlShopTitle></OwlShopTitle>
         <div className="owlShop">
             <OwlModule nazwa="Polaczenie dwoch zdolnosci" koszt={1} type={profile.sowieMonety >= 5 ? "Poinformuj MG o zakupie" : "brak monet"} fun={setMessageToShop} />
