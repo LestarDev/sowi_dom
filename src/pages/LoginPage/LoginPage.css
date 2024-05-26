@@ -65,9 +65,12 @@ input[type="submit"]{
 .catchedError{
     position: absolute;
     top: 5rem;
-    border-top: 2px solid red;
-    padding: 0.25rem 1rem;
+    border-top: 2px solid rgb(155, 18, 18);
+    padding: 0.5rem 33%;
     background-color: pink;
     font-weight: 500;
     font-size: large;
+    display: flex;
+    align-items: center;
+    color: black;
 }
