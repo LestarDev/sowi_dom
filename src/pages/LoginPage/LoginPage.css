@@ -65,7 +65,9 @@ input[type="submit"]{
 .catchedError{
     position: absolute;
     top: 5rem;
-    border: 1px dotted red;
+    border: 2px dotted red;
     padding: 1rem;
     border-radius: 10px;
+    font-weight: 500;
+    font-size: large;
 }
