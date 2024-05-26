@@ -60,7 +60,7 @@ const UmiejetnosciSection = () => {
 
                 setDivElement(prevEl=><div  className="UmiejetnosciSection">
                     {prevEl.props.children}
-                    <div>
+                    <div className="singleUmiejka">
                         <span>{preUmiejka.name}</span>
                         <span>{profile.przelicznik(preUmiejka.value)}</span>
                         <button onClick={()=>{openWindow(preUmiejka)}}>Info</button>
