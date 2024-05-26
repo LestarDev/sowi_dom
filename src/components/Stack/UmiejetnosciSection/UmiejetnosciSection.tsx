@@ -134,7 +134,7 @@ const UmiejetnosciSection = () => {
 
             : 
 
-            <SearchUmiejetnosci props={{wyszukaj: rnText}} />
+            <SearchUmiejetnosci wyszukaj={rnText} />
         }
         
     </div>

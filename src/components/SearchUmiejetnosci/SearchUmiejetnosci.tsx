@@ -4,8 +4,12 @@ import { isStackBlitz } from "../../shared/config/isStackBlitz";
 import useProfile from "../../hooks/useProfile";
 import umiejetnoscType from "../../shared/config/umiejetnosciType";
 
-const SearchUmiejetnosci = ({props}: any) => {
-    const wyszukaj: string = props.wyszukaj;
+type searchType = {
+    wyszukaj: string
+}
+
+const SearchUmiejetnosci = ({wyszukaj}: searchType) => {
+    // const wyszukaj: string = props.wyszukaj;
 
     const profile = useProfile();
 
@@ -46,7 +50,7 @@ const SearchUmiejetnosci = ({props}: any) => {
 
             }
         })
-    },[props, profile.refreshPage])
+    },[wyszukaj, profile.refreshPage])
 
     const openWindow = (danaUmiejka: umiejetnoscType) => {
         setWindowUmiejkaData(danaUmiejka);
