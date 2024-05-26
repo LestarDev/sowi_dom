@@ -73,4 +73,5 @@ input[type="submit"]{
     display: flex;
     align-items: center;
     color: darkred;
+    gap: 0.5rem;
 }
