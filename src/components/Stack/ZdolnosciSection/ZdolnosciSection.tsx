@@ -101,7 +101,7 @@ const ZdolnosciSection = () => {
         </div> : ''}
         { receptaToShow!=0 ? <div className="ReceptaZdolnosci">
             <div className="zdolnosciBox">
-            <RecepturaZdolnosci props={{id: receptaToShow}} />
+            <RecepturaZdolnosci idZdolnosci={receptaToShow} />
             <button onClick={zamknijRecepture}>x</button>
             </div>
             </div> : ''}
