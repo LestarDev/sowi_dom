@@ -29,8 +29,8 @@ const LoginPage = () => {
 
     const moveToMainPage = () => {
         
-        const loginValue = loginRef.current?.value.replace("'","")
-        const passwordValue = passwordRef.current?.value.replace("'","")
+        const loginValue = loginRef.current?.value.split("'").join("")
+        const passwordValue = passwordRef.current?.value.split("'").join("")
 
         // profile.setLogowanie(loginValue as string, passwordValue as string);
         
