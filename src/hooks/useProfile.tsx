@@ -208,9 +208,8 @@ if(val1<=0 || val2<=0) return 'PECH';
 
     const getInfo = (nameCecha: string): string => {
         if(!nameCecha.indexOf('(')) return infoCechy[nameCecha.toLowerCase()] ?? `Brak ${nameCecha}`;
-        const tabOpis = nameCecha.split('(');
-        tabOpis[1].substring(0, 1);
-        const preperOpis = infoCechy[tabOpis.join('(X')] ?? `Brak ${tabOpis.join('X')}`;
+        // const tabOpis = nameCecha.split('(');
+        const preperOpis = infoCechy[nameCecha.split('(')[0]+"(X)"] ?? `Brak ${nameCecha.split('(')[0]+"(X)"}`;
         return preperOpis;
     }
 
