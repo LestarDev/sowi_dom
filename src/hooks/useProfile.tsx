@@ -200,6 +200,14 @@ if(val1<=0 || val2<=0) return 'PECH';
         dispatch(setHP(newHP));
     }
 
+    const infoCechy: DiceLevel = {
+        "":""
+    }
+
+    const getInfo = (nameCecha: string): string => {
+        return infoCechy[nameCecha] ?? "";
+    }
+
     const getCeche = (typeCecha: number): number => {
         //console.log(typeof typeCecha);
         switch(typeCecha){
@@ -221,7 +229,7 @@ if(val1<=0 || val2<=0) return 'PECH';
     }
 
     return ({
-        przelicznik, setNewWybrany, pokazKostki, zlaczoneKostki, przeliczLvl, getHP, getCeche,
+        przelicznik, setNewWybrany, pokazKostki, zlaczoneKostki, przeliczLvl, getHP, getCeche, getInfo,
         setNewProfile, setNewIdUzytkownika, setNewNick,
         setNewCialo, setNewIntuicja, setNewSzczescie, setNewNiezlomnosc, setNewUrok, setNewUmysl, setNewLvl,setNewZrecznosc, setNewAddHP, setRefreshPage, setNewSlimaki, setNewSowieMonety,
         nick, lvl, Umysl, sowieMonety, Cialo, Zrecznosc, idUzytkownika, Szczescie, Urok, Niezlomnosc, Intuicja, wybranyTyp, refreshPage, slimaki, 
