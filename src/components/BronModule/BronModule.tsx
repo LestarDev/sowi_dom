@@ -35,6 +35,7 @@ const BronModule = ({idBroni, isMoreInfo}: propsType) => {
                     <span>Obrazenia: {data[1]}</span>
                     <span>Cechy: {data[2]}</span>
                     {isMoreInfo ? <div>
+                        {data[2].split(', ')[1]}
                         {profile.getInfo(data[2].split(', ')[1])}
                     </div> : ''}
                 </div>
