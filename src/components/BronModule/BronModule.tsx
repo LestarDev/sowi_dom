@@ -35,13 +35,18 @@ const BronModule = ({idBroni, isMoreInfo}: propsType) => {
 
             console.log("PreperInfo", preperInfo);
 
-            // const infoToShow: JSX.Element[] = [];
+            const infoToShow: JSX.Element[] = [];
 
-            // preperInfo.forEach((iName)=>{
-            //     infoToShow.push(<p>{profile.getInfo(iName)}</p>);
-            //     console.log("Info to show",infoToShow);
-            // })
-
+            try{
+                preperInfo.forEach((iName)=>{
+                    infoToShow.push(<p>{profile.getInfo(iName)}</p>);
+                    console.log("Info to show",infoToShow);
+                })
+    
+            }catch(e){
+                console.log("Error!",e)
+            }
+            
         
 
             setDivElement(
