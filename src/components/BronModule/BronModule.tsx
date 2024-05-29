@@ -41,7 +41,7 @@ const BronModule = ({idBroni, isMoreInfo}: propsType) => {
                 </div>
             )
         })
-    }, [profile.refreshPage])
+    }, [profile.refreshPage, isMoreInfo])
 
     return <div className="BronModule">
         {
