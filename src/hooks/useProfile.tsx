@@ -207,8 +207,6 @@ if(val1<=0 || val2<=0) return 'PECH';
     }
 
     const getInfo = (nameCecha: string): string => {
-        console.log("GetInfo", nameCecha);
-        console.log(nameCecha.indexOf('('));
         if(nameCecha.indexOf('(')==-1) return infoCechy[nameCecha.toLowerCase()] ?? `Brak ${nameCecha}`;
         
         const rangaCechy: number = Number(nameCecha.split('(')[1][0]);

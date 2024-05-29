@@ -33,19 +33,14 @@ const BronModule = ({idBroni, isMoreInfo}: propsType) => {
 
             const preperInfo: string[] = data[2].split(', ');
 
-            console.log("PreperInfo", preperInfo);
+            // console.log("PreperInfo", preperInfo);
 
             const infoToShow: JSX.Element[] = [];
 
-            try{
-                preperInfo.forEach((iName)=>{
-                    infoToShow.push(<p>{profile.getInfo(iName)}</p>);
-                    console.log("Info to show",infoToShow);
-                })
-    
-            }catch(e){
-                console.log("Error!",e)
-            }
+            preperInfo.forEach((iName)=>{
+                infoToShow.push(<p>{profile.getInfo(iName)}</p>);
+                // console.log("Info to show",infoToShow);
+            })
             
         
 
@@ -54,7 +49,7 @@ const BronModule = ({idBroni, isMoreInfo}: propsType) => {
                     <span>Obrazenia: {data[1]}</span>
                     <span>Cechy: {data[2]}</span>
                     {isMoreInfo ? <div>
-                        {preperInfo[1]}
+                        {infoToShow}
                     </div> : ''}
                 </div>
             )
