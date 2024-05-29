@@ -203,21 +203,25 @@ if(val1<=0 || val2<=0) return 'PECH';
     const infoCechy: DiceLevel = {
         "szybka":"Przeciwnik ma -0.1 do Uniku oraz Parowania",
         "podwójny atak": "Jesli udalo Ci sie zaatakowac przeciwnika mozesz go zaatakowac po raz drugi [dla niego to ta sama reakcja]",
-        "trująca (X)": "[TRUJĄCA] Przeciwnik po Twoim ataku i na koncu swojej tury wykonuje test odp na trucizny [TESTY]w przeciwnym razie traci k3 HP i dostaje debuff Zatruty (+1) za kazdy nieudany test",
+        "trująca (X)": "Przeciwnik po Twoim ataku i na koncu swojej tury wykonuje test odp na trucizny [TESTY]w przeciwnym razie traci k3 HP i dostaje debuff Zatruty (+1) za kazdy nieudany test",
+        "wytrzymała": "Bron jest niesamowidzie wytrzymala i bardzo trudna do zniszczenia",
+        "precyzyjna (X)": "Jesli zadasz choc 1HP zaatakowana istota traci [INSERT] HP bez wzgledu na wlasne zdolnosci"
     }
 
     const getInfo = (nameCecha: string): string => {
         if(nameCecha.indexOf('(')==-1) return infoCechy[nameCecha.toLowerCase()] ?? `Brak ${nameCecha}`;
         
-        const rangaCechy: number = Number(nameCecha.split('(')[1][0]);
+        const rangaCechy: string = nameCecha.split('(')[1][0];
 
         const preperOpis = infoCechy[nameCecha.toLowerCase().split('(')[0]+"(X)"] ?? `Brak ${nameCecha.split('(')[0]+"(X)"}`;
 
         // const preperTab = preperOpis.split("[TESTY]");
 
+        if(preperOpis.indexOf("[TESTY]")==-1) return preperOpis.split("[INSERT]").join(rangaCechy)
+        
         const toJoin: string[] = []
 
-        for(let i=0; i<rangaCechy; i++){
+        for(let i=0; i<Number(rangaCechy); i++){
             toJoin.push((8+i*4).toString()+', ');
         }
 
