@@ -210,7 +210,7 @@ if(val1<=0 || val2<=0) return 'PECH';
         if(!nameCecha.indexOf('(')) return infoCechy[nameCecha.toLowerCase()] ?? `Brak ${nameCecha}`;
         const tabOpis = nameCecha.split('(');
         tabOpis[1].substring(1);
-        const preperOpis = infoCechy[tabOpis.join('X')];
+        const preperOpis = infoCechy[tabOpis.join('X')] ?? `Brak ${tabOpis.join('X')}`;
         return preperOpis;
     }
 
