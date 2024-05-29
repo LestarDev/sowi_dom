@@ -31,6 +31,8 @@ const EkwipunekSection = () => {
 
     const [offset, setOffset] = useState(0);
 
+    const [isMoreInfo, setIsMoreInfo] = useState(false);
+
     useEffect(()=>{
         const onScroll = () => setOffset(window.scrollY);
         fetch(getMainLink(isStackBlitz)+getEkwipunek+"id="+profile.idUzytkownika).then(response=>response.json()).then((data: any)=>{
@@ -86,10 +88,10 @@ const EkwipunekSection = () => {
                 <div className="dataEQ">
                     <span>Ilosc: {obecnyEkwipunek.ilosc}</span>
                     <span>Opis: {obecnyEkwipunek.opis}</span>
-                    {obecnyEkwipunek.czyBron ? <BronModule idBroni={obecnyEkwipunek.id} /> : ''}
+                    {obecnyEkwipunek.czyBron ? <BronModule idBroni={obecnyEkwipunek.id} isMoreInfo={isMoreInfo} /> : ''}
                 </div>
                 <div className="buttonsEQ">
-                    <button>More info</button>
+                    <button onClick={()=>setIsMoreInfo(prevV=>!prevV)}>{isMoreInfo ? "Less" : "More"} info</button>
                     <button onClick={closeWindow}>x</button>
                     <button>Przekaz</button>
                 </div>

@@ -5,10 +5,11 @@ import './BronModule.css'
 import useProfile from "../../hooks/useProfile";
 
 type propsType = {
-    idBroni: number
+    idBroni: number,
+    isMoreInfo: boolean
 }
 
-const BronModule = ({idBroni}: propsType) => {
+const BronModule = ({idBroni, isMoreInfo}: propsType) => {
 
     // const idBroni = props.id;
 
@@ -33,6 +34,9 @@ const BronModule = ({idBroni}: propsType) => {
                 <div>
                     <span>Obrazenia: {data[1]}</span>
                     <span>Cechy: {data[2]}</span>
+                    {isMoreInfo ? <div>
+                        {profile.getInfo(data[2].split(', ')[1])}
+                    </div> : ''}
                 </div>
             )
         })
