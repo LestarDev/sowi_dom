@@ -68,6 +68,7 @@ const EkwipunekSection = () => {
 
     const closeWindow = () => {
         setObecnyEkwipunek(emptyItem);
+        setIsMoreInfo(false);
     }
 
     return <div className="section">
