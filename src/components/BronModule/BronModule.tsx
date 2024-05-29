@@ -30,13 +30,21 @@ const BronModule = ({idBroni, isMoreInfo}: propsType) => {
             }else if(dwieOstatnie[1]=='S'){
                 data[1]+=" ["+profile.przelicznik(profile.Cialo, true)+"]";
             }
+
+            const preperInfo: string[] = data[2].split(', ');
+
+            const infoToShow: JSX.Element[] = [];
+
+            preperInfo.forEach((iName)=>{
+                infoToShow.push(<p>{profile.getInfo(iName)}</p>);
+            })
+
             setDivElement(
                 <div>
                     <span>Obrazenia: {data[1]}</span>
                     <span>Cechy: {data[2]}</span>
                     {isMoreInfo ? <div>
-                        {data[2].split(', ')[1]}
-                        {profile.getInfo(data[2].split(', ')[1])}
+                        {infoToShow}
                     </div> : ''}
                 </div>
             )
