@@ -3,6 +3,7 @@ import useProfile from "../../hooks/useProfile"
 import getMainLink, { AdminGetIDsScript } from "../../private/apiData";
 import { isStackBlitz } from "../../shared/config/isStackBlitz";
 import { GiLevelFourAdvanced, GiOwl } from "react-icons/gi";
+import './Admin.css'
 
 type uzytkownikType = {
     id: number,
@@ -15,7 +16,7 @@ const Admin = () => {
 
     const profile = useProfile();
 
-    const [uzytkownicyToLogin, setUzytkownicyToLogin] = useState(<div></div>);
+    const [uzytkownicyToLogin, setUzytkownicyToLogin] = useState(<div className="uzytkownicyToLogin"></div>);
 
     useEffect(()=>{
         fetch(getMainLink(isStackBlitz)+AdminGetIDsScript).then(response=>response.json()).then((data: any)=>{
@@ -29,11 +30,11 @@ const Admin = () => {
                         <span>{uzytkownikToAdd.id}</span>
                         <span>{uzytkownikToAdd.nick}</span>
                         <div>
-                            <span>{uzytkownikToAdd.lvl}</span>
+                            <span>{profile.przeliczLvl(uzytkownikToAdd.lvl)}</span>
                             <GiLevelFourAdvanced />
                         </div>
                         <div>
-                            <span>{uzytkownikToAdd.sowieMonety}</span>
+                            <span>{profile.przeliczLvl(uzytkownikToAdd.sowieMonety, true)}</span>
                             <GiOwl />
                         </div>
                     </div>
