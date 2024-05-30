@@ -123,7 +123,7 @@ const LoginPage = () => {
         </div> : ''}
 
         {isMainToReturn==3 ? <>
-        <Admin />
+        <Admin loginSetPage={setIsMainToReturn} />
         <div className="mainButtons">
             <button onClick={logOut} className="logoutButton">Wyloguj</button>
             <button onClick={()=>{

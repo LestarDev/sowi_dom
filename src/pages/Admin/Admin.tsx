@@ -12,7 +12,11 @@ type uzytkownikType = {
     sowieMonety: number
 }
 
-const Admin = () => {
+type adminType = {
+    loginSetPage: React.Dispatch<React.SetStateAction<number>>
+}
+
+const Admin = ({loginSetPage}: adminType) => {
 
     const profile = useProfile();
 
@@ -37,6 +41,10 @@ const Admin = () => {
                             <span>{profile.przeliczLvl(uzytkownikToAdd.sowieMonety, true)}</span>
                             <GiOwl />
                         </div>
+                        <button onClick={()=>{
+                            profile.setNewIdUzytkownika(uzytkownikToAdd.id);
+                            loginSetPage(1);
+                        }}>Zaloguj</button>
                     </div>
                 </div>);
                 console.log("[Inner for]",uzytkownicyToLogin);
