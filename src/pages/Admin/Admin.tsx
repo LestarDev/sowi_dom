@@ -21,8 +21,10 @@ const Admin = () => {
     useEffect(()=>{
         fetch(getMainLink(isStackBlitz)+AdminGetIDsScript).then(response=>response.json()).then((data: any)=>{
             console.log(data);
-            for(let i=1; i<(Number(data[0])*4); i+=5){
-                setUzytkownicyToLogin([...uzytkownicyToLogin, {id: Number(data[i]), nick: data[i+1], lvl: Number(data[i+2]), sowieMonety: Number(data[i+3])}]);
+            for(let i=1; i<(Number(data[0])*4); i+=4){
+                const uzytkownikToAdd = {id: Number(data[i]), nick: data[i+1], lvl: Number(data[i+2]), sowieMonety: Number(data[i+3])}
+                console.log(i,uzytkownikToAdd)
+                setUzytkownicyToLogin(prevTab=>[...prevTab, uzytkownikToAdd]);
             }
 
             console.log(uzytkownicyToLogin);
