@@ -203,7 +203,7 @@ if(val1<=0 || val2<=0) return 'PECH';
     const infoCechy: DiceLevel = {
         "szybka":"Przeciwnik ma -0.1 do Uniku oraz Parowania",
         "podwójny atak": "Jesli udalo Ci sie zaatakowac przeciwnika mozesz go zaatakowac po raz drugi [dla niego to ta sama reakcja]",
-        "trujący (X)": "Przeciwnik po Twoim ataku i na koncu swojej tury wykonuje test odp na trucizny [TESTY]w przeciwnym razie traci k3 HP i dostaje debuff Zatruty (+1) za kazdy nieudany test",
+        "trujący (X)": "Przeciwnik po Twoim ataku i na koncu swojej tury wykonuje test odp na trucizny [TESTY]w przeciwnym razie [traci k3 HP i dostaje debuff Zatruty (+1)] za kazdy nieudany test",
         "wytrzymała": "Bron jest niesamowidzie wytrzymala i bardzo trudna do zniszczenia",
         "precyzyjna (X)": "Jesli zadasz choc 1HP zaatakowana istota traci dodatkowe [INSERT]HP bez wzgledu na wlasne zdolnosci"
     }
@@ -217,7 +217,7 @@ if(val1<=0 || val2<=0) return 'PECH';
 
         // const preperTab = preperOpis.split("[TESTY]");
 
-        if(preperOpis.indexOf("[TESTY]")==-1) return preperOpis.split("[INSERT]").join(rangaCechy)
+        if(preperOpis.indexOf("[TESTY]")==-1) return preperOpis.split("[INSERT]").join(rangaCechy);
         
         const toJoin: string[] = []
 

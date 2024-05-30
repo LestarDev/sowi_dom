@@ -92,9 +92,10 @@ const EkwipunekSection = () => {
                     {obecnyEkwipunek.czyBron ? <BronModule idBroni={obecnyEkwipunek.id} isMoreInfo={isMoreInfo} /> : ''}
                 </div>
                 <div className="buttonsEQ">
-                    <button onClick={()=>setIsMoreInfo(prevV=>!prevV)}>{isMoreInfo ? "Less" : "More"} info</button>
+                    {obecnyEkwipunek.czyBron ? <button onClick={()=>setIsMoreInfo(prevV=>!prevV)}>{isMoreInfo ? "Less" : "More"} info</button> : ''}
                     <button onClick={closeWindow}>x</button>
-                    <button>Przekaz</button>
+                    {obecnyEkwipunek.czyBron ? <button>Przekaz</button> : ''}
+                    
                 </div>
             </div>
         </div>
