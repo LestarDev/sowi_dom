@@ -75,8 +75,28 @@ const useProfile = () => {
     const setNewZrecznosc = (newZrecznosc: number) => {
         dispatch(setZrecznosc(newZrecznosc))
     }
+    
+    const daneKostek = ["k3","k4","k6","k8","k10","k12","k20"];
+    const daneRang = [true, false, false, false, false, true, true, true]
+    
+    const przeliczUmiejka = (toPrzelicz: number) => {
+      const rangaUmiejki = Math.floor(toPrzelicz/6);
+      const mocOstatniejRangi = toPrzelicz%6;
+      const tabAllKostki: string[] = [];
+      
+      for(let i=0; i<rangaUmiejki-1; i++){
+        tabAllKostki.push(daneKostek[(daneRang[i] ? 6 : 5)])
+      } 
+      
+      tabAllKostki.push(daneKostek[(daneRang[rangaUmiejki] ? mocOstatniejRangi+1 : mocOstatniejRangi)])
+      
+      return tabAllKostki.join(", ")
+      
+    }
 
     type DiceLevel = { [key: string]: string };
+    
+    
 
 // Mapa poziomów kostek
 const diceLevels: DiceLevel = {
@@ -249,7 +269,7 @@ if(val1<=0 || val2<=0) return 'PECH';
     }
 
     return ({
-        przelicznik, setNewWybrany, pokazKostki, zlaczoneKostki, przeliczLvl, getHP, getCeche, getInfo,
+        przelicznik, setNewWybrany, pokazKostki, zlaczoneKostki, przeliczLvl, getHP, getCeche, getInfo,przeliczUmiejka,
         setNewProfile, setNewIdUzytkownika, setNewNick,
         setNewCialo, setNewIntuicja, setNewSzczescie, setNewNiezlomnosc, setNewUrok, setNewUmysl, setNewLvl,setNewZrecznosc, setNewAddHP, setRefreshPage, setNewSlimaki, setNewSowieMonety,
         nick, lvl, Umysl, sowieMonety, Cialo, Zrecznosc, idUzytkownika, Szczescie, Urok, Niezlomnosc, Intuicja, wybranyTyp, refreshPage, slimaki, 
