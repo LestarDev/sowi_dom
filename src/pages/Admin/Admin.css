@@ -1,4 +1,16 @@
+#Admin > div{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
 .singleUzytkownik{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.singleUzytkownik > div{
     display: flex;
     align-items: center;
 }
