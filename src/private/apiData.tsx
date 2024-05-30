@@ -17,5 +17,6 @@ export const getKsiazka = "getHandouty.php?";
 export const getMonetyScript = "getSowieMonety.php?";
 export const upgrade3UmiejkiScript = "upgradeUmiejki.php?";
 export const upgradeCecheScript = "upgradeCeche.php?";
+export const AdminGetIDsScript = "getAllUzytkownicy.php";
 
 export default getMainLink

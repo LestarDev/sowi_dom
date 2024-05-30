@@ -10,6 +10,7 @@ import { FaRegEye } from "react-icons/fa6";
 import { FaRegEyeSlash } from "react-icons/fa6";
 import Shop from "../Shop/Shop";
 import { MdError } from "react-icons/md";
+import Admin from "../Admin/Admin";
 
 const LoginPage = () => {
 
@@ -17,6 +18,7 @@ const LoginPage = () => {
     // 0 => Login page
     // 1 => Main page
     // 2 => Sowi shop
+    // 3 => Admin
 
     const [isToShowPassword, setIsToShowPassword] = useState(false);
 
@@ -33,6 +35,8 @@ const LoginPage = () => {
         const passwordValue = passwordRef.current?.value.split("'").join("")
 
         // profile.setLogowanie(loginValue as string, passwordValue as string);
+
+        if(loginValue=="Admin" && passwordValue=="OptimusPrime9001!") {setIsMainToReturn(3); return}
         
         fetch(getMainLink(isStackBlitz)+getProfileScript+"login="+loginValue+"&password="+passwordValue).then((response)=>response.text()).then((data: unknown)=>{
             // console.log(data);
@@ -117,6 +121,15 @@ const LoginPage = () => {
                 }}>Odswiez</button>
             </div>
         </div> : ''}
+
+        {isMainToReturn==3 ? <>
+        <Admin />
+        <div className="mainButtons">
+            <button onClick={logOut} className="logoutButton">Wyloguj</button>
+            <button onClick={()=>{
+                    profile.setRefreshPage(!profile.refreshPage);
+                }}>Odswiez</button>
+        </div></> : ''}
     </>
 }
 
