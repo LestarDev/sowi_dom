@@ -44,6 +44,7 @@ const SearchUmiejetnosci = ({wyszukaj}: searchType) => {
                     <div>
                         <span>{preUmiejka.name}</span>
                         <span>{profile.przelicznik(preUmiejka.value)}</span>
+                        <span>test:{profile.przeliczUmiejka(preUmiejka.valu)}</span>
                         <button onClick={()=>{openWindow(preUmiejka)}}>Info</button>
                     </div>
                 </div>)
