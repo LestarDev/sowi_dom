@@ -25,6 +25,7 @@ const Admin = () => {
                 const uzytkownikToAdd = {id: Number(data[i]), nick: data[i+1], lvl: Number(data[i+2]), sowieMonety: Number(data[i+3])}
                 console.log(i,uzytkownikToAdd)
                 setUzytkownicyToLogin(prevTab=>[...prevTab, uzytkownikToAdd]);
+                console.log("[Inner for]",uzytkownicyToLogin);
             }
 
             console.log(uzytkownicyToLogin);
