@@ -44,7 +44,6 @@ const SearchUmiejetnosci = ({wyszukaj}: searchType) => {
                     <div>
                         <span>{preUmiejka.name}</span>
                         <span>{profile.przelicznik(preUmiejka.value)}</span>
-                        <span>test:{profile.przeliczUmiejka(preUmiejka.value)}</span>
                         <button onClick={()=>{openWindow(preUmiejka)}}>Info</button>
                     </div>
                 </div>)
@@ -72,6 +71,7 @@ const SearchUmiejetnosci = ({wyszukaj}: searchType) => {
                     <h2>{windowUmiejkaData.name}</h2>
                     <span>Umiejetnosc: {profile.przelicznik(windowUmiejkaData.value)}</span>
                     <span>Cecha: {profile.przelicznik(profile.getCeche(windowUmiejkaData.type))}</span>
+                    <span>Test:{profile.przeliczUmiejka(windowUmiejkaData.value)}</span>
                     <span>{profile.zlaczoneKostki(windowUmiejkaData.value, profile.getCeche(windowUmiejkaData.type))}</span>
                     <button onClick={closeWindow}>x</button>
                 </div>
