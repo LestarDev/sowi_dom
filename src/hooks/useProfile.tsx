@@ -84,7 +84,7 @@ const useProfile = () => {
       const mocOstatniejRangi = toPrzelicz%6;
       const tabAllKostki: string[] = [];
       
-      for(let i=0; i<rangaUmiejki-1; i++){
+      for(let i=0; i<rangaUmiejki; i++){
         tabAllKostki.push(daneKostek[(daneRang[i] ? 6 : 5)])
       } 
       
