@@ -88,7 +88,7 @@ const useProfile = () => {
         tabAllKostki.push(daneKostek[(daneRang[i] ? 6 : 5)])
       } 
       
-      tabAllKostki.push(daneKostek[(daneRang[rangaUmiejki] ? mocOstatniejRangi+1 : mocOstatniejRangi)])
+      tabAllKostki.push(daneKostek[(daneRang[rangaUmiejki] ? mocOstatniejRangi : mocOstatniejRangi-1)])
       
       return tabAllKostki.join(", ")
       
