@@ -51,9 +51,12 @@ const SearchUmiejetnosci = ({wyszukaj}: searchType) => {
             }
         })
 
-        if(windowUmiejkaData.id) 
+        // TODO => lapie dopiero po 3 literkach niektore rzeczy
+
+        if(!windowUmiejkaData.id) return; 
 
         fetch(getMainLink(isStackBlitz)+getPolaczUmiejkiScript+"id="+windowUmiejkaData.id).then(response=>response.json()).then((data: string[])=>{
+            
             console.log(data);
         })
 

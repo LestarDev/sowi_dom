@@ -18,6 +18,6 @@ export const getMonetyScript = "getSowieMonety.php?";
 export const upgrade3UmiejkiScript = "upgradeUmiejki.php?";
 export const upgradeCecheScript = "upgradeCeche.php?";
 export const AdminGetIDsScript = "getAllUzytkownicy.php";
-export const getPolaczUmiejkiScript = "getUmiejkiScript.php?";
+export const getPolaczUmiejkiScript = "getPolaczUmiejki.php?";
 
 export default getMainLink
