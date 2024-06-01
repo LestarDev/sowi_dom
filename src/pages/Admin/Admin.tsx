@@ -50,10 +50,10 @@ const Admin = ({loginSetPage}: adminType) => {
                         }}>Zaloguj</button>
                     </div>
                 </div>);
-                console.log("[Inner for]",uzytkownicyToLogin);
+                // console.log("[Inner for]",uzytkownicyToLogin);
             }
 
-            console.log(uzytkownicyToLogin);
+            // console.log(uzytkownicyToLogin);
 
         })
     },[profile.refreshPage])
