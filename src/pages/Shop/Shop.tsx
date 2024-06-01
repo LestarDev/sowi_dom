@@ -91,6 +91,7 @@ const Shop = ({loginSetPage}: shopType) => {
     const restoreStates = () => {
         setCountSelected3umiejki({counter: 0, tab: []});
         setMessageToShop({message: messageToShop.message, isToShow: false, nameOfcard: ""});
+         // todo => after bought refresh cechy kup
     }
 
     return <div>

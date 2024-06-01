@@ -125,6 +125,7 @@ const UmiejetnosciSection = ({setLoginPage}: umiejetnosciSectionType) => {
                     </h2>
                     <span>Umiejetnosc{modifyRoll ? `${modifyRoll>0 ? '+' : ''}${modifyRoll}` : ''}: {profile.przelicznik(windowUmiejkaData.value+modifyRoll)}</span>
                     <span>Cecha: {cechyNazwy[windowUmiejkaData.type-1]} {'['}{profile.przelicznik(profile.getCeche(windowUmiejkaData.type))}{']'}</span>
+                    <span>Test: {profile.przeliczUmiejka(windowUmiejkaData.value)}</span>
                     <span>Rzucasz: <b>{profile.zlaczoneKostki(windowUmiejkaData.value+modifyRoll, profile.getCeche(windowUmiejkaData.type))}</b></span>
                     <div>
                         <button onClick={()=>setModifyRoll(prevV=>prevV-1)}>-</button>
