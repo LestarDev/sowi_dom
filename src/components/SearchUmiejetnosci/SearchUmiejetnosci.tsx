@@ -51,7 +51,7 @@ const SearchUmiejetnosci = ({wyszukaj}: searchType) => {
             }
         })
 
-        if(!windowUmiejkaData.id) return;
+        if(windowUmiejkaData.id) 
 
         fetch(getMainLink(isStackBlitz)+getPolaczUmiejkiScript+"id="+windowUmiejkaData.id).then(response=>response.json()).then((data: string[])=>{
             console.log(data);
