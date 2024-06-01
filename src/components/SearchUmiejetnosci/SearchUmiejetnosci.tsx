@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import getMainLink, { getUmiejkiLike } from "../../private/apiData";
+import getMainLink, { getPolaczUmiejkiScript, getUmiejkiLike } from "../../private/apiData";
 import { isStackBlitz } from "../../shared/config/isStackBlitz";
 import useProfile from "../../hooks/useProfile";
 import umiejetnoscType from "../../shared/config/umiejetnosciType";
@@ -50,6 +50,13 @@ const SearchUmiejetnosci = ({wyszukaj}: searchType) => {
 
             }
         })
+
+        if(!windowUmiejkaData.id) return;
+
+        fetch(getMainLink(isStackBlitz)+getPolaczUmiejkiScript+"id="+windowUmiejkaData.id).then(response=>response.json()).then((data: string[])=>{
+            console.log(data);
+        })
+
     },[wyszukaj, profile.refreshPage])
 
     const openWindow = (danaUmiejka: umiejetnoscType) => {
