@@ -122,13 +122,11 @@ const useProfile = () => {
             const arrayMeanTime: string[] = [];
             for(let j=0; j<mainArray.length; j++){
                 if(mainArray[j][i])
-                arrayMeanTime.push(mainArray[j][i].substring(1));
+                arrayMeanTime.push(mainArray[j][i].substring(1)); //k20 => 20
             }
             if(!!(arrayMeanTime.length)){
                 const arrayToSort: number[] = arrayMeanTime.map((v)=> Number(v));
-                console.log("Array to sort: ", arrayToSort);
                 arrayToSort.sort((a, b)=>b-a);
-                console.log("Sorted array: ", arrayToSort)
                 arrayToReturn.push(RANGI_TAB[i]+': k'+arrayToSort.join(', k'));
             }
         }

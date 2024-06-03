@@ -69,8 +69,7 @@ const SearchUmiejetnosci = ({wyszukaj}: searchType) => {
             for(let i=0; i<Number(data[0]); i++){
                 tabPrzeliczniki.push(profile.przeliczUmiejka(Number(data[i]),true) as string[]);
             }
-            console.log("Tab przelicz: ", tabPrzeliczniki);
-            console.log(`"Sorted": `,profile.splitToRangaUmiejka(tabPrzeliczniki))
+            console.log(`Sorted`,profile.splitToRangaUmiejka(tabPrzeliczniki))
         })
         // setWindowUmiejkaData({value: danaUmiejka.value, cecha: danaUmiejka.type, nazwa: danaUmiejka.name});
     }
