@@ -127,7 +127,7 @@ const useProfile = () => {
             if(!!(arrayMeanTime.length)){
                 const arrayToSort: number[] = arrayMeanTime.map((v)=> Number(v));
                 console.log("Array to sort: ", arrayToSort);
-                arrayToSort.sort();
+                arrayToSort.sort((a, b)=>b-a);
                 console.log("Sorted array: ", arrayToSort)
                 arrayToReturn.push(RANGI_TAB[i]+': k'+arrayToSort.join(', k'));
             }
