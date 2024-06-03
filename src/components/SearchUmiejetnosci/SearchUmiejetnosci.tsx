@@ -50,7 +50,7 @@ const SearchUmiejetnosci = ({wyszukaj}: searchType) => {
                                 console.log(data);
                                 const tabPrzeliczniki = [];
                                 for(let i=0; i<Number(data[0]); i++){
-                                    tabPrzeliczniki.push(profile.przeliczUmiejka(Number(data[i])));
+                                    tabPrzeliczniki.push(profile.przeliczUmiejka(Number(data[i]), true));
                                 }
                                 console.log("Tab przelicz: ", tabPrzeliczniki);
                             })
