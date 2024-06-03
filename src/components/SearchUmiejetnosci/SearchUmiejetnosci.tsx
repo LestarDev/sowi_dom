@@ -21,6 +21,10 @@ const SearchUmiejetnosci = ({wyszukaj}: searchType) => {
 
     const [windowUmiejkaData, setWindowUmiejkaData] = useState(emptyUmiejka);
 
+    // const emptyDatas: string[] = [];
+
+    const [datasToShow, setDatasToShow] = useState(<div></div>);
+
     useEffect(()=>{
         fetch(getMainLink(isStackBlitz)+getUmiejkiLike+"id="+profile.idUzytkownika+"&like="+wyszukaj).then(response=>response.json()).then((data: any)=>{
             
@@ -69,13 +73,21 @@ const SearchUmiejetnosci = ({wyszukaj}: searchType) => {
             for(let i=0; i<Number(data[0]); i++){
                 tabPrzeliczniki.push(profile.przeliczUmiejka(Number(data[i]),true) as string[]);
             }
-            console.log(`Sorted`,profile.splitToRangaUmiejka(tabPrzeliczniki))
+            // console.log(`Sorted`,profile.splitToRangaUmiejka(tabPrzeliczniki))
+            profile.splitToRangaUmiejka(tabPrzeliczniki).forEach((val)=>{
+                setDatasToShow(prevDIV=><div>
+                    {prevDIV.props.children}
+                    <span>{val}</span>
+                </div>)
+            })
+            // setDatasToShow(;
         })
         // setWindowUmiejkaData({value: danaUmiejka.value, cecha: danaUmiejka.type, nazwa: danaUmiejka.name});
     }
 
     const closeWindow = () => {
         setWindowUmiejkaData(emptyUmiejka)
+        setDatasToShow(<div></div>);
         // setWindowUmiejkaData({value:0, cecha: 0, nazwa:''});
     }
 
@@ -89,6 +101,11 @@ const SearchUmiejetnosci = ({wyszukaj}: searchType) => {
                     <span>Umiejetnosc: {profile.przelicznik(windowUmiejkaData.value)}</span>
                     <span>Cecha: {profile.przelicznik(profile.getCeche(windowUmiejkaData.type))}</span>
                     <span>Test:{profile.przeliczUmiejka(windowUmiejkaData.value)}</span>
+                    {/* <span>Test2: {datasToShow}</span> */}
+                    <div>
+                        <span>Test2: </span>
+                        {datasToShow}
+                    </div>
                     <span>{profile.zlaczoneKostki(windowUmiejkaData.value, profile.getCeche(windowUmiejkaData.type))}</span>
                     <button onClick={closeWindow}>x</button>
                 </div>
