@@ -44,7 +44,17 @@ const SearchUmiejetnosci = ({wyszukaj}: searchType) => {
                     <div>
                         <span>{preUmiejka.name}</span>
                         <span>{profile.przelicznik(preUmiejka.value)}</span>
-                        <button onClick={()=>{openWindow(preUmiejka)}}>Info</button>
+                        <button onClick={()=>{
+                            openWindow(preUmiejka)
+                            fetch(getMainLink(isStackBlitz)+getPolaczUmiejkiScript+"id="+windowUmiejkaData.id).then(response=>response.json()).then((data: string[])=>{
+                                console.log(data);
+                                const tabPrzeliczniki = [];
+                                for(let i=0; i<Number(data[0]); i++){
+                                    tabPrzeliczniki.push(profile.przeliczUmiejka(Number(data[i])));
+                                }
+                                console.log("Tab przelicz: ", tabPrzeliczniki);
+                            })
+                        }}>Info</button>
                     </div>
                 </div>)
 
@@ -53,12 +63,9 @@ const SearchUmiejetnosci = ({wyszukaj}: searchType) => {
 
         // TODO => lapie dopiero po 3 literkach niektore rzeczy
 
-        if(!windowUmiejkaData.id) return; 
+        // if(!windowUmiejkaData.id) return; 
 
-        fetch(getMainLink(isStackBlitz)+getPolaczUmiejkiScript+"id="+windowUmiejkaData.id).then(response=>response.json()).then((data: string[])=>{
-            
-            console.log(data);
-        })
+        
 
     },[wyszukaj, profile.refreshPage])
 

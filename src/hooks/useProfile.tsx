@@ -79,7 +79,7 @@ const useProfile = () => {
     const daneKostek = ["k3","k4","k6","k8","k10","k12","k20"];
     const daneRang = [true, false, false, false, false, true, true, true]
     
-    const przeliczUmiejka = (toPrzelicz: number) => {
+    const przeliczUmiejka = (toPrzelicz: number, pushTab: boolean = false): string | string[] => {
       const rangaUmiejki = Math.floor(toPrzelicz/6);
       const mocOstatniejRangi = toPrzelicz%6;
       const tabAllKostki: string[] = [];
@@ -90,6 +90,8 @@ const useProfile = () => {
       
       tabAllKostki.push(daneKostek[(daneRang[rangaUmiejki] ? mocOstatniejRangi : mocOstatniejRangi-1)])
       
+      if(pushTab) return tabAllKostki;
+
       return tabAllKostki.join(", ")
       
     }
