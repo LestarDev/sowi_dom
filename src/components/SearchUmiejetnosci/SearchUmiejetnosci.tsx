@@ -46,14 +46,6 @@ const SearchUmiejetnosci = ({wyszukaj}: searchType) => {
                         <span>{profile.przelicznik(preUmiejka.value)}</span>
                         <button onClick={()=>{
                             openWindow(preUmiejka)
-                            fetch(getMainLink(isStackBlitz)+getPolaczUmiejkiScript+"id="+windowUmiejkaData.id).then(response=>response.json()).then((data: string[])=>{
-                                console.log(data);
-                                const tabPrzeliczniki = [];
-                                for(let i=0; i<Number(data[0]); i++){
-                                    tabPrzeliczniki.push(profile.przeliczUmiejka(Number(data[i]), true));
-                                }
-                                console.log("Tab przelicz: ", tabPrzeliczniki);
-                            })
                         }}>Info</button>
                     </div>
                 </div>)
@@ -71,6 +63,14 @@ const SearchUmiejetnosci = ({wyszukaj}: searchType) => {
 
     const openWindow = (danaUmiejka: umiejetnoscType) => {
         setWindowUmiejkaData(danaUmiejka);
+        fetch(getMainLink(isStackBlitz)+getPolaczUmiejkiScript+"id="+danaUmiejka.id).then(response=>response.json()).then((data: string[])=>{
+            console.log(data);
+            const tabPrzeliczniki = [];
+            for(let i=0; i<Number(data[0]); i++){
+                tabPrzeliczniki.push(profile.przeliczUmiejka(Number(data[i]),true));
+            }
+            console.log("Tab przelicz: ", tabPrzeliczniki);
+        })
         // setWindowUmiejkaData({value: danaUmiejka.value, cecha: danaUmiejka.type, nazwa: danaUmiejka.name});
     }
 
