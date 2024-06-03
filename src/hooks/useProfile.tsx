@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from "react-redux"
 import { CurrentState, choosenType, setCialo, setHP, setIdUzytkownika, setIntuicja, setLvl, setNick, setNiezlomnosc, setRefresh, setSlimaki, setSowieMonety, setSzczescie, setUmysl, setUrok, setWybrany, setZrecznosc } from "../shared/config/currentSlice";
 
+// const ILOSC_RANG = 5; //Ilosc rang dostepnych w grze
+
 const useProfile = () => {
 
     const dispatch = useDispatch();
@@ -94,6 +96,37 @@ const useProfile = () => {
 
       return tabAllKostki.join(", ")
       
+    }
+
+    /* input 
+    0: Array [ "k8" ]
+    1: Array(3) [ "k20", "k12", "k8" ]
+    2: Array [ "k10" ]
+
+    Output:
+
+    [
+        "Podstawa: k20, k10, k8",
+        "Srednio zaawansowany: k12",
+        "Mistrzowski: k8"
+    ]
+
+    */
+
+    const RANGI_TAB = ["Podstawa", "Sredniozaawansowany", "Zaawansowany", "Mistrzowski", "Arcymistrzowski"];
+
+    const splitToRangaUmiejka = (mainArray: string[][]): string[] => {
+        const arrayToReturn: string[] = []; // ILOSC_RANG*n
+
+        for(let i=0; i<RANGI_TAB.length; i++){
+            const arrayMeanTime: string[] = [];
+            for(let j=0; j<mainArray.length; j++){
+                arrayMeanTime.push(mainArray[j][i]);
+            }
+            arrayToReturn.push(RANGI_TAB[i]+': '+arrayMeanTime.join(', '));
+        }
+
+        return arrayToReturn;
     }
 
     type DiceLevel = { [key: string]: string };
@@ -273,6 +306,7 @@ if(val1<=0 || val2<=0) return 'PECH';
     return ({
         przelicznik, setNewWybrany, pokazKostki, zlaczoneKostki, przeliczLvl, getHP, getCeche, getInfo, przeliczUmiejka,
         setNewProfile, setNewIdUzytkownika, setNewNick,
+        splitToRangaUmiejka,
         setNewCialo, setNewIntuicja, setNewSzczescie, setNewNiezlomnosc, setNewUrok, setNewUmysl, setNewLvl,setNewZrecznosc, setNewAddHP, setRefreshPage, setNewSlimaki, setNewSowieMonety,
         nick, lvl, Umysl, sowieMonety, Cialo, Zrecznosc, idUzytkownika, Szczescie, Urok, Niezlomnosc, Intuicja, wybranyTyp, refreshPage, slimaki, 
     })

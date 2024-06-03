@@ -65,11 +65,12 @@ const SearchUmiejetnosci = ({wyszukaj}: searchType) => {
         setWindowUmiejkaData(danaUmiejka);
         fetch(getMainLink(isStackBlitz)+getPolaczUmiejkiScript+"id="+danaUmiejka.id).then(response=>response.json()).then((data: string[])=>{
             console.log(data);
-            const tabPrzeliczniki = [];
+            const tabPrzeliczniki: string[][] = [];
             for(let i=0; i<Number(data[0]); i++){
-                tabPrzeliczniki.push(profile.przeliczUmiejka(Number(data[i]),true));
+                tabPrzeliczniki.push(profile.przeliczUmiejka(Number(data[i]),true) as string[]);
             }
             console.log("Tab przelicz: ", tabPrzeliczniki);
+            console.log(`"Sorted": `,profile.splitToRangaUmiejka(tabPrzeliczniki))
         })
         // setWindowUmiejkaData({value: danaUmiejka.value, cecha: danaUmiejka.type, nazwa: danaUmiejka.name});
     }
