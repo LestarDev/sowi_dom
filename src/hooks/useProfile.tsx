@@ -126,7 +126,7 @@ const useProfile = () => {
             }
             if(!!(arrayMeanTime.length)){
                 const arrayToSort: number[] = arrayMeanTime.map((v)=> Number(v));
-                arrayToReturn.push(RANGI_TAB[i]+': k'+arrayToSort.join(', k'));
+                arrayToReturn.push(RANGI_TAB[i]+': k'+arrayToSort.sort().join(', k'));
             }
         }
 
