@@ -29,6 +29,8 @@ export const getKsiazka = "getHandouty.php?";
 export const getMonetyScript = "getSowieMonety.php?";
 export const upgrade3UmiejkiScript = "upgradeUmiejki.php?";
 export const upgradeCecheScript = "upgradeCeche.php?";
+export const AdminGetIDsScript = "getAllUzytkownicy.php";
+export const getPolaczUmiejkiScript = "getPolaczUmiejki.php?";
 
 export default getMainLink
 ```
@@ -45,6 +47,6 @@ export default defineConfig({
 
 ```
 
-## Version: 0.5.2
+## Version: 0.5.3
 
 Version 1.0.0 will be delivered as soon as my dear Artist will do a figma for me :3

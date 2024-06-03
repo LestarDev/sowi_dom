@@ -121,8 +121,10 @@ const useProfile = () => {
         for(let i=0; i<RANGI_TAB.length; i++){
             const arrayMeanTime: string[] = [];
             for(let j=0; j<mainArray.length; j++){
+                if(mainArray[j][i])
                 arrayMeanTime.push(mainArray[j][i]);
             }
+            if(!!(arrayMeanTime.length))
             arrayToReturn.push(RANGI_TAB[i]+': '+arrayMeanTime.join(', '));
         }
 
