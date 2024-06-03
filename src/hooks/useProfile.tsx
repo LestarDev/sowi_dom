@@ -126,7 +126,10 @@ const useProfile = () => {
             }
             if(!!(arrayMeanTime.length)){
                 const arrayToSort: number[] = arrayMeanTime.map((v)=> Number(v));
-                arrayToReturn.push(RANGI_TAB[i]+': k'+arrayToSort.sort().join(', k'));
+                console.log("Array to sort: ", arrayToSort);
+                arrayToSort.sort();
+                console.log("Sorted array: ", arrayToSort)
+                arrayToReturn.push(RANGI_TAB[i]+': k'+arrayToSort.join(', k'));
             }
         }
 
