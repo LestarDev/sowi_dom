@@ -122,10 +122,12 @@ const useProfile = () => {
             const arrayMeanTime: string[] = [];
             for(let j=0; j<mainArray.length; j++){
                 if(mainArray[j][i])
-                arrayMeanTime.push(mainArray[j][i]);
+                arrayMeanTime.push(mainArray[j][i].substring(1));
             }
-            if(!!(arrayMeanTime.length))
-            arrayToReturn.push(RANGI_TAB[i]+': '+arrayMeanTime.join(', '));
+            if(!!(arrayMeanTime.length)){
+                const arrayToSort: number[] = arrayMeanTime.map((v)=> Number(v));
+                arrayToReturn.push(RANGI_TAB[i]+': k'+arrayToSort.join(', k'));
+            }
         }
 
         return arrayToReturn;
