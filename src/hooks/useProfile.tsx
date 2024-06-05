@@ -128,8 +128,10 @@ const useProfile = () => {
             }
             if(arrayMeanTime.length){
                 // const arrayToSort: number[] = arrayMeanTime.map((v)=> Number(v));
-                arrayMeanTime.sort((a, b)=>b-a);
-                arrayToReturn.push(RANGI_TAB[i]+': k'+arrayMeanTime.join(', k'));
+                if(arrayMeanTime.length>1) {
+                    arrayMeanTime.sort((a, b)=>b-a);
+                    arrayToReturn.push(RANGI_TAB[i]+': k'+arrayMeanTime.join(', k'));
+                }else arrayToReturn.push(RANGI_TAB[i]+': k'+arrayMeanTime[0])
             }
         }
 
