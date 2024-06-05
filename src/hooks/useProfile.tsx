@@ -234,16 +234,17 @@ if(val1<=0 || val2<=0) return 'PECH';
         return pierwszaCyfra+'.'+drugaCyfra;
     }
 
-    const pokazKostki = (toPrzelicz: string): string[] => {
+    const pokazKostki = (toPrzelicz: string): string => {
         // console.log("Pokaz kostki: ",typeof toPrzelicz)
         // if(toPrzelicz <= 0) return "PECH";
         // return Object.values(diceLevels)[toPrzelicz-1] ?? "0";
 
-        const przelicz = toPrzelicz.split(', ');
+        // const przelicz = toPrzelicz.split(', ');
 
         // const toReturn: string[] = przelicz.map((v)=>v);
 
-        return przelicz;
+        // return przelicz;
+        return toPrzelicz
 
     }
 
