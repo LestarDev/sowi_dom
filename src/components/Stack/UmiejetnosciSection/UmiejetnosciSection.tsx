@@ -43,8 +43,9 @@ const UmiejetnosciSection = ({setLoginPage}: umiejetnosciSectionType) => {
             for(let i=0; i<Number(data[0]); i++){
                 tabPrzeliczniki.push(profile.przeliczUmiejka(Number(data[i]),true) as number[]);
             }
-
+            console.log("Tab przelicznik before", tabPrzeliczniki);
             tabPrzeliczniki.push(profile.przeliczUmiejka(danaUmiejka.value, true) as number[]);
+            console.log("Tab przelicznik after", tabPrzeliczniki);
             // console.log(`Sorted`,profile.splitToRangaUmiejka(tabPrzeliczniki))
             profile.splitToRangaUmiejka(tabPrzeliczniki).forEach((val)=>{
                 setDatasToShow(prevDIV=><div className="moreInfoRanga">
