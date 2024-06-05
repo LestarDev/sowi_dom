@@ -74,7 +74,7 @@ const SearchUmiejetnosci = ({wyszukaj}: searchType) => {
                 tabPrzeliczniki.push(profile.przeliczUmiejka(Number(data[i]),true) as number[]);
             }
 
-            tabPrzeliczniki.push(profile.przeliczUmiejka(danaUmiejka.value) as number[]);
+            tabPrzeliczniki.push(profile.przeliczUmiejka(danaUmiejka.value, true) as number[]);
             // console.log(`Sorted`,profile.splitToRangaUmiejka(tabPrzeliczniki))
             profile.splitToRangaUmiejka(tabPrzeliczniki).forEach((val)=>{
                 setDatasToShow(prevDIV=><div className="moreInfoRanga">
