@@ -75,7 +75,7 @@ const SearchUmiejetnosci = ({wyszukaj}: searchType) => {
             }
             // console.log(`Sorted`,profile.splitToRangaUmiejka(tabPrzeliczniki))
             profile.splitToRangaUmiejka(tabPrzeliczniki).forEach((val)=>{
-                setDatasToShow(prevDIV=><div>
+                setDatasToShow(prevDIV=><div className="moreInfoRanga">
                     {prevDIV.props.children}
                     <span>{val}</span>
                 </div>)
