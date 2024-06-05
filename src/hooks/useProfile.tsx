@@ -94,7 +94,7 @@ const useProfile = () => {
       
       if(pushTab) return tabAllKostki;
 
-      if(tabAllKostki.length>1) return 'k'+tabAllKostki.join(", k")
+      if(rangaUmiejki>1) return 'k'+tabAllKostki.join(", k")
       
       return 'k'+tabAllKostki[0]
 
@@ -128,10 +128,9 @@ const useProfile = () => {
             }
             if(arrayMeanTime.length){
                 // const arrayToSort: number[] = arrayMeanTime.map((v)=> Number(v));
-                if(arrayMeanTime.length>1) {
-                    arrayMeanTime.sort((a, b)=>b-a);
-                    arrayToReturn.push(RANGI_TAB[i]+': k'+arrayMeanTime.join(', k'));
-                }else arrayToReturn.push(RANGI_TAB[i]+': k'+arrayMeanTime[0])
+                if(arrayMeanTime.length>1) arrayMeanTime.sort((a, b)=>b-a);
+
+                arrayToReturn.push(RANGI_TAB[i]+': k'+arrayMeanTime.join(', k'));
             }
         }
 
