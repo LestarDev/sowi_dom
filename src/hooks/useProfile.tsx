@@ -94,8 +94,10 @@ const useProfile = () => {
       
       if(pushTab) return tabAllKostki;
 
-      return 'k'+tabAllKostki.join(", k")
+      if(tabAllKostki.length>1) return 'k'+tabAllKostki.join(", k")
       
+      return 'k'+tabAllKostki[0]
+
     }
 
     /* input 
