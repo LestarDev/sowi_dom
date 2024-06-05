@@ -98,15 +98,11 @@ const SearchUmiejetnosci = ({wyszukaj}: searchType) => {
             <div ref={refDivOpenWindow} className={windowUmiejkaData.type==0 ? "window" : "windowShowed"}>
                 <div className="umiejkaBox">
                     <h2>{windowUmiejkaData.name}</h2>
-                    <span>Umiejetnosc: {profile.przelicznik(windowUmiejkaData.value)}</span>
+                    <span>Umiejetnosc: {profile.przeliczUmiejka(windowUmiejkaData.value)}</span>
                     <span>Cecha: {profile.przelicznik(profile.getCeche(windowUmiejkaData.type))}</span>
-                    <span>Test:{profile.przeliczUmiejka(windowUmiejkaData.value)}</span>
                     {/* <span>Test2: {datasToShow}</span> */}
-                    <div>
-                        <span>Test2: </span>
-                        {datasToShow}
-                    </div>
-                    <span>{profile.zlaczoneKostki(windowUmiejkaData.value, profile.getCeche(windowUmiejkaData.type))}</span>
+                    {datasToShow}
+                    {/* <span>{profile.zlaczoneKostki(windowUmiejkaData.value, profile.getCeche(windowUmiejkaData.type))}</span> */}
                     <button onClick={closeWindow}>x</button>
                 </div>
                 
