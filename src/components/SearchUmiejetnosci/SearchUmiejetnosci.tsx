@@ -73,6 +73,8 @@ const SearchUmiejetnosci = ({wyszukaj}: searchType) => {
             for(let i=0; i<Number(data[0]); i++){
                 tabPrzeliczniki.push(profile.przeliczUmiejka(Number(data[i]),true) as number[]);
             }
+
+            tabPrzeliczniki.push(profile.przeliczUmiejka(danaUmiejka.value) as number[]);
             // console.log(`Sorted`,profile.splitToRangaUmiejka(tabPrzeliczniki))
             profile.splitToRangaUmiejka(tabPrzeliczniki).forEach((val)=>{
                 setDatasToShow(prevDIV=><div className="moreInfoRanga">
