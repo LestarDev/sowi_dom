@@ -24,11 +24,11 @@ const BronModule = ({idBroni, isMoreInfo}: propsType) => {
 
             const dwieOstatnie: string = data[1].slice(-2);
             if(dwieOstatnie=="S*"){
-                data[1]+=" ["+profile.przelicznik(profile.Cialo,true)+"+"+profile.przelicznik(profile.Zrecznosc,true)+"]";
+                data[1]+=" ["+profile.przelicznik(profile.Cialo.split(', ').length,true)+"+"+profile.przelicznik(profile.Zrecznosc.split(', ').length,true)+"]";
             }else if(dwieOstatnie=="Zr"){
-                data[1]+=" ["+profile.przelicznik(profile.Zrecznosc,true)+"]";
+                data[1]+=" ["+profile.przelicznik(profile.Zrecznosc.split(', ').length,true)+"]";
             }else if(dwieOstatnie[1]=='S'){
-                data[1]+=" ["+profile.przelicznik(profile.Cialo, true)+"]";
+                data[1]+=" ["+profile.przelicznik(profile.Cialo.split(', ').length, true)+"]";
             }
 
             const preperInfo: string[] = data[2].split(', ');

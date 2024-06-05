@@ -8,7 +8,7 @@ const useProfile = () => {
     const dispatch = useDispatch();
 
     const {nick,HP, lvl, Umysl, slimaki, sowieMonety, refreshPage, Cialo, Zrecznosc, idUzytkownika, Szczescie, Urok, Niezlomnosc, Intuicja, wybranyTyp}: {
-        nick: string, HP: number, lvl: number, Umysl: number, slimaki: number, sowieMonety: number, refreshPage: boolean, Cialo: number, Zrecznosc: number, idUzytkownika: number, Szczescie: number, Urok: number, Niezlomnosc: number, Intuicja: number, wybranyTyp: choosenType
+        nick: string, HP: number, lvl: number, Umysl: string, slimaki: number, sowieMonety: number, refreshPage: boolean, Cialo: string, Zrecznosc: string, idUzytkownika: number, Szczescie: number, Urok: string, Niezlomnosc: string, Intuicja: string, wybranyTyp: choosenType
     } = (useSelector((state: any) => state) as any).currency;
 
     // wybranyTyp as choosenType;
@@ -50,19 +50,19 @@ const useProfile = () => {
         dispatch(setLvl(newLvl))
     }
 
-    const setNewUmysl = (newUmysl: number) => {
+    const setNewUmysl = (newUmysl: string) => {
         dispatch(setUmysl(newUmysl));
     }
 
-    const setNewCialo = (newCialo: number) => {
+    const setNewCialo = (newCialo: string) => {
         dispatch(setCialo(newCialo));
     }
 
-    const setNewUrok = (newUrok: number) => {
+    const setNewUrok = (newUrok: string) => {
         dispatch(setUrok(newUrok))
     }
 
-    const setNewNiezlomnosc = (newNiezlomnosc: number) => {
+    const setNewNiezlomnosc = (newNiezlomnosc: string) => {
         dispatch(setNiezlomnosc(newNiezlomnosc))
     }
 
@@ -70,11 +70,11 @@ const useProfile = () => {
         dispatch(setSzczescie(newSzczescie))
     }
 
-    const setNewIntuicja = (newIntuicja: number) => {
+    const setNewIntuicja = (newIntuicja: string) => {
         dispatch(setIntuicja(newIntuicja))
     }
 
-    const setNewZrecznosc = (newZrecznosc: number) => {
+    const setNewZrecznosc = (newZrecznosc: string) => {
         dispatch(setZrecznosc(newZrecznosc))
     }
     
@@ -234,10 +234,17 @@ if(val1<=0 || val2<=0) return 'PECH';
         return pierwszaCyfra+'.'+drugaCyfra;
     }
 
-    const pokazKostki = (toPrzelicz: number): string => {
+    const pokazKostki = (toPrzelicz: string): string[] => {
         // console.log("Pokaz kostki: ",typeof toPrzelicz)
-        if(toPrzelicz <= 0) return "PECH";
-        return Object.values(diceLevels)[toPrzelicz-1] ?? "0";
+        // if(toPrzelicz <= 0) return "PECH";
+        // return Object.values(diceLevels)[toPrzelicz-1] ?? "0";
+
+        const przelicz = toPrzelicz.split(', ');
+
+        const toReturn: string[] = przelicz.map((v, indx)=>RANGI_TAB[indx]+v);
+
+        return toReturn;
+
     }
 
     
@@ -248,7 +255,7 @@ if(val1<=0 || val2<=0) return 'PECH';
     }
 
     const getHP = ():number => {
-        const prepHPzCiala: number = (10+Cialo)*2;
+        const prepHPzCiala: number = (10+Cialo.split(', ').length)*2;
         const prepLvl = przeliczLvl(lvl,false,true) as number;   
 
         const prepHPzLvla: number = (prepLvl-1)*3;
@@ -291,7 +298,7 @@ if(val1<=0 || val2<=0) return 'PECH';
         return preperOpis.split("[TESTY]").join(toJoin.join(""));
     }
 
-    const getCeche = (typeCecha: number): number => {
+    const getCeche = (typeCecha: number): string => {
         //console.log(typeof typeCecha);
         switch(typeCecha){
             case 1:
@@ -307,7 +314,7 @@ if(val1<=0 || val2<=0) return 'PECH';
             case 6:
                 return Urok;
             default:
-                return 0
+                return ''
         }
     }
 

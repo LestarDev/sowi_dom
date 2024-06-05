@@ -7,12 +7,12 @@ export interface CurrentState {
     nick: string,
     lvl: number,
     HP: number,
-    Umysl: number,
-    Cialo: number,
-    Zrecznosc: number,
-    Niezlomnosc: number,
-    Intuicja: number,
-    Urok: number,
+    Umysl: string,
+    Cialo: string,
+    Zrecznosc: string,
+    Niezlomnosc: string,
+    Intuicja: string,
+    Urok: string,
     Szczescie: number,
     idUzytkownika: number,
     wybranyTyp: choosenType,
@@ -24,16 +24,16 @@ export interface CurrentState {
 
 export const initialState: CurrentState = {
     nick: "",
-    Cialo: 0,
+    Cialo: '',
     HP: 0,
     idUzytkownika: 0,
-    Intuicja: 0,
+    Intuicja: '',
     lvl: 0,
-    Niezlomnosc: 0,
+    Niezlomnosc: '',
     Szczescie: 0,
-    Umysl: 0,
-    Urok: 0,
-    Zrecznosc: 0,
+    Umysl: '',
+    Urok: '',
+    Zrecznosc: '',
     wybranyTyp: 'Ekwipunek',
     refreshPage: false,
     slimaki: 0,
@@ -55,28 +55,28 @@ export const thisSlice = createSlice({
             state.Szczescie=action.payload
         },
 
-        setCialo: (state,action: PayloadAction<number>) => {
+        setCialo: (state,action: PayloadAction<string>) => {
             state.Cialo=action.payload;
         },
         setIdUzytkownika: (state,action: PayloadAction<number>) => {
             state.idUzytkownika=action.payload;
         },
-        setIntuicja: (state,action: PayloadAction<number>) => {
+        setIntuicja: (state,action: PayloadAction<string>) => {
             state.Intuicja=action.payload;
         },
         setLvl: (state,action: PayloadAction<number>) => {
             state.lvl=action.payload;
         },
-        setNiezlomnosc: (state,action: PayloadAction<number>) => {
+        setNiezlomnosc: (state,action: PayloadAction<string>) => {
             state.Niezlomnosc=action.payload;
         },
-        setUmysl: (state,action: PayloadAction<number>) => {
+        setUmysl: (state,action: PayloadAction<string>) => {
             state.Umysl=action.payload;
         },
-        setUrok: (state,action: PayloadAction<number>) => {
+        setUrok: (state,action: PayloadAction<string>) => {
             state.Urok=action.payload;
         },
-        setZrecznosc: (state,action: PayloadAction<number>) => {
+        setZrecznosc: (state,action: PayloadAction<string>) => {
             state.Zrecznosc=action.payload;
         },
         setWybrany: (state, action: PayloadAction<choosenType>) => {

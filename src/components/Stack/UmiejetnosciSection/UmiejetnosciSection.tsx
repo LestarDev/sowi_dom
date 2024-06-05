@@ -145,7 +145,7 @@ const UmiejetnosciSection = ({setLoginPage}: umiejetnosciSectionType) => {
                         }}><GrUpgrade /></div> : ''}
                     </h2>
                     <span>Umiejetnosc{modifyRoll ? `${modifyRoll>0 ? '+' : ''}${modifyRoll}` : ''}: {profile.przeliczUmiejka(windowUmiejkaData.value+modifyRoll)}</span>
-                    <span>Cecha: {cechyNazwy[windowUmiejkaData.type-1]} {'['}{profile.przelicznik(profile.getCeche(windowUmiejkaData.type))}{']'}</span>
+                    <span>Cecha: {cechyNazwy[windowUmiejkaData.type-1]} {'['}{profile.getCeche(windowUmiejkaData.type)}{']'}</span>
                     {/* <span>Test: {profile.przeliczUmiejka(windowUmiejkaData.value)}</span> */}
                     {datasToShow}
                     {/* <span>Rzucasz: <b>{profile.zlaczoneKostki(windowUmiejkaData.value+modifyRoll, profile.getCeche(windowUmiejkaData.type))}</b></span> */}

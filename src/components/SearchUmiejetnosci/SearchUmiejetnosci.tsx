@@ -101,7 +101,7 @@ const SearchUmiejetnosci = ({wyszukaj}: searchType) => {
                 <div className="umiejkaBox">
                     <h2>{windowUmiejkaData.name}</h2>
                     <span>Umiejetnosc: {profile.przeliczUmiejka(windowUmiejkaData.value)}</span>
-                    <span>Cecha: {profile.przelicznik(profile.getCeche(windowUmiejkaData.type))}</span>
+                    <span>Cecha: {profile.getCeche(windowUmiejkaData.type)}</span>
                     {/* <span>Test2: {datasToShow}</span> */}
                     {datasToShow}
                     {/* <span>{profile.zlaczoneKostki(windowUmiejkaData.value, profile.getCeche(windowUmiejkaData.type))}</span> */}
