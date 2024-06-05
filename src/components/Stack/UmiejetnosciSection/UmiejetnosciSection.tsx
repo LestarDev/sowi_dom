@@ -59,6 +59,7 @@ const UmiejetnosciSection = ({setLoginPage}: umiejetnosciSectionType) => {
 
     const closeWindow = () => {
         setWindowUmiejkaData(emptyUmiejka);
+        setDatasToShow(<div></div>);
         // setWindowUmiejkaData({value:0, cecha: 0, nazwa:''});
         setModifyRoll(0);
     }
