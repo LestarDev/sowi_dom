@@ -241,9 +241,9 @@ if(val1<=0 || val2<=0) return 'PECH';
 
         const przelicz = toPrzelicz.split(', ');
 
-        const toReturn: string[] = przelicz.map((v, indx)=>RANGI_TAB[indx]+v);
+        // const toReturn: string[] = przelicz.map((v)=>v);
 
-        return toReturn;
+        return przelicz;
 
     }
 
