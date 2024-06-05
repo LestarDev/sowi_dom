@@ -29,12 +29,12 @@ const MainPage = ({setLoginPage}: mainPageType) => {
                 profile.setNewNick(data[0]);
                 profile.setNewLvl(Number(data[1]));
                 profile.setNewAddHP(Number(data[2]));
-                profile.setNewCialo(Number(data[3]));
-                profile.setNewUmysl(Number(data[4]));
-                profile.setNewUrok(Number(data[5]));
-                profile.setNewZrecznosc(Number(data[6]));
-                profile.setNewNiezlomnosc(Number(data[7]));
-                profile.setNewIntuicja(Number(data[8]));
+                profile.setNewCialo(data[3]);
+                profile.setNewUmysl(data[4]);
+                profile.setNewUrok(data[5]);
+                profile.setNewZrecznosc(data[6]);
+                profile.setNewNiezlomnosc(data[7]);
+                profile.setNewIntuicja(data[8]);
                 profile.setNewSzczescie(Number(data[9]));
                 profile.setNewSlimaki(Number(data[10]));
                 //profile.setNewNick('test1');
