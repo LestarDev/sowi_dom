@@ -69,9 +69,9 @@ const SearchUmiejetnosci = ({wyszukaj}: searchType) => {
         setWindowUmiejkaData(danaUmiejka);
         fetch(getMainLink(isStackBlitz)+getPolaczUmiejkiScript+"id="+danaUmiejka.id).then(response=>response.json()).then((data: string[])=>{
             console.log(data);
-            const tabPrzeliczniki: string[][] = [];
+            const tabPrzeliczniki: number[][] = [];
             for(let i=0; i<Number(data[0]); i++){
-                tabPrzeliczniki.push(profile.przeliczUmiejka(Number(data[i]),true) as string[]);
+                tabPrzeliczniki.push(profile.przeliczUmiejka(Number(data[i]),true) as number[]);
             }
             // console.log(`Sorted`,profile.splitToRangaUmiejka(tabPrzeliczniki))
             profile.splitToRangaUmiejka(tabPrzeliczniki).forEach((val)=>{

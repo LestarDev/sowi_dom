@@ -78,13 +78,13 @@ const useProfile = () => {
         dispatch(setZrecznosc(newZrecznosc))
     }
     
-    const daneKostek = ["k3","k4","k6","k8","k10","k12","k20"];
+    const daneKostek = [3,4,6,8,10,12,20];
     const daneRang = [true, false, false, false, false, true, true, true]
     
-    const przeliczUmiejka = (toPrzelicz: number, pushTab: boolean = false): string | string[] => {
+    const przeliczUmiejka = (toPrzelicz: number, pushTab: boolean = false): string | number[] => {
       const rangaUmiejki = Math.floor(toPrzelicz/6);
       const mocOstatniejRangi = toPrzelicz%6;
-      const tabAllKostki: string[] = [];
+      const tabAllKostki: number[] = [];
       
       for(let i=0; i<rangaUmiejki; i++){
         tabAllKostki.push(daneKostek[(daneRang[i] ? 6 : 5)])
@@ -94,7 +94,7 @@ const useProfile = () => {
       
       if(pushTab) return tabAllKostki;
 
-      return tabAllKostki.join(", ")
+      return 'k'+tabAllKostki.join(", k")
       
     }
 
@@ -115,19 +115,19 @@ const useProfile = () => {
 
     const RANGI_TAB = ["Podstawa", "Sredniozaawansowany", "Zaawansowany", "Mistrzowski", "Arcymistrzowski"];
 
-    const splitToRangaUmiejka = (mainArray: string[][]): string[] => {
+    const splitToRangaUmiejka = (mainArray: number[][]): string[] => {
         const arrayToReturn: string[] = []; // ILOSC_RANG*n
 
         for(let i=0; i<RANGI_TAB.length; i++){
-            const arrayMeanTime: string[] = [];
+            const arrayMeanTime: number[] = [];
             for(let j=0; j<mainArray.length; j++){
                 if(mainArray[j][i])
-                arrayMeanTime.push(mainArray[j][i].substring(1)); //k20 => 20
+                arrayMeanTime.push(mainArray[j][i]); //k20 => 20
             }
-            if(!!(arrayMeanTime.length)){
-                const arrayToSort: number[] = arrayMeanTime.map((v)=> Number(v));
-                arrayToSort.sort((a, b)=>b-a);
-                arrayToReturn.push(RANGI_TAB[i]+': k'+arrayToSort.join(', k'));
+            if(arrayMeanTime.length){
+                // const arrayToSort: number[] = arrayMeanTime.map((v)=> Number(v));
+                arrayMeanTime.sort((a, b)=>b-a);
+                arrayToReturn.push(RANGI_TAB[i]+': k'+arrayMeanTime.join(', k'));
             }
         }
 
