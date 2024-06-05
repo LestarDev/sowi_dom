@@ -17,7 +17,7 @@ const StatBox = ({whichOne}: propsType) => {
         <div >{whichOne}</div>
         <div>
             {'[ '}
-            {whichOne=='Cialo' ? profile.Cialo:''}
+            {whichOne=='Cialo' ? profile.pokazKostki(profile.Cialo):''}
             {whichOne=='Umysl' ? profile.pokazKostki(profile.Umysl):''}
             {whichOne=='Urok' ? profile.pokazKostki(profile.Urok):''}
             {whichOne=='Niezlomnosc' ? profile.pokazKostki(profile.Niezlomnosc):''}
