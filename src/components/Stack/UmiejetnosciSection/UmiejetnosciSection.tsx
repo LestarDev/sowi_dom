@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react"
-import getMainLink, { getUmiejetnosciScript } from "../../../private/apiData"
+import getMainLink, { getPolaczUmiejkiScript, getUmiejetnosciScript } from "../../../private/apiData"
 import useProfile from "../../../hooks/useProfile"
 import "./UmiejetnosciSection.css"
 import { isStackBlitz } from "../../../shared/config/isStackBlitz"
@@ -31,10 +31,29 @@ const UmiejetnosciSection = ({setLoginPage}: umiejetnosciSectionType) => {
     const refDivOpenWindow = useRef<HTMLDivElement>(null);
     const refInputSearch = useRef<HTMLInputElement>(null);
 
+    const [datasToShow, setDatasToShow] = useState(<div></div>);
+
     const cechyNazwy = ["Umysl", "Cialo", "Zrecznosc","Niezlomnosc", "Intuicja", "Urok"];
 
     const openWindow = (danaUmiejka: umiejetnoscType) => {
         setWindowUmiejkaData(danaUmiejka);
+        fetch(getMainLink(isStackBlitz)+getPolaczUmiejkiScript+"id="+danaUmiejka.id).then(response=>response.json()).then((data: string[])=>{
+            console.log(data);
+            const tabPrzeliczniki: number[][] = [];
+            for(let i=0; i<Number(data[0]); i++){
+                tabPrzeliczniki.push(profile.przeliczUmiejka(Number(data[i]),true) as number[]);
+            }
+
+            tabPrzeliczniki.push(profile.przeliczUmiejka(danaUmiejka.value, true) as number[]);
+            // console.log(`Sorted`,profile.splitToRangaUmiejka(tabPrzeliczniki))
+            profile.splitToRangaUmiejka(tabPrzeliczniki).forEach((val)=>{
+                setDatasToShow(prevDIV=><div className="moreInfoRanga">
+                    {prevDIV.props.children}
+                    <span>{val}</span>
+                </div>)
+            })
+            // setDatasToShow(;
+        })
         // setWindowUmiejkaData({value: danaUmiejka.value, cecha: danaUmiejka.type, nazwa: danaUmiejka.name});
     }
 
@@ -123,10 +142,11 @@ const UmiejetnosciSection = ({setLoginPage}: umiejetnosciSectionType) => {
                             setLoginPage(2);
                         }}><GrUpgrade /></div> : ''}
                     </h2>
-                    <span>Umiejetnosc{modifyRoll ? `${modifyRoll>0 ? '+' : ''}${modifyRoll}` : ''}: {profile.przelicznik(windowUmiejkaData.value+modifyRoll)}</span>
+                    <span>Umiejetnosc{modifyRoll ? `${modifyRoll>0 ? '+' : ''}${modifyRoll}` : ''}: {profile.przeliczUmiejka(windowUmiejkaData.value+modifyRoll)}</span>
                     <span>Cecha: {cechyNazwy[windowUmiejkaData.type-1]} {'['}{profile.przelicznik(profile.getCeche(windowUmiejkaData.type))}{']'}</span>
-                    <span>Test: {profile.przeliczUmiejka(windowUmiejkaData.value)}</span>
-                    <span>Rzucasz: <b>{profile.zlaczoneKostki(windowUmiejkaData.value+modifyRoll, profile.getCeche(windowUmiejkaData.type))}</b></span>
+                    {/* <span>Test: {profile.przeliczUmiejka(windowUmiejkaData.value)}</span> */}
+                    {datasToShow}
+                    {/* <span>Rzucasz: <b>{profile.zlaczoneKostki(windowUmiejkaData.value+modifyRoll, profile.getCeche(windowUmiejkaData.type))}</b></span> */}
                     <div>
                         <button onClick={()=>setModifyRoll(prevV=>prevV-1)}>-</button>
                         <button onClick={closeWindow}>x</button>
